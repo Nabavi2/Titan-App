@@ -1,4 +1,5 @@
-const primary = "#63ad45";
+const primary = "#6E00FF";
+const secondary = "#FF7A49";
 const greens = {
   green100: "#2bdc4d",
   green400: "#45c772",
@@ -14,16 +15,15 @@ const browns = {
 const grays = {
   white: "#fff",
   gray100: "#f8f8f8",
-  gray200: "#f9f9f9",
-  gray500: "#77838f",
-  gray800: "#393d3c",
+  gray200: "#F2F6FA",
+  gray500: "#CED4FF",
   gray900: "#333333",
   black: "#000",
 };
 
 const others = {
   red: "#c74545",
-  orange: "#e38526",
+  yellow: "#F3BA2F",
   purple: "#f372da",
   logout: "#c24444",
 };
@@ -31,8 +31,9 @@ const others = {
 export default {
   light: {
     primary,
+    secondary,
     text: grays.gray900,
-    subText: grays.gray500,
+    inputBackground: grays.gray500,
     background: grays.gray200,
     ModalBg: grays.gray100,
     bageBg: "#d8d8d8",
@@ -43,15 +44,5 @@ export default {
     ...grays,
     ...browns,
     ...others,
-  },
-  dark: {
-    // primary,
-    // text: grays.white,
-    // background: grays.gray900,
-    // tint: primary,
-    // tabIconDefault: "#ccc",
-    // ...purples,
-    // ...grays,
-    // white: grays.gray900,
   },
 };
