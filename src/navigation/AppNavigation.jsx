@@ -6,7 +6,7 @@ import AppDrawerNavigator from "./DrawerNavigator";
 import LoginScreen from "../screens/Login";
 import Layout from "../constants/Layout";
 import MapStatusScreen from "../screens/map/MapStatusScreen";
-import TrafficSafety from "../screens/TrafficSafety";
+import SubmitInfo from "../screens/SubmitInfo";
 
 const Stack = createNativeStackNavigator();
 // const navigation = useNavigation();
@@ -38,7 +38,7 @@ const AppNavigation = (props) => {
         />
         <Stack.Screen
           name="loginScreen"
-          component={TrafficSafety}
+          component={SubmitInfo}
           options={{
             headerShown: false,
           }}

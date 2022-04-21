@@ -19,7 +19,7 @@ import StatusDropdown from "../../components/StatusDropdown";
 import TSListItem from "./components/TSListItem";
 import TrafficModal from "./components/TrafficModal";
 
-function TrafficSafety(props) {
+function SubmitInfo(props) {
   const [showChecks, setShowChecks] = useState(false);
   const [showAddBuildingModal, setShowAddBuildingModal] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
@@ -267,4 +267,4 @@ function TrafficSafety(props) {
   );
 }
 
-export default TrafficSafety;
+export default SubmitInfo;

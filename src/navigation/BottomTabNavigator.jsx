@@ -17,7 +17,7 @@ import ApartmentScreen from "../screens/Apartment";
 import MapScreen from "../screens/map";
 import IconContainer from "../components/IconContainer";
 import DashboardNavigation from "./DashboardNavigation";
-import TrafficSafety from "../screens/TrafficSafety";
+import SubmitInfo from "../screens/SubmitInfo";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -97,7 +97,7 @@ export function BottomTabNavigator() {
       />
       <bottomTabNavigator.Screen
         name="trafficSafety"
-        component={TrafficSafety}
+        component={SubmitInfo}
         options={() => ({
           title: "Verkehrssicherung",
           tabBarIcon: ({ color }) => (

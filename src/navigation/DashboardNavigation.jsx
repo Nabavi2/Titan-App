@@ -5,7 +5,7 @@ import { Box } from "native-base";
 import React from "react";
 import IconContainer from "../components/IconContainer.jsx";
 import Colors from "../constants/Colors.js";
-import BuildingInspection from "../screens/BuildingInspection/index.js";
+import BuildingInspection from "../screens/DefiEnchange/index.js";
 import PopupMenu from "../screens/buildingoverview/conponents/PopupMenu.jsx";
 import BuildingOverViewScreen from "../screens/buildingoverview/index.js";
 import GlobalOverview from "../screens/GlobalOverview.jsx";
