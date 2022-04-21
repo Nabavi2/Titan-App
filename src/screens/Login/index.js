@@ -58,7 +58,7 @@ function LoginScreen() {
             marginHorizontal: 40,
           }}
         >
-          Please, login to your account{" "}
+          Welcome
         </Text>
         <Formik
           validationSchema={validationSchema}
