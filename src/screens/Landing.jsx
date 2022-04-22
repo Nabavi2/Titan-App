@@ -103,15 +103,15 @@ const styles = StyleSheet.create({
   },
   primaryButtonText: {
     fontSize: 16,
+    marginTop: "-1.5%",
     color: Colors.primary,
-    fontWeight: "bold",
-    fontFamily: "vietnam",
+    fontFamily: "vietnamBold",
   },
   secondaryButtonText: {
     fontSize: 16,
-    fontWeight: "bold",
+    marginTop: "-1.5%",
     color: Colors.white,
-    fontFamily: "vietnam",
+    fontFamily: "vietnamBold",
   },
 });
 export default Landing;
