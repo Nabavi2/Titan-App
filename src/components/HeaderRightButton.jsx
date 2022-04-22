@@ -1,3 +1,4 @@
+import { FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
 import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
 import Colors from "../constants/Colors";
@@ -11,6 +12,7 @@ function HeaderRightButton(props) {
     <TouchableOpacity style={styles.buttonContainer}>
       <View style={styles.rowContainer}>
         <Text style={styles.text}>Connect</Text>
+        <FontAwesome5 name="wallet" size={24} color={Colors.white} />
       </View>
     </TouchableOpacity>
   );
@@ -23,7 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginRight: 15,
-    borderRadius: 10,
+    borderRadius: 13,
   },
   rowContainer: {
     flexDirection: "row",
@@ -33,6 +35,8 @@ const styles = StyleSheet.create({
   text: {
     color: Colors.white,
     fontWeight: "700",
+    marginRight: 10,
+    fontSize: 17,
   },
 });
 export default HeaderRightButton;

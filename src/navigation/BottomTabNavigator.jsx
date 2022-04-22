@@ -15,12 +15,12 @@ import {
 import Colors from "../constants/Colors";
 import HomeScreen from "../screens/Home";
 import NFTScreen from "../screens/NFTScreen";
-import DefiEnchange from "../screens/DefiEnchange";
+import DefiExchange from "../screens/DefiEnchange";
 import Dashboard from "../screens/Dashboard";
 import MapScrollScreen from "../screens/MapScroll";
 import SubmitInfo from "../screens/SubmitInfo";
 import IconContainer from "../components/IconContainer";
-import HeaderRightButton from "../components/HeaderButton";
+import HeaderRightButton from "../components/HeaderRightButton";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -138,7 +138,7 @@ export function BottomTabNavigator() {
       />
       <bottomTabNavigator.Screen
         name="defienchange"
-        component={DefiEnchange}
+        component={DefiExchange}
         options={() => ({
           title: "defienchange",
           tabBarIcon: ({ color }) => (

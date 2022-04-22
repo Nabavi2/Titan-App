@@ -1,11 +1,4 @@
-import {
-  Image,
-  View,
-  Text,
-  SafeAreaView,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import { Image, View, SafeAreaView, StyleSheet } from "react-native";
 import { Box, Column, Row } from "native-base";
 import {
   FontAwesome5,
@@ -24,13 +17,20 @@ import { useNavigation, DrawerActions } from "@react-navigation/native";
 
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
-import DefiEnchange from "../screens/DefiEnchange";
+import DefiExchange from "../screens/DefiEnchange";
 import Dashboard from "../screens/Dashboard";
 import HomeScreen from "../screens/Home";
 import NFTScreen from "../screens/NFTScreen";
 import MapScrollScreen from "../screens/MapScroll";
-import HeaderRightButton from "../components/HeaderButton";
+import HeaderRightButton from "../components/HeaderRightButton";
 import HeaderLeft from "../components/HeaderLeft";
+import LounchpadScreen from "../screens/Lounchpad";
+import LockerScreen from "../screens/Lockers";
+import StackScreen from "../screens/Stack";
+import ScanScreen from "../screens/Scan";
+import LoungeScreen from "../screens/Lounge";
+import SupportScreen from "../screens/Support";
+import AdvertiseScreen from "../screens/Advertise";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
@@ -73,7 +73,7 @@ const AppDrawerNavigator = () => {
         name="home"
         component={BottomTabNavigator}
         options={{
-          title: "HomePage",
+          title: "Homepage",
           drawerIcon: ({ focused }) => (
             <MaterialCommunityIcons
               name={Platform.OS === "android" ? "home-outline" : "home-outline"}
@@ -89,15 +89,11 @@ const AppDrawerNavigator = () => {
       />
       <DrawerNavigator.Screen
         name="defienchange"
-        component={DefiEnchange}
+        component={DefiExchange}
         options={{
           title: "defienchange",
           drawerIcon: ({ focused }) => (
-            <MaterialCommunityIcons
-              name="home-outline"
-              size={24}
-              color={Colors.black}
-            />
+            <Foundation name="graph-bar" size={24} color={Colors.black} />
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
@@ -106,7 +102,7 @@ const AppDrawerNavigator = () => {
         }}
       />
 
-      <DrawerNavigator.Screen
+      {/* <DrawerNavigator.Screen
         name="dashboard"
         component={Dashboard}
         options={{
@@ -114,6 +110,78 @@ const AppDrawerNavigator = () => {
           drawerIcon: ({ focused }) => (
             <Foundation
               name="page-edit"
+              size={24}
+              color={focused ? Colors.white : Colors.black}
+              style={{ marginLeft: 5 }}
+            />
+          ),
+          headerRight: () => <HeaderRightButton />,
+          headerLeft: () => <HeaderLeft />,
+          headerShown: true,
+        }}
+      /> */}
+
+      <DrawerNavigator.Screen
+        name="lounchpad"
+        component={LounchpadScreen}
+        options={{
+          title: "Loungepad",
+          drawerIcon: ({ focused }) => (
+            <MaterialCommunityIcons
+              name="rocket-launch"
+              size={24}
+              color={focused ? Colors.white : Colors.black}
+            />
+          ),
+          headerRight: () => <HeaderRightButton />,
+          headerLeft: () => <HeaderLeft />,
+          headerShown: true,
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="locker"
+        component={LockerScreen}
+        options={{
+          title: "Locker",
+          drawerIcon: ({ focused }) => (
+            <Octicons
+              name="settings"
+              size={24}
+              color={focused ? Colors.white : Colors.black}
+              style={{ marginLeft: 5 }}
+            />
+          ),
+          headerRight: () => <HeaderRightButton />,
+          headerLeft: () => <HeaderLeft />,
+          headerShown: true,
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="stack"
+        component={StackScreen}
+        options={{
+          title: "Stack",
+          drawerIcon: ({ focused }) => (
+            <Octicons
+              name="settings"
+              size={24}
+              color={focused ? Colors.white : Colors.black}
+              style={{ marginLeft: 5 }}
+            />
+          ),
+          headerRight: () => <HeaderRightButton />,
+          headerLeft: () => <HeaderLeft />,
+          headerShown: true,
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="scan"
+        component={ScanScreen}
+        options={{
+          title: "Settings",
+          drawerIcon: ({ focused }) => (
+            <Octicons
+              name="settings"
               size={24}
               color={focused ? Colors.white : Colors.black}
               style={{ marginLeft: 5 }}
@@ -142,8 +210,62 @@ const AppDrawerNavigator = () => {
         }}
       />
       <DrawerNavigator.Screen
-        name="map"
+        name="titan"
         component={MapScrollScreen}
+        options={{
+          title: "TitanxGame",
+          drawerIcon: ({ focused }) => (
+            <Octicons
+              name="settings"
+              size={24}
+              color={focused ? Colors.white : Colors.black}
+              style={{ marginLeft: 5 }}
+            />
+          ),
+          headerRight: () => <HeaderRightButton />,
+          headerLeft: () => <HeaderLeft />,
+          headerShown: true,
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="lounge"
+        component={LoungeScreen}
+        options={{
+          title: "Lounge",
+          drawerIcon: ({ focused }) => (
+            <Octicons
+              name="settings"
+              size={24}
+              color={focused ? Colors.white : Colors.black}
+              style={{ marginLeft: 5 }}
+            />
+          ),
+          headerRight: () => <HeaderRightButton />,
+          headerLeft: () => <HeaderLeft />,
+          headerShown: true,
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="support"
+        component={SupportScreen}
+        options={{
+          title: "Support",
+          drawerIcon: ({ focused }) => (
+            <Octicons
+              name="settings"
+              size={24}
+              color={focused ? Colors.white : Colors.black}
+              style={{ marginLeft: 5 }}
+            />
+          ),
+          headerRight: () => <HeaderRightButton />,
+          headerLeft: () => <HeaderLeft />,
+          headerShown: true,
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="advertise"
+        component={AdvertiseScreen}
         options={{
           title: "Settings",
           drawerIcon: ({ focused }) => (

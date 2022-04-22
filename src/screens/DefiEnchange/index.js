@@ -6,7 +6,7 @@ import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
 import GlobalStyles from "../../constants/GlobalStyles";
 
-function DefiEnchange(props) {
+function DefiExchange(props) {
   const arrayData = [
     {
       title: "Lorem ipsume dolor sit amet",
@@ -84,4 +84,4 @@ function DefiEnchange(props) {
   );
 }
 
-export default DefiEnchange;
+export default DefiExchange;
