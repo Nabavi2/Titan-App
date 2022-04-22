@@ -13,11 +13,7 @@ import {
 } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
-import ApartmentScreen from "../screens/Apartment";
-import MapScreen from "../screens/map";
-import IconContainer from "../components/IconContainer";
 import DashboardNavigation from "./DashboardNavigation";
-import SubmitInfo from "../screens/SubmitInfo";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -56,96 +52,6 @@ export function BottomTabNavigator() {
             <FontAwesome5 name={"building"} size={23} color={color} />
           ),
           headerShown: false,
-        })}
-      />
-      <bottomTabNavigator.Screen
-        name="apartment"
-        component={ApartmentScreen}
-        options={() => ({
-          title: "Apartments",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons
-              name="home-outline"
-              size={31}
-              color={color}
-              style={{ marginLeft: 5 }}
-            />
-          ),
-          headerRight: () => (
-            <Box mr={5}>
-              <IconContainer onPress={() => console.log("dkfsfdj")}>
-                <Entypo
-                  name="dots-three-vertical"
-                  size={24}
-                  color={Colors.light.gray900}
-                />
-              </IconContainer>
-            </Box>
-          ),
-          headerLeft: () => (
-            <Box ml={5}>
-              <IconContainer
-                onPress={() =>
-                  navigation.dispatch(DrawerActions.toggleDrawer())
-                }
-              >
-                <Ionicons name="menu" size={24} color={Colors.light.gray900} />
-              </IconContainer>
-            </Box>
-          ),
-        })}
-      />
-      <bottomTabNavigator.Screen
-        name="trafficSafety"
-        component={SubmitInfo}
-        options={() => ({
-          title: "Verkehrssicherung",
-          tabBarIcon: ({ color }) => (
-            <Foundation
-              name="page-edit"
-              size={24}
-              color={color}
-              style={{ marginLeft: 5 }}
-            />
-          ),
-
-          headerStyle: {
-            backgroundColor: Colors.light.blue400,
-          },
-          headerTitleStyle: {
-            color: "white",
-          },
-        })}
-      />
-      <bottomTabNavigator.Screen
-        name="mapScreen"
-        component={MapScreen}
-        options={() => ({
-          title: "Home",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome5
-              name="map-marked"
-              size={24}
-              color={color}
-              style={{ marginLeft: 5 }}
-            />
-          ),
-          headerShown: false,
-        })}
-      />
-      <bottomTabNavigator.Screen
-        name="homeScreen"
-        component={ApartmentScreen}
-        options={() => ({
-          title: "Apartment",
-          tabBarIcon: ({ focused }) => (
-            <Octicons
-              name="settings"
-              size={24}
-              color={focused ? Colors.light.primary : Colors.light.white}
-              style={{ marginLeft: 5 }}
-            />
-          ),
         })}
       />
     </bottomTabNavigator.Navigator>

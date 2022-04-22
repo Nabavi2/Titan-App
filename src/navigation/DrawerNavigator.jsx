@@ -6,14 +6,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Column, Row } from "native-base";
-import {
-  FontAwesome5,
-  Ionicons,
-  MaterialIcons,
-  MaterialCommunityIcons,
-  Foundation,
-  Octicons,
-} from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 import {
   createDrawerNavigator,
   DrawerItemList,
@@ -21,11 +14,7 @@ import {
 import { BottomTabNavigator } from "./BottomTabNavigator";
 
 import Colors from "../constants/Colors";
-import BuildingOverViewScreen from "../screens/buildingoverview";
 import Layout from "../constants/Layout";
-import SettingsScreen from "../screens/Settings";
-import EditScreen from "../screens/EditScreen";
-import GlobalOverview from "../screens/GlobalOverview.jsx";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
@@ -159,69 +148,6 @@ const AppDrawerNavigator = () => {
             />
           ),
           headerTitleStyle: { color: Colors.light.background },
-        }}
-      />
-      <DrawerNavigator.Screen
-        name="dashboard"
-        component={GlobalOverview}
-        options={{
-          title: "Wohnungen",
-          drawerIcon: ({ focused }) => (
-            <MaterialCommunityIcons
-              name="home-outline"
-              size={24}
-              color={focused ? Colors.light.white : Colors.light.black}
-              style={{ marginLeft: 5 }}
-            />
-          ),
-          drawerContentContainerStyle: { backgroundColor: Colors.light.white },
-        }}
-      />
-
-      <DrawerNavigator.Screen
-        name="buildingoverview"
-        component={BuildingOverViewScreen}
-        options={{
-          title: "Verkehrssicherung",
-          drawerIcon: ({ focused }) => (
-            <Foundation
-              name="page-edit"
-              size={24}
-              color={focused ? Colors.light.white : Colors.light.black}
-              style={{ marginLeft: 5 }}
-            />
-          ),
-        }}
-      />
-      <DrawerNavigator.Screen
-        name="editscreen"
-        component={EditScreen}
-        options={{
-          title: "Karte",
-          drawerIcon: ({ focused }) => (
-            <FontAwesome5
-              name="map-marked"
-              size={24}
-              color={focused ? Colors.light.white : Colors.light.black}
-              style={{ marginLeft: 5 }}
-            />
-          ),
-        }}
-      />
-      <DrawerNavigator.Screen
-        name="settings"
-        component={SettingsScreen}
-        options={{
-          title: "Settings",
-          drawerIcon: ({ focused }) => (
-            <Octicons
-              name="settings"
-              size={24}
-              color={focused ? Colors.light.white : Colors.light.black}
-              style={{ marginLeft: 5 }}
-            />
-          ),
-          drawerItemStyle: { width: size.width * 0.58 },
         }}
       />
     </DrawerNavigator.Navigator>
