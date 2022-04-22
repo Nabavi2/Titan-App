@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 
@@ -61,17 +62,19 @@ const styles = StyleSheet.create({
     height: "60%",
   },
   topText: {
-    fontSize: 20,
+    fontSize: 22,
     color: Colors.white,
+    fontFamily: "vietnam",
   },
   titleText: {
-    fontSize: 30,
+    fontSize: 35,
     color: Colors.white,
-    fontWeight: "bold",
+    fontFamily: "vietnamBold",
   },
   subText: {
     fontSize: 16,
     color: Colors.white,
+    fontFamily: "vietnam",
   },
   rowButtons: {
     marginTop: "10%",
@@ -84,7 +87,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: Colors.yellow,
-    width: "40%",
+    width: "45%",
     height: "100%",
     marginRight: "10%",
     borderRadius: Layout.window.width / 45,
@@ -92,7 +95,7 @@ const styles = StyleSheet.create({
   secondaryButton: {
     justifyContent: "center",
     alignItems: "center",
-    width: "40%",
+    width: "45%",
     height: "100%",
     borderWidth: 2,
     borderColor: Colors.yellow,
@@ -102,11 +105,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.primary,
     fontWeight: "bold",
+    fontFamily: "vietnam",
   },
   secondaryButtonText: {
     fontSize: 16,
     fontWeight: "bold",
     color: Colors.white,
+    fontFamily: "vietnam",
   },
 });
 export default Landing;
