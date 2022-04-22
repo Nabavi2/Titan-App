@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable } from "react-native";
+import { Pressable, View } from "react-native";
 import { Box, Row } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
@@ -13,11 +13,14 @@ import {
 } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
-import ApartmentScreen from "../screens/Apartment";
-import MapScreen from "../screens/map";
-import IconContainer from "../components/IconContainer";
-import DashboardNavigation from "./DashboardNavigation";
+import HomeScreen from "../screens/Home";
+import NFTScreen from "../screens/NFTScreen";
+import DefiEnchange from "../screens/DefiEnchange";
+import Dashboard from "../screens/Dashboard";
+import MapScrollScreen from "../screens/MapScroll";
 import SubmitInfo from "../screens/SubmitInfo";
+import IconContainer from "../components/IconContainer";
+import HeaderRightButton from "../components/HeaderButton";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -25,44 +28,59 @@ export function BottomTabNavigator() {
   const navigation = useNavigation();
   return (
     <bottomTabNavigator.Navigator
-      initialRouteName="dashboard"
+      initialRouteName="home"
       screenOptions={{
-        tabBarActiveTintColor: Colors.light.primary,
+        tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: "#afb2b5",
         tabBarHideOnKeyboard: true,
         tabBarStyle: {
-          backgroundColor: Colors.light.gray800,
+          backgroundColor: Colors.white,
           overflow: "hidden",
         },
         tabBarShowLabel: false,
         headerShadowVisible: false,
         headerTitleAlign: "center",
         headerStyle: {
-          backgroundColor: Colors.light.background,
+          backgroundColor: Colors.background,
           height: 90,
         },
         headerTitleStyle: {
           fontSize: 16,
-          color: Colors.light.text,
+          color: Colors.black,
         },
       }}
     >
       <bottomTabNavigator.Screen
         name="dashboard"
-        component={DashboardNavigation}
+        component={Dashboard}
         options={() => ({
-          title: "Global overview",
           tabBarIcon: ({ color }) => (
             <FontAwesome5 name={"building"} size={23} color={color} />
           ),
+          // headerStyle: {
+          //   justifyContent: "center",
+          //   alignItems: "center",
+          //   paddingHorizontal: 20,
+          // },
+          // headerRight: () => <HeaderButton />,
+          // headerLeft: () => (
+          //   <Box ml={5}>
+          //     <IconContainer
+          //       onPress={() =>
+          //         navigation.dispatch(DrawerActions.toggleDrawer())
+          //       }
+          //     >
+          //       <Ionicons name="menu" size={24} color={Colors.black} />
+          //     </IconContainer>
+          //   </Box>
+          // ),
           headerShown: false,
         })}
       />
       <bottomTabNavigator.Screen
-        name="apartment"
-        component={ApartmentScreen}
+        name="home"
+        component={MapScrollScreen}
         options={() => ({
-          title: "Apartments",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="home-outline"
@@ -72,16 +90,17 @@ export function BottomTabNavigator() {
             />
           ),
           headerRight: () => (
-            <Box mr={5}>
+            <View>
               <IconContainer onPress={() => console.log("dkfsfdj")}>
                 <Entypo
                   name="dots-three-vertical"
                   size={24}
-                  color={Colors.light.gray900}
+                  color={Colors.black}
                 />
               </IconContainer>
-            </Box>
+            </View>
           ),
+          headerShown: false,
           headerLeft: () => (
             <Box ml={5}>
               <IconContainer
@@ -89,17 +108,17 @@ export function BottomTabNavigator() {
                   navigation.dispatch(DrawerActions.toggleDrawer())
                 }
               >
-                <Ionicons name="menu" size={24} color={Colors.light.gray900} />
+                <Ionicons name="menu" size={24} color={Colors.black} />
               </IconContainer>
             </Box>
           ),
         })}
       />
       <bottomTabNavigator.Screen
-        name="trafficSafety"
+        name="submitinfo"
         component={SubmitInfo}
         options={() => ({
-          title: "Verkehrssicherung",
+          title: "SubmitInfo",
           tabBarIcon: ({ color }) => (
             <Foundation
               name="page-edit"
@@ -108,9 +127,9 @@ export function BottomTabNavigator() {
               style={{ marginLeft: 5 }}
             />
           ),
-
+          headerShown: false,
           headerStyle: {
-            backgroundColor: Colors.light.blue400,
+            backgroundColor: Colors.white,
           },
           headerTitleStyle: {
             color: "white",
@@ -118,10 +137,10 @@ export function BottomTabNavigator() {
         })}
       />
       <bottomTabNavigator.Screen
-        name="mapScreen"
-        component={MapScreen}
+        name="defienchange"
+        component={DefiEnchange}
         options={() => ({
-          title: "Home",
+          title: "defienchange",
           tabBarIcon: ({ color }) => (
             <FontAwesome5
               name="map-marked"
@@ -134,18 +153,19 @@ export function BottomTabNavigator() {
         })}
       />
       <bottomTabNavigator.Screen
-        name="homeScreen"
-        component={ApartmentScreen}
+        name="nftScreen"
+        component={NFTScreen}
         options={() => ({
-          title: "Apartment",
+          title: "NFTScreen",
           tabBarIcon: ({ focused }) => (
             <Octicons
               name="settings"
               size={24}
-              color={focused ? Colors.light.primary : Colors.light.white}
+              color={focused ? Colors.primary : Colors.white}
               style={{ marginLeft: 5 }}
             />
           ),
+          headerShown: false,
         })}
       />
     </bottomTabNavigator.Navigator>

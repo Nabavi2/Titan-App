@@ -1,5 +1,6 @@
 const primary = "#6E00FF";
 const secondary = "#FF7A49";
+const header = "#F9F9F9";
 const greens = {
   green100: "#2bdc4d",
   green400: "#45c772",
@@ -29,20 +30,18 @@ const others = {
 };
 
 export default {
-  light: {
-    primary,
-    secondary,
-    text: grays.gray900,
-    inputBackground: grays.gray500,
-    background: grays.gray200,
-    ModalBg: grays.gray100,
-    bageBg: "#d8d8d8",
-    tint: primary,
-    tabIconDefault: "#afb2b5",
-    ...greens,
-    ...blues,
-    ...grays,
-    ...browns,
-    ...others,
-  },
+  primary,
+  secondary,
+  header,
+  text: grays.gray900,
+  inputBackground: grays.gray500,
+  background: grays.gray200,
+  ModalBg: grays.gray100,
+  bageBg: "#d8d8d8",
+  tint: primary,
+  tabIconDefault: "#afb2b5",
+  ...greens,
+  ...blues,
+  ...grays,
+  ...browns,
 };

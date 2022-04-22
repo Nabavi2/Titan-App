@@ -3,12 +3,12 @@ import { Text, View } from "react-native";
 
 import GlobalStyles from "../../constants/GlobalStyles";
 
-function StackScreen(props) {
+function NFTScreen(props) {
   return (
     <View style={GlobalStyles.center}>
-      <Text>StackScreen</Text>
+      <Text>This is NFTScreen</Text>
     </View>
   );
 }
 
-export default StackScreen;
+export default NFTScreen;
