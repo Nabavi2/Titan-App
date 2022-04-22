@@ -144,11 +144,10 @@ const AppDrawerNavigator = () => {
         options={{
           title: "Locker",
           drawerIcon: ({ focused }) => (
-            <Octicons
-              name="settings"
+            <MaterialIcons
+              name="lock-outline"
               size={24}
               color={focused ? Colors.white : Colors.black}
-              style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => <HeaderRightButton />,
@@ -162,8 +161,8 @@ const AppDrawerNavigator = () => {
         options={{
           title: "Stack",
           drawerIcon: ({ focused }) => (
-            <Octicons
-              name="settings"
+            <FontAwesome5
+              name="dollar-sign"
               size={24}
               color={focused ? Colors.white : Colors.black}
               style={{ marginLeft: 5 }}
