@@ -12,7 +12,7 @@ const GlobalStyles = StyleSheet.create({
     backgroundColor: Colors.background,
     justifyContent: "center",
     alignItems: "center",
-    flexGrow: 1,
+    flex: 1,
   },
 });
 

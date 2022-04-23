@@ -1,4 +1,4 @@
-import { Image, View, SafeAreaView, StyleSheet } from "react-native";
+import { Image, View, SafeAreaView, StyleSheet, Text } from "react-native";
 import { Box, Column, Row } from "native-base";
 import {
   FontAwesome5,
@@ -17,6 +17,7 @@ import {
 } from "@react-navigation/drawer";
 import { BottomTabNavigator } from "./BottomTabNavigator";
 import { useNavigation, DrawerActions } from "@react-navigation/native";
+import { ExpandableListView } from "react-native-expandable-listview";
 
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
@@ -32,12 +33,22 @@ import ScanScreen from "../screens/Scan";
 import LoungeScreen from "../screens/Lounge";
 import SupportScreen from "../screens/Support";
 import AdvertiseScreen from "../screens/Advertise";
+import Dropdown from "../components/Dropdown";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 
 const AppDrawerNavigator = () => {
-  const navigation = useNavigation();
+  const launchpadHeader = (
+    <View
+      style={{
+        flexDirection: "row",
+        width: "100%",
+        justifyContent: "space-between",
+        paddingHorizontal: 10,
+      }}
+    ></View>
+  );
   return (
     <DrawerNavigator.Navigator
       drawerContent={(props) => {
@@ -62,7 +73,7 @@ const AppDrawerNavigator = () => {
         headerTintColor: Colors.white,
         drawerInactiveTintColor: Colors.text,
         drawerInactiveBackgroundColor: Colors.white,
-        headerShown: false,
+        headerShadowVisible: false,
         drawerItemStyle: {
           marginLeft: 20,
           marginRight: 20,
@@ -84,7 +95,7 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
+
           headerTitleStyle: { color: Colors.white },
         }}
       />
@@ -98,7 +109,7 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
+
           headerTitleStyle: { color: Colors.header },
         }}
       />
@@ -107,17 +118,25 @@ const AppDrawerNavigator = () => {
         name="lounchpad"
         component={LounchpadScreen}
         options={{
-          title: "Loungepad",
           drawerIcon: ({ focused }) => (
-            <MaterialCommunityIcons
-              name="rocket-launch-outline"
-              size={24}
-              color={focused ? Colors.white : Colors.black}
-            />
+            <View style={{ flexDirection: "row" }}>
+              {/* <MaterialCommunityIcons
+                name="rocket-launch-outline"
+                size={24}
+                color={focused ? Colors.white : Colors.black}
+              />
+              <ExpandableListView
+                key={CONTENT.filter((item) => item.id)}
+                data={CONTENT} // required
+                onInnerItemClick={handleInnerItemClick}
+                onItemClick={handleItemClick}
+              /> */}
+              {/* <Dropdown /> */}
+            </View>
           ),
+
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -134,7 +153,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -163,7 +181,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -180,7 +197,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -202,7 +218,6 @@ const AppDrawerNavigator = () => {
             ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -219,7 +234,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -236,7 +250,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -253,7 +266,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -270,7 +282,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
     </DrawerNavigator.Navigator>
