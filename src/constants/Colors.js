@@ -33,6 +33,7 @@ export default {
   primary,
   secondary,
   header,
+  yellow: "#F3BA2F",
   text: grays.gray900,
   inputBackground: grays.gray500,
   background: grays.gray200,

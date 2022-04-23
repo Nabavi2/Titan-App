@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
 import { Box, Row } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
@@ -10,6 +10,9 @@ import {
   Ionicons,
   Entypo,
   Octicons,
+  MaterialIcons,
+  AntDesign,
+  Feather,
 } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
@@ -55,25 +58,9 @@ export function BottomTabNavigator() {
         component={Dashboard}
         options={() => ({
           tabBarIcon: ({ color }) => (
-            <FontAwesome5 name={"building"} size={23} color={color} />
+            <Feather name="grid" size={24} color={color} />
           ),
-          // headerStyle: {
-          //   justifyContent: "center",
-          //   alignItems: "center",
-          //   paddingHorizontal: 20,
-          // },
-          // headerRight: () => <HeaderButton />,
-          // headerLeft: () => (
-          //   <Box ml={5}>
-          //     <IconContainer
-          //       onPress={() =>
-          //         navigation.dispatch(DrawerActions.toggleDrawer())
-          //       }
-          //     >
-          //       <Ionicons name="menu" size={24} color={Colors.black} />
-          //     </IconContainer>
-          //   </Box>
-          // ),
+
           headerShown: false,
         })}
       />
@@ -82,12 +69,7 @@ export function BottomTabNavigator() {
         component={MapScrollScreen}
         options={() => ({
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons
-              name="home-outline"
-              size={31}
-              color={color}
-              style={{ marginLeft: 5 }}
-            />
+            <MaterialIcons name="lock-outline" size={24} color={color} />
           ),
           headerRight: () => (
             <View>
@@ -114,19 +96,31 @@ export function BottomTabNavigator() {
           ),
         })}
       />
+      {/* <View
+        style={{
+          width: 60,
+          height: 60,
+          borderRadius: 30,
+          backgroundColor: "red",
+        }}
+      ></View> */}
       <bottomTabNavigator.Screen
         name="submitinfo"
         component={SubmitInfo}
         options={() => ({
           title: "SubmitInfo",
-          tabBarIcon: ({ color }) => (
-            <Foundation
-              name="page-edit"
-              size={24}
-              color={color}
-              style={{ marginLeft: 5 }}
-            />
-          ),
+          tabBarIcon: ({ focused }) =>
+            focused ? (
+              <Image
+                source={require("../../assets/pup.png")}
+                style={{ width: 30, height: 30 }}
+              />
+            ) : (
+              <Image
+                source={require("../../assets/up.webp")}
+                style={{ width: 30, height: 30 }}
+              />
+            ),
           headerShown: false,
           headerStyle: {
             backgroundColor: Colors.white,

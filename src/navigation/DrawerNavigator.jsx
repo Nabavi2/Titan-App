@@ -68,7 +68,7 @@ const AppDrawerNavigator = () => {
           marginLeft: 20,
           marginRight: 20,
         },
-        drawerLabelStyle: { fontWeight: "700" },
+        drawerLabelStyle: { fontFamily: "vsBold" },
       }}
     >
       <DrawerNavigator.Screen

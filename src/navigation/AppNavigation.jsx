@@ -4,29 +4,21 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppDrawerNavigator from "./DrawerNavigator";
 import Layout from "../constants/Layout";
-import Dashboard from "../screens/Dashboard";
 import HomeScreen from "../screens/Home";
+import Landing from "../screens/Landing";
 
 const Stack = createNativeStackNavigator();
-// const navigation = useNavigation();
 
 const AppNavigation = (props) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="dashboard">
+      <Stack.Navigator initialRouteName="landing">
         <Stack.Screen
-          name="dashboard"
+          name="landing"
           component={AppDrawerNavigator}
           options={{
             headerTitleAlign: "center",
             headerShadowVisible: false,
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="home"
-          component={HomeScreen}
-          options={{
             headerShown: false,
           }}
         />

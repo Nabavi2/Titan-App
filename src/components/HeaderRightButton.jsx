@@ -4,6 +4,7 @@ import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
 import Colors from "../constants/Colors";
 
 import Layout from "../constants/Layout";
+import AppText from "./AppText";
 
 const size = Layout.window;
 
@@ -11,16 +12,16 @@ function HeaderRightButton(props) {
   return (
     <TouchableOpacity style={styles.buttonContainer}>
       <View style={styles.rowContainer}>
-        <Text style={styles.text}>Connect</Text>
-        <FontAwesome5 name="wallet" size={24} color={Colors.white} />
+        <AppText style={styles.text}>Connect</AppText>
+        <FontAwesome5 name="wallet" size={22} color={Colors.white} />
       </View>
     </TouchableOpacity>
   );
 }
 const styles = StyleSheet.create({
   buttonContainer: {
-    height: 40,
-    width: size.width * 0.34,
+    height: "70%",
+    width: size.width * 0.32,
     backgroundColor: Colors.primary,
     justifyContent: "center",
     alignItems: "center",
@@ -34,9 +35,9 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Colors.white,
-    fontWeight: "700",
-    marginRight: 10,
-    fontSize: 17,
+    marginTop: "-3%",
+    marginRight: "10%",
+    fontSize: 15,
   },
 });
 export default HeaderRightButton;
