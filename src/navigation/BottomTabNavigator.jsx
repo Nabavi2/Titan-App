@@ -13,6 +13,7 @@ import {
   MaterialIcons,
   AntDesign,
   Feather,
+  FontAwesome,
 } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
@@ -24,6 +25,8 @@ import MapScrollScreen from "../screens/MapScroll";
 import SubmitInfo from "../screens/SubmitInfo";
 import IconContainer from "../components/IconContainer";
 import HeaderRightButton from "../components/HeaderRightButton";
+import SupportScreen from "../screens/Support";
+import Layout from "../constants/Layout";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -39,18 +42,10 @@ export function BottomTabNavigator() {
         tabBarStyle: {
           backgroundColor: Colors.white,
           overflow: "hidden",
+          height: "10%",
         },
         tabBarShowLabel: false,
-        headerShadowVisible: false,
-        headerTitleAlign: "center",
-        headerStyle: {
-          backgroundColor: Colors.background,
-          height: 90,
-        },
-        headerTitleStyle: {
-          fontSize: 16,
-          color: Colors.black,
-        },
+        headerShown: false,
       }}
     >
       <bottomTabNavigator.Screen
@@ -58,52 +53,45 @@ export function BottomTabNavigator() {
         component={Dashboard}
         options={() => ({
           tabBarIcon: ({ color }) => (
-            <Feather name="grid" size={24} color={color} />
+            <Feather name="grid" size={34} color={color} />
           ),
-
-          headerShown: false,
         })}
       />
       <bottomTabNavigator.Screen
-        name="home"
+        name="lock"
         component={MapScrollScreen}
         options={() => ({
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="lock-outline" size={24} color={color} />
-          ),
-          headerRight: () => (
-            <View>
-              <IconContainer onPress={() => console.log("dkfsfdj")}>
-                <Entypo
-                  name="dots-three-vertical"
-                  size={24}
-                  color={Colors.black}
-                />
-              </IconContainer>
-            </View>
-          ),
-          headerShown: false,
-          headerLeft: () => (
-            <Box ml={5}>
-              <IconContainer
-                onPress={() =>
-                  navigation.dispatch(DrawerActions.toggleDrawer())
-                }
-              >
-                <Ionicons name="menu" size={24} color={Colors.black} />
-              </IconContainer>
-            </Box>
+            <MaterialIcons name="lock-outline" size={34} color={color} />
           ),
         })}
       />
-      {/* <View
-        style={{
-          width: 60,
-          height: 60,
-          borderRadius: 30,
-          backgroundColor: "red",
+      <bottomTabNavigator.Screen
+        listeners={{
+          tabPress: (e) => e.preventDefault(),
         }}
-      ></View> */}
+        name="home"
+        component={SupportScreen}
+        options={() => ({
+          tabBarIcon: ({ color }) => (
+            <View
+              style={{
+                width: "80%",
+                height: "100%",
+                borderRadius: Layout.window.width / 2,
+                backgroundColor: Colors.primary,
+                alignItems: "center",
+                justifyContent: "center",
+                borderWidth: 2,
+                borderColor: "#D0BDEA",
+              }}
+            >
+              <Feather name="home" size={36} color={Colors.white} />
+            </View>
+          ),
+        })}
+      />
+
       <bottomTabNavigator.Screen
         name="submitinfo"
         component={SubmitInfo}
@@ -113,15 +101,15 @@ export function BottomTabNavigator() {
             focused ? (
               <Image
                 source={require("../../assets/pup.png")}
-                style={{ width: 30, height: 30 }}
+                style={{ width: "34%", height: "50%", marginTop: "1.5%" }}
               />
             ) : (
               <Image
-                source={require("../../assets/up.webp")}
-                style={{ width: 30, height: 30 }}
+                source={require("../../assets/gup.png")}
+                style={{ width: "34%", height: "50%", marginTop: "1.5%" }}
               />
             ),
-          headerShown: false,
+
           headerStyle: {
             backgroundColor: Colors.white,
           },
@@ -136,30 +124,13 @@ export function BottomTabNavigator() {
         options={() => ({
           title: "defienchange",
           tabBarIcon: ({ color }) => (
-            <FontAwesome5
-              name="map-marked"
-              size={24}
+            <FontAwesome
+              name="bitcoin"
+              size={34}
               color={color}
               style={{ marginLeft: 5 }}
             />
           ),
-          headerShown: false,
-        })}
-      />
-      <bottomTabNavigator.Screen
-        name="nftScreen"
-        component={NFTScreen}
-        options={() => ({
-          title: "NFTScreen",
-          tabBarIcon: ({ focused }) => (
-            <Octicons
-              name="settings"
-              size={24}
-              color={focused ? Colors.primary : Colors.white}
-              style={{ marginLeft: 5 }}
-            />
-          ),
-          headerShown: false,
         })}
       />
     </bottomTabNavigator.Navigator>
