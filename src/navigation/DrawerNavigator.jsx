@@ -62,7 +62,7 @@ const AppDrawerNavigator = () => {
         headerTintColor: Colors.white,
         drawerInactiveTintColor: Colors.text,
         drawerInactiveBackgroundColor: Colors.white,
-        headerShown: false,
+        headerShadowVisible: false,
         drawerItemStyle: {
           marginLeft: 20,
           marginRight: 20,
@@ -84,7 +84,7 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
+
           headerTitleStyle: { color: Colors.white },
         }}
       />
@@ -98,7 +98,7 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
+
           headerTitleStyle: { color: Colors.header },
         }}
       />
@@ -117,7 +117,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -134,7 +133,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -163,7 +161,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -180,7 +177,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -202,7 +198,6 @@ const AppDrawerNavigator = () => {
             ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -219,7 +214,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -236,7 +230,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -253,7 +246,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
       <DrawerNavigator.Screen
@@ -270,7 +262,6 @@ const AppDrawerNavigator = () => {
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-          headerShown: true,
         }}
       />
     </DrawerNavigator.Navigator>
