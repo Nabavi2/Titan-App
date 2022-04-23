@@ -1,5 +1,6 @@
 const primary = "#6E00FF";
 const secondary = "#FF7A49";
+const header = "#F9F9F9";
 const greens = {
   green100: "#2bdc4d",
   green400: "#45c772",
@@ -31,6 +32,8 @@ const others = {
 export default {
   primary,
   secondary,
+  header,
+  yellow: "#F3BA2F",
   text: grays.gray900,
   inputBackground: grays.gray500,
   background: grays.gray200,
@@ -42,5 +45,4 @@ export default {
   ...blues,
   ...grays,
   ...browns,
-  ...others,
 };

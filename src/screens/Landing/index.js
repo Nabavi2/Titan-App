@@ -1,10 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-
-import Colors from "../constants/Colors";
-import Layout from "../constants/Layout";
+import Colors from "../../constants/Colors";
+import Layout from "../../constants/Layout";
 
 function Landing(props) {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.topCol}>
@@ -17,7 +18,7 @@ function Landing(props) {
         <View style={styles.rowButtons}>
           <Pressable
             style={styles.primaryButton}
-            onPress={() => console.log("pressed")}
+            onPress={() => navigation.navigate("dashboard")}
           >
             <Text style={styles.primaryButtonText}>Launchpad</Text>
           </Pressable>
@@ -30,7 +31,10 @@ function Landing(props) {
         </View>
       </View>
       <View style={styles.bottomCol}>
-        <Image source={require("../../assets/land.png")} style={styles.img} />
+        <Image
+          source={require("../../../assets/land.png")}
+          style={styles.img}
+        />
       </View>
     </View>
   );

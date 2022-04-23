@@ -7,6 +7,7 @@ export default function App() {
   const [loaded] = useFonts({
     vietnam: require("./assets/fonts/BeVietnamPro-Regular.ttf"),
     vietnamBold: require("./assets/fonts/BeVietnamPro-Bold.ttf"),
+    vsBold: require("./assets/fonts/BeVietnamPro-Bold.ttf"),
   });
   if (!loaded) {
     return null;
