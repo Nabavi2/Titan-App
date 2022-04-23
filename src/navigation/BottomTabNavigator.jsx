@@ -23,7 +23,6 @@ import Dashboard from "../screens/Dashboard";
 import MapScrollScreen from "../screens/MapScroll";
 import SubmitInfo from "../screens/SubmitInfo";
 import IconContainer from "../components/IconContainer";
-import HeaderRightButton from "../components/HeaderRightButton";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -96,14 +95,7 @@ export function BottomTabNavigator() {
           ),
         })}
       />
-      {/* <View
-        style={{
-          width: 60,
-          height: 60,
-          borderRadius: 30,
-          backgroundColor: "red",
-        }}
-      ></View> */}
+
       <bottomTabNavigator.Screen
         name="submitinfo"
         component={SubmitInfo}

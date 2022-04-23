@@ -20,8 +20,6 @@ import { useNavigation, DrawerActions } from "@react-navigation/native";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 import DefiExchange from "../screens/DefiEnchange";
-import Dashboard from "../screens/Dashboard";
-import HomeScreen from "../screens/Home";
 import NFTScreen from "../screens/NFTScreen";
 import MapScrollScreen from "../screens/MapScroll";
 import HeaderRightButton from "../components/HeaderRightButton";
