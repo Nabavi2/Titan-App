@@ -1,7 +1,11 @@
 import React from "react";
-import { Image, Pressable, View } from "react-native";
+import { Image, PixelRatio, Pressable, View } from "react-native";
 import { Box, Row } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import {
   MaterialCommunityIcons,
@@ -23,8 +27,6 @@ import DefiExchange from "../screens/DefiEnchange";
 import Dashboard from "../screens/Dashboard";
 import MapScrollScreen from "../screens/MapScroll";
 import SubmitInfo from "../screens/SubmitInfo";
-import IconContainer from "../components/IconContainer";
-import HeaderRightButton from "../components/HeaderRightButton";
 import SupportScreen from "../screens/Support";
 import Layout from "../constants/Layout";
 
@@ -32,6 +34,7 @@ const bottomTabNavigator = createBottomTabNavigator();
 
 export function BottomTabNavigator() {
   const navigation = useNavigation();
+  const { width, height } = Layout.window;
   return (
     <bottomTabNavigator.Navigator
       initialRouteName="home"
@@ -42,7 +45,7 @@ export function BottomTabNavigator() {
         tabBarStyle: {
           backgroundColor: Colors.white,
           overflow: "hidden",
-          height: "10%",
+          height: hp(8),
         },
         tabBarShowLabel: false,
         headerShown: false,
@@ -76,9 +79,9 @@ export function BottomTabNavigator() {
           tabBarIcon: ({ color }) => (
             <View
               style={{
-                width: "80%",
+                width: wp(15),
                 height: "100%",
-                borderRadius: Layout.window.width / 2,
+                borderRadius: wp(15) / 2,
                 backgroundColor: Colors.primary,
                 alignItems: "center",
                 justifyContent: "center",

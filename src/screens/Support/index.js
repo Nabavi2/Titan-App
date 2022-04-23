@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, PixelRatio } from "react-native";
 import Colors from "../../constants/Colors";
 
 function SupportScreen(props) {
   return (
     <View style={styles.container}>
-      <Text>Support screen</Text>
+      <Text>Support screen {PixelRatio}</Text>
     </View>
   );
 }

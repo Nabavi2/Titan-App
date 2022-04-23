@@ -21,7 +21,6 @@ function Landing(props) {
           <Pressable
             style={styles.primaryButton}
             onPress={() => {
-              <AppDrawerNavigator />;
               navigation.navigate("dashboard");
             }}
           >
