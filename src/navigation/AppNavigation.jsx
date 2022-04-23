@@ -14,18 +14,11 @@ const AppNavigation = (props) => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="landing">
         <Stack.Screen
-          name="dashboard"
+          name="landing"
           component={AppDrawerNavigator}
           options={{
             headerTitleAlign: "center",
             headerShadowVisible: false,
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="landing"
-          component={Landing}
-          options={{
             headerShown: false,
           }}
         />

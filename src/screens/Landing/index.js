@@ -1,8 +1,10 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
 import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
+import AppDrawerNavigator from "../../navigation/DrawerNavigator";
 
 function Landing(props) {
   const navigation = useNavigation();
@@ -18,7 +20,10 @@ function Landing(props) {
         <View style={styles.rowButtons}>
           <Pressable
             style={styles.primaryButton}
-            onPress={() => navigation.navigate("dashboard")}
+            onPress={() => {
+              <AppDrawerNavigator />;
+              navigation.navigate("dashboard");
+            }}
           >
             <Text style={styles.primaryButtonText}>Launchpad</Text>
           </Pressable>
