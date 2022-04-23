@@ -7,6 +7,8 @@ import {
   MaterialCommunityIcons,
   Foundation,
   Octicons,
+  FontAwesome,
+  AntDesign,
 } from "@expo/vector-icons";
 import {
   createDrawerNavigator,
@@ -63,8 +65,8 @@ const AppDrawerNavigator = () => {
         drawerInactiveBackgroundColor: Colors.white,
         headerShown: false,
         drawerItemStyle: {
-          width: size.width * 0.6,
-          marginLeft: 16,
+          marginLeft: 20,
+          marginRight: 20,
         },
         drawerLabelStyle: { fontWeight: "700" },
       }}
@@ -75,9 +77,9 @@ const AppDrawerNavigator = () => {
         options={{
           title: "Homepage",
           drawerIcon: ({ focused }) => (
-            <MaterialCommunityIcons
-              name={Platform.OS === "android" ? "home-outline" : "home-outline"}
-              size={23}
+            <AntDesign
+              name="home"
+              size={27}
               color={focused ? Colors.white : Colors.black}
             />
           ),
@@ -102,25 +104,6 @@ const AppDrawerNavigator = () => {
         }}
       />
 
-      {/* <DrawerNavigator.Screen
-        name="dashboard"
-        component={Dashboard}
-        options={{
-          title: "Verkehrssicherung",
-          drawerIcon: ({ focused }) => (
-            <Foundation
-              name="page-edit"
-              size={24}
-              color={focused ? Colors.white : Colors.black}
-              style={{ marginLeft: 5 }}
-            />
-          ),
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
-          headerShown: true,
-        }}
-      /> */}
-
       <DrawerNavigator.Screen
         name="lounchpad"
         component={LounchpadScreen}
@@ -128,7 +111,7 @@ const AppDrawerNavigator = () => {
           title: "Loungepad",
           drawerIcon: ({ focused }) => (
             <MaterialCommunityIcons
-              name="rocket-launch"
+              name="rocket-launch-outline"
               size={24}
               color={focused ? Colors.white : Colors.black}
             />
@@ -146,7 +129,7 @@ const AppDrawerNavigator = () => {
           drawerIcon: ({ focused }) => (
             <MaterialIcons
               name="lock-outline"
-              size={24}
+              size={28}
               color={focused ? Colors.white : Colors.black}
             />
           ),
@@ -159,14 +142,25 @@ const AppDrawerNavigator = () => {
         name="stack"
         component={StackScreen}
         options={{
-          title: "Stack",
+          title: "Stake",
           drawerIcon: ({ focused }) => (
-            <FontAwesome5
-              name="dollar-sign"
-              size={24}
-              color={focused ? Colors.white : Colors.black}
-              style={{ marginLeft: 5 }}
-            />
+            <View
+              style={{
+                borderColor: Colors.black,
+                borderWidth: 2,
+                width: 28,
+                height: 28,
+                borderRadius: 20,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <FontAwesome5
+                name="dollar-sign"
+                size={24}
+                color={focused ? Colors.white : Colors.black}
+              />
+            </View>
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
@@ -177,13 +171,12 @@ const AppDrawerNavigator = () => {
         name="scan"
         component={ScanScreen}
         options={{
-          title: "Settings",
+          title: "Scan",
           drawerIcon: ({ focused }) => (
-            <Octicons
-              name="settings"
+            <FontAwesome
+              name="search"
               size={24}
               color={focused ? Colors.white : Colors.black}
-              style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => <HeaderRightButton />,
@@ -192,15 +185,15 @@ const AppDrawerNavigator = () => {
         }}
       />
       <DrawerNavigator.Screen
-        name="nftscreen"
+        name="nft"
         component={NFTScreen}
         options={{
+          title: "NFT mint",
           drawerIcon: ({ focused }) => (
-            <FontAwesome5
-              name="map-marked"
+            <AntDesign
+              name="picture"
               size={24}
               color={focused ? Colors.white : Colors.black}
-              style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => <HeaderRightButton />,
@@ -214,11 +207,10 @@ const AppDrawerNavigator = () => {
         options={{
           title: "TitanxGame",
           drawerIcon: ({ focused }) => (
-            <Octicons
-              name="settings"
+            <MaterialCommunityIcons
+              name="gamepad-circle-right"
               size={24}
               color={focused ? Colors.white : Colors.black}
-              style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => <HeaderRightButton />,
@@ -232,11 +224,10 @@ const AppDrawerNavigator = () => {
         options={{
           title: "Lounge",
           drawerIcon: ({ focused }) => (
-            <Octicons
-              name="settings"
+            <MaterialIcons
+              name="keyboard-voice"
               size={24}
               color={focused ? Colors.white : Colors.black}
-              style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => <HeaderRightButton />,
@@ -250,11 +241,10 @@ const AppDrawerNavigator = () => {
         options={{
           title: "Support",
           drawerIcon: ({ focused }) => (
-            <Octicons
-              name="settings"
+            <MaterialCommunityIcons
+              name="headset"
               size={24}
               color={focused ? Colors.white : Colors.black}
-              style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => <HeaderRightButton />,
@@ -266,13 +256,12 @@ const AppDrawerNavigator = () => {
         name="advertise"
         component={AdvertiseScreen}
         options={{
-          title: "Settings",
+          title: "Advertise",
           drawerIcon: ({ focused }) => (
-            <Octicons
-              name="settings"
-              size={24}
+            <FontAwesome5
+              name="adversal"
+              size={28}
               color={focused ? Colors.white : Colors.black}
-              style={{ marginLeft: 5 }}
             />
           ),
           headerRight: () => <HeaderRightButton />,
