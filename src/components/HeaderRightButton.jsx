@@ -21,7 +21,7 @@ function HeaderRightButton(props) {
 const styles = StyleSheet.create({
   buttonContainer: {
     height: "70%",
-    width: size.width * 0.32,
+    width: size.width * 0.3,
     backgroundColor: Colors.primary,
     justifyContent: "center",
     alignItems: "center",

@@ -9,6 +9,7 @@ import {
   Octicons,
   FontAwesome,
   AntDesign,
+  Feather,
 } from "@expo/vector-icons";
 import {
   createDrawerNavigator,
@@ -75,7 +76,7 @@ const AppDrawerNavigator = () => {
         options={{
           title: "Homepage",
           drawerIcon: ({ focused }) => (
-            <AntDesign
+            <Feather
               name="home"
               size={27}
               color={focused ? Colors.white : Colors.black}
@@ -187,13 +188,18 @@ const AppDrawerNavigator = () => {
         component={NFTScreen}
         options={{
           title: "NFT mint",
-          drawerIcon: ({ focused }) => (
-            <AntDesign
-              name="picture"
-              size={24}
-              color={focused ? Colors.white : Colors.black}
-            />
-          ),
+          drawerIcon: ({ focused }) =>
+            focused ? (
+              <Image
+                source={require("../../assets/wup.png")}
+                style={{ width: "12%", height: "60%" }}
+              />
+            ) : (
+              <Image
+                source={require("../../assets/up.png")}
+                style={{ width: "12%", height: "60%" }}
+              />
+            ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
           headerShown: true,
@@ -203,7 +209,7 @@ const AppDrawerNavigator = () => {
         name="titan"
         component={MapScrollScreen}
         options={{
-          title: "TitanxGame",
+          title: "Titanx Game",
           drawerIcon: ({ focused }) => (
             <MaterialCommunityIcons
               name="gamepad-circle-right"

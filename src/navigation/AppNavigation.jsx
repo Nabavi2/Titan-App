@@ -3,9 +3,6 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppDrawerNavigator from "./DrawerNavigator";
-import Layout from "../constants/Layout";
-import HomeScreen from "../screens/Home";
-import Landing from "../screens/Landing";
 
 const Stack = createNativeStackNavigator();
 

@@ -8,12 +8,6 @@ import {
 } from "react-native-responsive-screen";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import {
-  MaterialCommunityIcons,
-  Foundation,
-  FontAwesome5,
-  Ionicons,
-  Entypo,
-  Octicons,
   MaterialIcons,
   AntDesign,
   Feather,
@@ -40,7 +34,7 @@ export function BottomTabNavigator() {
       initialRouteName="home"
       screenOptions={{
         tabBarActiveTintColor: Colors.primary,
-        tabBarInactiveTintColor: "#afb2b5",
+        tabBarInactiveTintColor: "#222222",
         tabBarHideOnKeyboard: true,
         tabBarStyle: {
           backgroundColor: Colors.white,
@@ -108,8 +102,12 @@ export function BottomTabNavigator() {
               />
             ) : (
               <Image
-                source={require("../../assets/gup.png")}
-                style={{ width: "34%", height: "50%", marginTop: "1.5%" }}
+                source={require("../../assets/up.png")}
+                style={{
+                  width: "34%",
+                  height: "50%",
+                  marginTop: "1.5%",
+                }}
               />
             ),
 
@@ -126,13 +124,24 @@ export function BottomTabNavigator() {
         component={DefiExchange}
         options={() => ({
           title: "defienchange",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome
-              name="bitcoin"
-              size={34}
-              color={color}
-              style={{ marginLeft: 5 }}
-            />
+          tabBarIcon: ({ color, focused }) => (
+            <View
+              style={{
+                borderColor: focused ? Colors.primary : color,
+                borderWidth: 3.5,
+                width: wp(7),
+                height: hp(4),
+                borderRadius: wp(7) / 2,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <FontAwesome
+                name="bitcoin"
+                size={24}
+                color={focused ? Colors.primary : color}
+              />
+            </View>
           ),
         })}
       />

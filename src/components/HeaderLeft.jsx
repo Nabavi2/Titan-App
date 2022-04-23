@@ -1,4 +1,4 @@
-import { Ionicons } from "@expo/vector-icons";
+import { Foundation, Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Image, StyleSheet } from "react-native";
 import { useNavigation, DrawerActions } from "@react-navigation/native";
@@ -15,11 +15,11 @@ function HeaderLeft(props) {
     <IconContainer
       onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
     >
-      <Ionicons
-        name="menu"
-        size={24}
+      <Foundation
+        name="graph-horizontal"
+        size={30}
         color={Colors.black}
-        style={{ marginLeft: 10 }}
+        style={{ marginLeft: 14 }}
       />
       <Image style={styles.image} source={require("../../assets/logo.png")} />
     </IconContainer>

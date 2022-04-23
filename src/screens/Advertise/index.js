@@ -5,7 +5,7 @@ import Colors from "../../constants/Colors";
 function AdvertiseScreen(props) {
   return (
     <View style={styles.container}>
-      <Text>Dashboard screen</Text>
+      <Text>Advertisement screen</Text>
     </View>
   );
 }

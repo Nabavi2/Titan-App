@@ -1,6 +1,7 @@
 const primary = "#6E00FF";
 const secondary = "#FF7A49";
 const header = "#F9F9F9";
+const iconColor = "#222222";
 const greens = {
   green100: "#2bdc4d",
   green400: "#45c772",
@@ -18,7 +19,7 @@ const grays = {
   gray100: "#f8f8f8",
   gray200: "#F2F6FA",
   gray500: "#CED4FF",
-  gray900: "#333333",
+  gray900: "#222222",
   black: "#000",
 };
 
@@ -33,6 +34,7 @@ export default {
   primary,
   secondary,
   header,
+  iconColor,
   yellow: "#F3BA2F",
   text: grays.gray900,
   inputBackground: grays.gray500,
