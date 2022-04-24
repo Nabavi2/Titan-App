@@ -56,7 +56,7 @@ const AppDrawerNavigator = () => {
       }}
       screenOptions={{
         drawerActiveTintColor: Colors.white,
-        drawerActiveBackgroundColor: Colors.yellow,
+        drawerActiveBackgroundColor: Colors.primary,
         headerTintColor: Colors.white,
         drawerInactiveTintColor: Colors.text,
         drawerInactiveBackgroundColor: Colors.white,
@@ -72,7 +72,7 @@ const AppDrawerNavigator = () => {
         name="home"
         component={BottomTabNavigator}
         options={{
-          title: "Homepage",
+          title: "Home",
           drawerIcon: ({ focused }) => (
             <Feather
               name="home"
@@ -87,11 +87,11 @@ const AppDrawerNavigator = () => {
         }}
       />
       <DrawerNavigator.Screen
-        name="defexchange"
+        name="defixchange"
         component={DefiExchange}
         options={{
-          title: "defexchange",
-          drawerIcon: () => (
+          title: "DeFi Exchange",
+          drawerIcon: ({ focused }) => (
             <Foundation name="graph-bar" size={24} color={Colors.black} />
           ),
           headerRight: () => <HeaderRightButton />,
@@ -102,7 +102,7 @@ const AppDrawerNavigator = () => {
       />
 
       <DrawerNavigator.Screen
-        name="lounchpad"
+        name="launchpad"
         component={LounchpadComponent}
         listeners={{ drawerItemPress: (e) => e.preventDefault() }}
         options={{
@@ -115,8 +115,9 @@ const AppDrawerNavigator = () => {
       <DrawerNavigator.Screen
         name="locker"
         component={LockerScreen}
+        listeners={{ drawerItemPress: (e) => e.preventDefault() }}
         options={{
-          title: "Locker",
+          title: "Lockers",
           drawerIcon: () => <DrawerDropdown id={2} />,
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
@@ -165,12 +166,12 @@ const AppDrawerNavigator = () => {
             focused ? (
               <Image
                 source={require("../../assets/wup.png")}
-                style={{ width: "12%", height: "60%" }}
+                style={{ width: "12%", height: "68%" }}
               />
             ) : (
               <Image
                 source={require("../../assets/up.png")}
-                style={{ width: "12%", height: "60%" }}
+                style={{ width: "12%", height: "68%" }}
               />
             ),
           headerRight: () => <HeaderRightButton />,

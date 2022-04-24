@@ -25,6 +25,8 @@ export default {
   header: "#F9F9F9",
   iconColor: "#222222",
   yellow: "#F3BA2F",
+  white: "#FFF",
+  black: "#000",
   text: "#222222",
   inputBackground: "#CED4FF",
   background: "#F2F6FA",
