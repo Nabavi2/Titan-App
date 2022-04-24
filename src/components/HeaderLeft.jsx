@@ -32,12 +32,10 @@ const styles = StyleSheet.create({
   },
   image: {
     width: size.width * 0.18,
-    height: 60,
-    marginLeft: 10,
+    height: size.height * 0.1,
+    marginLeft: size.width * 0.06,
     marginBottom: 20,
     marginTop: 20,
-    borderRadius: 100,
-    // backgroundColor: "red",
   },
 });
 
