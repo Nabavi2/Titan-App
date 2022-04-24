@@ -7,10 +7,10 @@ import {
 import Colors from "../constants/Colors";
 import AppText from "./AppText";
 
-function CustomButton({ title, onPress, style }) {
+function CustomButton({ title, onPress, style, textStyle }) {
   return (
     <Pressable onPress={onPress} style={{ ...styles.container, ...style }}>
-      <AppText style={styles.text}>{title}</AppText>
+      <AppText style={{ ...styles.text, ...textStyle }}>{title}</AppText>
     </Pressable>
   );
 }

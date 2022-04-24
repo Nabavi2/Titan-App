@@ -1,4 +1,4 @@
-import { Image, View, SafeAreaView, StyleSheet } from "react-native";
+import { Image, View, SafeAreaView, StyleSheet, Text } from "react-native";
 import { Box, Column, Row } from "native-base";
 import {
   FontAwesome5,
@@ -17,7 +17,7 @@ import {
 } from "@react-navigation/drawer";
 import { BottomTabNavigator } from "./BottomTabNavigator";
 import { useNavigation, DrawerActions } from "@react-navigation/native";
-
+import { ExpandableListView } from "react-native-expandable-listview";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 import DefiExchange from "../screens/DefiEnchange";
@@ -32,12 +32,17 @@ import ScanScreen from "../screens/Scan";
 import LoungeScreen from "../screens/Lounge";
 import SupportScreen from "../screens/Support";
 import AdvertiseScreen from "../screens/Advertise";
+import Subtitle from "../components/Subtitle";
+import LounchpadComponent from "../components/LounchpadComponent";
+import { Icon, ListItem } from "react-native-elements";
+import DrawerDropdown from "../components/DrawerDropdown";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 
 const AppDrawerNavigator = () => {
   const navigation = useNavigation();
+
   return (
     <DrawerNavigator.Navigator
       drawerContent={(props) => {
@@ -58,7 +63,7 @@ const AppDrawerNavigator = () => {
       }}
       screenOptions={{
         drawerActiveTintColor: Colors.white,
-        drawerActiveBackgroundColor: Colors.primary,
+        drawerActiveBackgroundColor: Colors.yellow,
         headerTintColor: Colors.white,
         drawerInactiveTintColor: Colors.text,
         drawerInactiveBackgroundColor: Colors.white,
@@ -89,7 +94,7 @@ const AppDrawerNavigator = () => {
         }}
       />
       <DrawerNavigator.Screen
-        name="defiexchange"
+        name="defixchange"
         component={DefiExchange}
         options={{
           title: "DeFi Exchange",
@@ -104,17 +109,12 @@ const AppDrawerNavigator = () => {
       />
 
       <DrawerNavigator.Screen
-        name="launchpad"
-        component={LounchpadScreen}
+        name="lounchpad"
+        component={LounchpadComponent}
+        listeners={{ drawerItemPress: (e) => e.preventDefault() }}
         options={{
-          title: "Launchpad",
-          drawerIcon: ({ focused }) => (
-            <MaterialCommunityIcons
-              name="rocket-launch-outline"
-              size={24}
-              color={focused ? Colors.white : Colors.black}
-            />
-          ),
+          drawerIcon: ({ focused }) => <DrawerDropdown />,
+
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
         }}
@@ -143,17 +143,7 @@ const AppDrawerNavigator = () => {
         options={{
           title: "Stake",
           drawerIcon: ({ focused }) => (
-            <View
-              style={{
-                borderColor: Colors.black,
-                borderWidth: 2,
-                width: 28,
-                height: 28,
-                borderRadius: 20,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <View style={styles.icon}>
               <FontAwesome5
                 name="dollar-sign"
                 size={24}
@@ -283,6 +273,20 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     backgroundColor: Colors.white,
     flexDirection: "row",
+  },
+  icon: {
+    borderColor: Colors.black,
+    borderWidth: 2,
+    width: 28,
+    height: 28,
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  dropIcon: { height: 25, width: 25 },
+  text: {
+    color: Colors.text,
+    fontWeight: "bold",
   },
 });
 export default AppDrawerNavigator;

@@ -1,6 +1,5 @@
 import React from "react";
 import { Image, PixelRatio, Pressable, View } from "react-native";
-import { Box, Row } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   widthPercentageToDP as wp,
@@ -39,7 +38,7 @@ export function BottomTabNavigator() {
         tabBarStyle: {
           backgroundColor: Colors.white,
           overflow: "hidden",
-          height: hp(8),
+          height: hp(PixelRatio.get() > 2 ? 7.5 : 8.5),
         },
         tabBarShowLabel: false,
         headerShown: false,
@@ -129,9 +128,9 @@ export function BottomTabNavigator() {
               style={{
                 borderColor: focused ? Colors.primary : color,
                 borderWidth: 3.5,
-                width: wp(7),
+                width: wp(PixelRatio.get() > 2 ? 8 : 7),
                 height: hp(4),
-                borderRadius: wp(7) / 2,
+                borderRadius: wp(8) / 2,
                 justifyContent: "center",
                 alignItems: "center",
               }}

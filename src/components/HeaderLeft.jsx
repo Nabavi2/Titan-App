@@ -26,13 +26,19 @@ function HeaderLeft(props) {
   );
 }
 const styles = StyleSheet.create({
+  menu: {
+    height: 20,
+    width: 30,
+    marginLeft: 10,
+  },
   image: {
-    width: size.width * 0.24,
+    width: size.width * 0.18,
     height: 60,
     marginLeft: 10,
     marginBottom: 20,
     marginTop: 20,
     borderRadius: 100,
+    backgroundColor: "red",
   },
 });
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, PixelRatio } from "react-native";
 import CardContainer from "../../components/CardContainer";
 import Title from "../../components/Title";
 import Colors from "../../constants/Colors";
@@ -60,13 +60,20 @@ function Dashboard(props) {
         {/* Other view section */}
         <View
           style={{
-            backgroundColor: "lightgreen",
+            // backgroundColor: "lightgreen",
             width: "100%",
-            height: "16%",
+            height: "20%",
             alignItems: "center",
           }}
         >
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginTop: "2%",
+              marginBottom: "4%",
+            }}
+          >
             <AppText style={{ fontSize: 6, color: Colors.primary }}>
               View more
             </AppText>
@@ -77,9 +84,10 @@ function Dashboard(props) {
               style={{ marginLeft: "2%", marginTop: "2%" }}
             />
           </View>
-          <CustomButton title="View Presale" />
+          <CustomButton title="View Presale" textStyle={{ fontSize: 8 }} />
         </View>
       </CardContainer>
+      <Text>{PixelRatio.get()}</Text>
     </View>
   );
 }
