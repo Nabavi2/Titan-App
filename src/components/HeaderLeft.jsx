@@ -26,6 +26,11 @@ function HeaderLeft(props) {
   );
 }
 const styles = StyleSheet.create({
+  menu: {
+    height: 20,
+    width: 30,
+    marginLeft: 10,
+  },
   image: {
     width: size.width * 0.24,
     height: 60,

@@ -1,13 +1,4 @@
-import { useState } from "react";
-import {
-  Image,
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  Pressable,
-  FlatList,
-} from "react-native";
+import { Image, View, SafeAreaView, StyleSheet, Text } from "react-native";
 import { Box, Column, Row } from "native-base";
 import {
   FontAwesome5,

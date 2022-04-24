@@ -79,5 +79,11 @@ const styles = StyleSheet.create({
     marginVertical: "3%",
     alignItems: "center",
   },
+  subHeader: {
+    backgroundColor: Colors.white,
+    width: "100%",
+    height: "5%",
+    justifyContent: "center",
+  },
 });
 export default Dashboard;
