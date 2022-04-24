@@ -9,29 +9,23 @@ import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 
 const size = Layout.window;
-function HeaderLeft({ title }) {
+function HeaderLeft(props) {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <IconContainer
-        onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-      >
-        <Foundation
-          name="graph-horizontal"
-          size={30}
-          color={Colors.black}
-          style={{ marginLeft: 14 }}
-        />
-        <Image style={styles.image} source={require("../../assets/logo.png")} />
-      </IconContainer>
-      <Text style={styles.text}>{title}</Text>
-    </View>
+    <IconContainer
+      onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+    >
+      <Foundation
+        name="graph-horizontal"
+        size={30}
+        color={Colors.black}
+        style={{ marginLeft: 14 }}
+      />
+      <Image style={styles.image} source={require("../../assets/logo.png")} />
+    </IconContainer>
   );
 }
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: "column",
-  },
   image: {
     width: size.width * 0.24,
     height: 60,
@@ -39,11 +33,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 20,
     borderRadius: 100,
-  },
-  text: {
-    fontSize: 24,
-    color: Colors.text,
-    marginLeft: 20,
   },
 });
 

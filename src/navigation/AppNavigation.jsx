@@ -14,8 +14,6 @@ const AppNavigation = (props) => {
           name="landing"
           component={AppDrawerNavigator}
           options={{
-            headerTitleAlign: "center",
-            headerShadowVisible: false,
             headerShown: false,
           }}
         />

@@ -1,6 +1,5 @@
 import React from "react";
 import { Image, PixelRatio, Pressable, View } from "react-native";
-import { Box, Row } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   widthPercentageToDP as wp,
@@ -31,7 +30,7 @@ export function BottomTabNavigator() {
   const { width, height } = Layout.window;
   return (
     <bottomTabNavigator.Navigator
-      initialRouteName="home"
+      initialRouteName="dashboard"
       screenOptions={{
         tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: "#222222",
