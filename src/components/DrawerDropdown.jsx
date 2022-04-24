@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  AntDesign,
+  MaterialCommunityIcons,
+  MaterialIcons,
+} from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Layout from "../constants/Layout";
@@ -7,7 +11,7 @@ import AppText from "./AppText";
 
 import Colors from "../constants/Colors";
 
-function DrawerDropdown({id}) {
+function DrawerDropdown({ id }) {
   const size = Layout.window;
   const navigation = useNavigation;
   const [status, setStatus] = useState(false);
@@ -17,16 +21,15 @@ function DrawerDropdown({id}) {
         style={{ flexDirection: "row" }}
         onPressIn={() => setStatus(!status)}
       >
-      { id===1? <MaterialCommunityIcons
-          name="rocket-launch-outline"
-          size={24}
-          color={status ? Colors.white : Colors.black}
-        />:
-         <MaterialIcons
-              name="lock-outline"
-              size={28}
-              color={focused ? Colors.white : Colors.black}
-            />}
+        {id === 1 ? (
+          <MaterialCommunityIcons
+            name="rocket-launch-outline"
+            size={24}
+            color={status ? Colors.white : Colors.black}
+          />
+        ) : (
+          <MaterialIcons name="lock-outline" size={28} color={Colors.black} />
+        )}
         <AppText style={[styles.text, { marginLeft: 30 }]}>Lounchpad</AppText>
         {!status ? (
           <Pressable
