@@ -30,11 +30,27 @@ function DrawerDropdown({ id }) {
         ) : (
           <MaterialIcons name="lock-outline" size={28} color={Colors.black} />
         )}
-        <AppText style={[styles.text, { marginLeft: 30 }]}>Lounchpad</AppText>
+        {id === 1 ? (
+          <AppText
+            style={{ fontFamily: "vsBold", marginLeft: size.width * 0.066 }}
+          >
+            Launchpad
+          </AppText>
+        ) : (
+          <AppText
+            style={{
+              fontFamily: "vsBold",
+              marginLeft: size.width * 0.065,
+              marginRight: 22,
+            }}
+          >
+            Lockers
+          </AppText>
+        )}
         {!status ? (
           <Pressable
             onPressIn={() => setStatus(!status)}
-            style={{ marginLeft: size.width * 0.16 }}
+            style={{ marginLeft: size.width * 0.15 }}
           >
             <AntDesign
               name="caretright"
@@ -124,6 +140,9 @@ const styles = StyleSheet.create({
   imageButton: {
     width: 10,
     height: 10,
+  },
+  text: {
+    fontFamily: "vsBold",
   },
 });
 export default DrawerDropdown;

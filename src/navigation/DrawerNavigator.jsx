@@ -90,14 +90,12 @@ const AppDrawerNavigator = () => {
         name="defixchange"
         component={DefiExchange}
         options={{
-          title: "DeFi Exchange",
+          title: "DefiExchange",
           drawerIcon: ({ focused }) => (
             <Foundation name="graph-bar" size={24} color={Colors.black} />
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-
-          headerTitleStyle: { color: Colors.header },
         }}
       />
 
@@ -129,7 +127,12 @@ const AppDrawerNavigator = () => {
         options={{
           title: "Stake",
           drawerIcon: ({ focused }) => (
-            <View style={styles.icon}>
+            <View
+              style={[
+                styles.icon,
+                { borderColor: focused ? Colors.white : Colors.black },
+              ]}
+            >
               <FontAwesome5
                 name="dollar-sign"
                 size={24}
@@ -234,7 +237,7 @@ const AppDrawerNavigator = () => {
           drawerIcon: ({ focused }) => (
             <FontAwesome5
               name="adversal"
-              size={28}
+              size={27}
               color={focused ? Colors.white : Colors.black}
             />
           ),
@@ -268,6 +271,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
+    marginRight: -6,
   },
 });
 export default AppDrawerNavigator;
