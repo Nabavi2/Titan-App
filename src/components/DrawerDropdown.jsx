@@ -1,34 +1,49 @@
-import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
+import {
+  AntDesign,
+  MaterialCommunityIcons,
+  MaterialIcons,
+} from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 import AppText from "./AppText";
 
-function DrawerDropdown(props) {
+function DrawerDropdown({ id }) {
   const size = Layout.window;
+  const navigation = useNavigation;
   const [status, setStatus] = useState(false);
-  const navigation = useNavigation();
+
   return (
     <View>
       <Pressable
         style={{ flexDirection: "row" }}
         onPressIn={() => setStatus(!status)}
       >
-        <MaterialCommunityIcons
-          name="rocket-launch-outline"
-          size={24}
-          color={Colors.black}
-        />
-        <AppText style={{ marginLeft: 30, fontFamily: "vsBold" }}>
-          Lounchpad
+        {id === 1 ? (
+          <MaterialCommunityIcons
+            name="rocket-launch-outline"
+            size={24}
+            color={Colors.black}
+          />
+        ) : (
+          <MaterialIcons name="lock-outline" size={28} color={Colors.black} />
+        )}
+        <AppText
+          style={{ ...styles.text, marginLeft: "13%", fontFamily: "vsBold" }}
+        >
+          {id === 1 ? "Launchpad" : "Lockers"}
         </AppText>
         {!status ? (
           <Pressable
             onPressIn={() => setStatus(!status)}
-            style={{ marginLeft: size.width * 0.13, justifyContent: "center" }}
+            style={{
+              marginLeft: "20%",
+              justifyContent: "center",
+              backgroundColor: "red",
+            }}
           >
             <AntDesign
               name="caretright"
@@ -37,11 +52,10 @@ function DrawerDropdown(props) {
               style={styles.dropIcon}
             />
           </Pressable>
-        ) : null}
-        {status ? (
+        ) : (
           <Pressable
             onPressIn={() => setStatus(!status)}
-            style={{ marginLeft: size.width * 0.14 }}
+            style={{ marginLeft: size.width * 0.13 }}
           >
             <AntDesign
               name="caretdown"
@@ -50,7 +64,7 @@ function DrawerDropdown(props) {
               style={styles.dropIcon}
             />
           </Pressable>
-        ) : null}
+        )}
       </Pressable>
       <Pressable style={{ marginLeft: size.width * 0.2 }}>
         {status ? (
@@ -119,6 +133,9 @@ const styles = StyleSheet.create({
   imageButton: {
     width: 10,
     height: 10,
+  },
+  dropIcon: {
+    right: 0,
   },
 });
 export default DrawerDropdown;

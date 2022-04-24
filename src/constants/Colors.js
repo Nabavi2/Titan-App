@@ -1,7 +1,4 @@
 const primary = "#6E00FF";
-const secondary = "#FF7A49";
-const header = "#F9F9F9";
-const iconColor = "#222222";
 const greens = {
   green100: "#2bdc4d",
   green400: "#45c772",
@@ -14,14 +11,6 @@ const browns = {
   brown100: "#c04b31",
   brown200: "#bf4b31",
 };
-const grays = {
-  white: "#fff",
-  gray100: "#f8f8f8",
-  gray200: "#F2F6FA",
-  gray500: "#CED4FF",
-  gray900: "#222222",
-  black: "#000",
-};
 
 const others = {
   red: "#c74545",
@@ -31,20 +20,22 @@ const others = {
 };
 
 export default {
-  primary,
-  secondary,
-  header,
-  iconColor,
+  primary: "#6E00FF",
+  secondary: "#FF7A49",
+  header: "#F9F9F9",
+  iconColor: "#222222",
   yellow: "#F3BA2F",
-  text: grays.gray900,
-  inputBackground: grays.gray500,
-  background: grays.gray200,
-  ModalBg: grays.gray100,
+  white: "#FFF",
+  black: "#000",
+  text: "#222222",
+  inputBackground: "#CED4FF",
+  background: "#F2F6FA",
+  ModalBg: "#f8f8f8",
   bageBg: "#d8d8d8",
   tint: primary,
   tabIconDefault: "#afb2b5",
+  black: "#000",
   ...greens,
   ...blues,
-  ...grays,
   ...browns,
 };

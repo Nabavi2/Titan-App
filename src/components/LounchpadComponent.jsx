@@ -1,17 +1,8 @@
 import React, { useState } from "react";
-import {
-  FlatList,
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { StyleSheet, View } from "react-native";
 import Colors from "../constants/Colors";
 
-import GlobalStyles from "../constants/GlobalStyles";
 function LounchpadComponent(props) {
-  const [status, setStatus] = useState(false);
   const data = [
     {
       id: "1",
@@ -27,23 +18,7 @@ function LounchpadComponent(props) {
     },
   ];
   return (
-    <View style={[styles.container, { height: !status ? 100 : 20 }]}>
-      <Pressable onPressIn={() => setStatus(!status)}>
-        {status ? (
-          <Image source={require("../../assets/drop1.png")} />
-        ) : (
-          <Image source={require("../../assets/drop2.png")} /> && (
-            <FlatList
-              data={data}
-              keyExtractor={(id, item) => id}
-              renderItem={({ item }) => {
-                return <Text>{item.title}</Text>;
-              }}
-            />
-          )
-        )}
-      </Pressable>
-    </View>
+    <View style={[styles.container, { height: !status ? 100 : 20 }]}></View>
   );
 }
 const styles = StyleSheet.create({

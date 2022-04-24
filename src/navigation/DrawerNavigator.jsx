@@ -1,14 +1,11 @@
 import { Image, View, SafeAreaView, StyleSheet, Text } from "react-native";
-import { Box, Column, Row } from "native-base";
+
 import {
   FontAwesome5,
-  Ionicons,
   MaterialIcons,
   MaterialCommunityIcons,
   Foundation,
-  Octicons,
   FontAwesome,
-  AntDesign,
   Feather,
 } from "@expo/vector-icons";
 import {
@@ -17,7 +14,6 @@ import {
 } from "@react-navigation/drawer";
 import { BottomTabNavigator } from "./BottomTabNavigator";
 import { useNavigation, DrawerActions } from "@react-navigation/native";
-import { ExpandableListView } from "react-native-expandable-listview";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 import DefiExchange from "../screens/DefiEnchange";
@@ -25,16 +21,13 @@ import NFTScreen from "../screens/NFTScreen";
 import MapScrollScreen from "../screens/MapScroll";
 import HeaderRightButton from "../components/HeaderRightButton";
 import HeaderLeft from "../components/HeaderLeft";
-import LounchpadScreen from "../screens/Lounchpad";
 import LockerScreen from "../screens/Lockers";
 import StackScreen from "../screens/Stack";
 import ScanScreen from "../screens/Scan";
 import LoungeScreen from "../screens/Lounge";
 import SupportScreen from "../screens/Support";
 import AdvertiseScreen from "../screens/Advertise";
-import Subtitle from "../components/Subtitle";
 import LounchpadComponent from "../components/LounchpadComponent";
-import { Icon, ListItem } from "react-native-elements";
 import DrawerDropdown from "../components/DrawerDropdown";
 
 const size = Layout.window;
@@ -63,7 +56,7 @@ const AppDrawerNavigator = () => {
       }}
       screenOptions={{
         drawerActiveTintColor: Colors.white,
-        drawerActiveBackgroundColor: Colors.yellow,
+        drawerActiveBackgroundColor: Colors.primary,
         headerTintColor: Colors.white,
         drawerInactiveTintColor: Colors.text,
         drawerInactiveBackgroundColor: Colors.white,
@@ -109,11 +102,11 @@ const AppDrawerNavigator = () => {
       />
 
       <DrawerNavigator.Screen
-        name="lounchpad"
+        name="launchpad"
         component={LounchpadComponent}
         listeners={{ drawerItemPress: (e) => e.preventDefault() }}
         options={{
-          drawerIcon: ({ focused }) => <DrawerDropdown />,
+          drawerIcon: ({ focused }) => <DrawerDropdown id={1} />,
 
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
@@ -122,23 +115,16 @@ const AppDrawerNavigator = () => {
       <DrawerNavigator.Screen
         name="locker"
         component={LockerScreen}
+        listeners={{ drawerItemPress: (e) => e.preventDefault() }}
         options={{
-          drawerItemStyle: {},
-
           title: "Lockers",
-          drawerIcon: ({ focused }) => (
-            <MaterialIcons
-              name="lock-outline"
-              size={28}
-              color={focused ? Colors.white : Colors.black}
-            />
-          ),
+          drawerIcon: () => <DrawerDropdown id={2} />,
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
         }}
       />
       <DrawerNavigator.Screen
-        name="stack"
+        name="stake"
         component={StackScreen}
         options={{
           title: "Stake",
@@ -282,11 +268,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
-  },
-  dropIcon: { height: 25, width: 25 },
-  text: {
-    color: Colors.text,
-    fontWeight: "bold",
   },
 });
 export default AppDrawerNavigator;
