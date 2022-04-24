@@ -5,6 +5,7 @@ import { Text } from "react-native";
 import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
 import GlobalStyles from "../../constants/GlobalStyles";
+import Title from "../../components/Title";
 
 function DefiExchange(props) {
   const arrayData = [
@@ -78,10 +79,30 @@ function DefiExchange(props) {
   // const isSmall = Layout.isSmallDevice;
 
   return (
-    <View style={GlobalStyles.center}>
-      <Text>This the DefiEnchange Screen </Text>
+    <View style={styles.container}>
+      <View style={styles.subHeader}>
+        <Title style={styles.title}>Defiexchange</Title>
+      </View>
+      <Text>This the DefiExchange Screen </Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+  },
+  subHeader: {
+    backgroundColor: Colors.white,
+    width: "100%",
+    height: "6%",
+    justifyContent: "center",
+  },
+  title: {
+    marginLeft: "6%",
+    marginBottom: "1%",
+  },
+});
 
 export default DefiExchange;

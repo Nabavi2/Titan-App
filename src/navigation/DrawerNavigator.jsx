@@ -74,7 +74,7 @@ const AppDrawerNavigator = () => {
         name="home"
         component={BottomTabNavigator}
         options={{
-          title: "Homepage",
+          title: "Home",
           drawerIcon: ({ focused }) => (
             <Feather
               name="home"
@@ -89,10 +89,10 @@ const AppDrawerNavigator = () => {
         }}
       />
       <DrawerNavigator.Screen
-        name="defienchange"
+        name="defiexchange"
         component={DefiExchange}
         options={{
-          title: "defienchange",
+          title: "DeFi Exchange",
           drawerIcon: ({ focused }) => (
             <Foundation name="graph-bar" size={24} color={Colors.black} />
           ),
@@ -104,10 +104,10 @@ const AppDrawerNavigator = () => {
       />
 
       <DrawerNavigator.Screen
-        name="lounchpad"
+        name="launchpad"
         component={LounchpadScreen}
         options={{
-          title: "Loungepad",
+          title: "Launchpad",
           drawerIcon: ({ focused }) => (
             <MaterialCommunityIcons
               name="rocket-launch-outline"
@@ -123,7 +123,9 @@ const AppDrawerNavigator = () => {
         name="locker"
         component={LockerScreen}
         options={{
-          title: "Locker",
+          drawerItemStyle: {},
+
+          title: "Lockers",
           drawerIcon: ({ focused }) => (
             <MaterialIcons
               name="lock-outline"
@@ -188,12 +190,12 @@ const AppDrawerNavigator = () => {
             focused ? (
               <Image
                 source={require("../../assets/wup.png")}
-                style={{ width: "12%", height: "60%" }}
+                style={{ width: "12%", height: "68%" }}
               />
             ) : (
               <Image
                 source={require("../../assets/up.png")}
-                style={{ width: "12%", height: "60%" }}
+                style={{ width: "12%", height: "68%" }}
               />
             ),
           headerRight: () => <HeaderRightButton />,

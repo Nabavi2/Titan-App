@@ -3,20 +3,23 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppDrawerNavigator from "./DrawerNavigator";
+import Landing from "../screens/Landing";
 
 const Stack = createNativeStackNavigator();
 
 const AppNavigation = (props) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="landing">
+      <Stack.Navigator
+        initialRouteName="dashboard"
+        screenOptions={{ headerShown: false }}
+      >
         <Stack.Screen
-          name="landing"
+          name="dashboard"
           component={AppDrawerNavigator}
-          options={{
-            headerShown: false,
-          }}
+          options={{}}
         />
+        <Stack.Screen name="landing" component={Landing} options={{}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
