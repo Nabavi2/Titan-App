@@ -87,7 +87,7 @@ const AppDrawerNavigator = () => {
         }}
       />
       <DrawerNavigator.Screen
-        name="defixchange"
+        name="defexchange"
         component={DefiExchange}
         options={{
           title: "DefiExchange",

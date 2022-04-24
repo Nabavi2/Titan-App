@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+
 import Colors from "../constants/Colors";
 import AppText from "./AppText";
 

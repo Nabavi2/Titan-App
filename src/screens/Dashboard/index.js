@@ -15,79 +15,86 @@ import { AntDesign, Feather } from "@expo/vector-icons";
 import CustomButton from "../../components/CustomButton";
 function Dashboard(props) {
   return (
+    // <View style={styles.container}>
+    //   <View style={styles.subHeader}>
+    //     <Title style={styles.title}>Dashboard</Title>
+    //   </View>
+
+    //   <CardContainer style={styles.card}>
+    //     {/* Image section */}
+    //     <View style={styles.cardImageWrapper}>
+    //       <Image
+    //         resizeMode="cover"
+    //         source={require("../../../assets/boy.png")}
+    //         style={styles.cardImage}
+    //       />
+    //       <AppText style={styles.cardImageText}>
+    //         Sale starts in : {"\n  "}00:09:17:46
+    //       </AppText>
+    //     </View>
+    //     {/* Card title section */}
+    //     <View style={styles.cardTitle}>
+    //       <Subtitle style={styles.cardTitleText}>GOLD</Subtitle>
+    //       <View style={styles.timeBageWrapper}>
+    //         <View style={styles.timeBageOp} />
+    //         <View style={styles.timeBage}>
+    //           <Feather name="clock" size={10} color={Colors.secondary} />
+    //           <AppText style={styles.timeBageText}>Upcoming</AppText>
+    //         </View>
+    //       </View>
+    //     </View>
+    //     {/* Range section */}
+    //     <View style={styles.rangeContainer}>
+    //       <AppText style={styles.rangeTitle}>Soft/Hard Cap:</AppText>
+    //       <AppText style={styles.rangeAmount}>10-20 BNB</AppText>
+    //     </View>
+    //     {/* About section */}
+    //     <View style={styles.aboutContainer}>
+    //       <AppText style={styles.about}>About</AppText>
+    //       <AppText style={styles.aboutDescription}>
+    //         Lorem ipsum dolor sit amet. Ea quia nostrum aut dolore tempore ad
+    //         velit numquam et praesentium autem eum explicabo eius. Et ullam
+    //         porro qui consequatur alias ut deserunt totam 33 quidem consectetur.
+    //         Id quia temporibus qui ratione{" "}
+    //       </AppText>
+    //     </View>
+    //     {/* Other view section */}
+    //     <View
+    //       style={{
+    //         // backgroundColor: "lightgreen",
+    //         width: "100%",
+    //         height: "20%",
+    //         alignItems: "center",
+    //       }}
+    //     >
+    //       <View
+    //         style={{
+    //           flexDirection: "row",
+    //           alignItems: "center",
+    //           marginTop: "2%",
+    //           marginBottom: "4%",
+    //         }}
+    //       >
+    //         <AppText style={{ fontSize: 6, color: Colors.primary }}>
+    //           View more
+    //         </AppText>
+    //         <AntDesign
+    //           name="down"
+    //           size={8}
+    //           color={Colors.primary}
+    //           style={{ marginLeft: "2%", marginTop: "2%" }}
+    //         />
+    //       </View>
+    //       <CustomButton title="View Presale" textStyle={{ fontSize: 8 }} />
+    //     </View>
+    //   </CardContainer>
+
+    //   <Text>{PixelRatio.get()}</Text>
+    // </View>
     <View style={styles.container}>
       <View style={styles.subHeader}>
         <Title style={styles.title}>Dashboard</Title>
       </View>
-      <CardContainer style={styles.card}>
-        {/* Image section */}
-        <View style={styles.cardImageWrapper}>
-          <Image
-            resizeMode="cover"
-            source={require("../../../assets/boy.png")}
-            style={styles.cardImage}
-          />
-          <AppText style={styles.cardImageText}>
-            Sale starts in : {"\n  "}00:09:17:46
-          </AppText>
-        </View>
-        {/* Card title section */}
-        <View style={styles.cardTitle}>
-          <Subtitle style={styles.cardTitleText}>GOLD</Subtitle>
-          <View style={styles.timeBageWrapper}>
-            <View style={styles.timeBageOp} />
-            <View style={styles.timeBage}>
-              <Feather name="clock" size={10} color={Colors.secondary} />
-              <AppText style={styles.timeBageText}>Upcoming</AppText>
-            </View>
-          </View>
-        </View>
-        {/* Range section */}
-        <View style={styles.rangeContainer}>
-          <AppText style={styles.rangeTitle}>Soft/Hard Cap:</AppText>
-          <AppText style={styles.rangeAmount}>10-20 BNB</AppText>
-        </View>
-        {/* About section */}
-        <View style={styles.aboutContainer}>
-          <AppText style={styles.about}>About</AppText>
-          <AppText style={styles.aboutDescription}>
-            Lorem ipsum dolor sit amet. Ea quia nostrum aut dolore tempore ad
-            velit numquam et praesentium autem eum explicabo eius. Et ullam
-            porro qui consequatur alias ut deserunt totam 33 quidem consectetur.
-            Id quia temporibus qui ratione{" "}
-          </AppText>
-        </View>
-        {/* Other view section */}
-        <View
-          style={{
-            // backgroundColor: "lightgreen",
-            width: "100%",
-            height: "20%",
-            alignItems: "center",
-          }}
-        >
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              marginTop: "2%",
-              marginBottom: "4%",
-            }}
-          >
-            <AppText style={{ fontSize: 6, color: Colors.primary }}>
-              View more
-            </AppText>
-            <AntDesign
-              name="down"
-              size={8}
-              color={Colors.primary}
-              style={{ marginLeft: "2%", marginTop: "2%" }}
-            />
-          </View>
-          <CustomButton title="View Presale" textStyle={{ fontSize: 8 }} />
-        </View>
-      </CardContainer>
-      <Text>{PixelRatio.get()}</Text>
     </View>
   );
 }
