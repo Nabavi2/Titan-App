@@ -40,7 +40,8 @@ function DrawerDropdown({ id }) {
           <Pressable
             onPressIn={() => setStatus(!status)}
             style={{
-              marginLeft: "20%",
+              // marginLeft: "20%",
+
               justifyContent: "center",
               backgroundColor: "red",
             }}
@@ -135,7 +136,8 @@ const styles = StyleSheet.create({
     height: 10,
   },
   dropIcon: {
-    right: 0,
+    // marginLeft: "20%",
+    width: "100%",
   },
 });
 export default DrawerDropdown;
