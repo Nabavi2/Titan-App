@@ -90,14 +90,11 @@ const AppDrawerNavigator = () => {
         name="defixchange"
         component={DefiExchange}
         options={{
-          title: "DeFi Exchange",
           drawerIcon: ({ focused }) => (
             <Foundation name="graph-bar" size={24} color={Colors.black} />
           ),
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
-
-          headerTitleStyle: { color: Colors.header },
         }}
       />
 
