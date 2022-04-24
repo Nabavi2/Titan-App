@@ -1,10 +1,9 @@
-import { Foundation, Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Image, StyleSheet } from "react-native";
 import { useNavigation, DrawerActions } from "@react-navigation/native";
+import { Foundation } from "@expo/vector-icons";
 
 import IconContainer from "./IconContainer";
-
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 

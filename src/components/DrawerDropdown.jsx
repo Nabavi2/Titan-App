@@ -1,10 +1,15 @@
+import React, { useState } from "react";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
-import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import Layout from "../constants/Layout";
+import AppText from "./AppText";
 
 import Colors from "../constants/Colors";
 
-function DrawerDropdown(props) {
+function DrawerDropdown({id}) {
+  const size = Layout.window;
+  const navigation = useNavigation;
   const [status, setStatus] = useState(false);
   return (
     <View>
@@ -12,12 +17,17 @@ function DrawerDropdown(props) {
         style={{ flexDirection: "row" }}
         onPressIn={() => setStatus(!status)}
       >
-        <MaterialCommunityIcons
+      { id===1? <MaterialCommunityIcons
           name="rocket-launch-outline"
           size={24}
-          color={focused ? Colors.white : Colors.black}
-        />
-        <Text style={[styles.text, { marginLeft: 30 }]}>Lounchpad</Text>
+          color={status ? Colors.white : Colors.black}
+        />:
+         <MaterialIcons
+              name="lock-outline"
+              size={28}
+              color={focused ? Colors.white : Colors.black}
+            />}
+        <AppText style={[styles.text, { marginLeft: 30 }]}>Lounchpad</AppText>
         {!status ? (
           <Pressable
             onPressIn={() => setStatus(!status)}
@@ -30,8 +40,7 @@ function DrawerDropdown(props) {
               style={styles.dropIcon}
             />
           </Pressable>
-        ) : null}
-        {status ? (
+        ) : (
           <Pressable
             onPressIn={() => setStatus(!status)}
             style={{ marginLeft: size.width * 0.16 }}
@@ -43,11 +52,11 @@ function DrawerDropdown(props) {
               style={styles.dropIcon}
             />
           </Pressable>
-        ) : null}
+        )}
       </Pressable>
       <Pressable style={{ marginLeft: size.width * 0.2 }}>
         {status ? (
-          <Column>
+          <View>
             <Pressable
               style={{
                 marginVertical: 8,
@@ -96,7 +105,7 @@ function DrawerDropdown(props) {
                 Manage Presal
               </Text>
             </Pressable>
-          </Column>
+          </View>
         ) : null}
       </Pressable>
     </View>

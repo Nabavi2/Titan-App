@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, PixelRatio, Pressable, View } from "react-native";
+import { Image, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   widthPercentageToDP as wp,
@@ -14,8 +14,6 @@ import {
 } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
-import HomeScreen from "../screens/Home";
-import NFTScreen from "../screens/NFTScreen";
 import DefiExchange from "../screens/DefiEnchange";
 import Dashboard from "../screens/Dashboard";
 import MapScrollScreen from "../screens/MapScroll";
