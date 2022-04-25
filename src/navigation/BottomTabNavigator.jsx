@@ -97,12 +97,17 @@ export function BottomTabNavigator() {
         })}
       />
       <bottomTabNavigator.Screen
-        name="defienchange"
+        name="defiexchange"
         component={DefiExchange}
         options={() => ({
           title: "defienchange",
           tabBarIcon: ({ color, focused }) => (
-            <View style={styles.DEButton}>
+            <View
+              style={[
+                styles.DEButton,
+                { borderColor: focused ? Colors.primary : color },
+              ]}
+            >
               <FontAwesome
                 name="bitcoin"
                 size={24}
@@ -117,7 +122,6 @@ export function BottomTabNavigator() {
 }
 const styles = StyleSheet.create({
   DEButton: {
-    borderColor: focused ? Colors.primary : color,
     borderWidth: 3.5,
     width: wp(PixelRatio.get() > 2 ? 8 : 7),
     height: hp(4),
