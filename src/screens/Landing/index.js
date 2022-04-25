@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
-import AppDrawerNavigator from "../../navigation/DrawerNavigator";
+import { StatusBar } from "expo-status-bar";
 
 function Landing(props) {
   const navigation = useNavigation();

@@ -29,6 +29,7 @@ import SupportScreen from "../screens/Support";
 import AdvertiseScreen from "../screens/Advertise";
 import LounchpadComponent from "../components/LounchpadComponent";
 import DrawerDropdown from "../components/DrawerDropdown";
+import { StatusBar } from "expo-status-bar";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
@@ -87,7 +88,7 @@ const AppDrawerNavigator = () => {
         }}
       />
       <DrawerNavigator.Screen
-        name="defixchange"
+        name="defiexchange"
         component={DefiExchange}
         options={{
           title: "DefiExchange",

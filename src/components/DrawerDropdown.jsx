@@ -13,7 +13,7 @@ import Colors from "../constants/Colors";
 
 function DrawerDropdown({ id }) {
   const size = Layout.window;
-  const navigation = useNavigation;
+  const navigation = useNavigation();
   const [status, setStatus] = useState(false);
   return (
     <View>
@@ -25,7 +25,7 @@ function DrawerDropdown({ id }) {
           <MaterialCommunityIcons
             name="rocket-launch-outline"
             size={24}
-            color={status ? Colors.white : Colors.black}
+            color={Colors.black}
           />
         ) : (
           <MaterialIcons name="lock-outline" size={28} color={Colors.black} />
@@ -50,7 +50,7 @@ function DrawerDropdown({ id }) {
         {!status ? (
           <Pressable
             onPressIn={() => setStatus(!status)}
-            style={{ marginLeft: size.width * 0.15 }}
+            style={{ marginLeft: size.width * 0.12 }}
           >
             <AntDesign
               name="caretright"
@@ -62,7 +62,7 @@ function DrawerDropdown({ id }) {
         ) : (
           <Pressable
             onPressIn={() => setStatus(!status)}
-            style={{ marginLeft: size.width * 0.16 }}
+            style={{ marginLeft: size.width * 0.12 }}
           >
             <AntDesign
               name="caretdown"
@@ -81,7 +81,7 @@ function DrawerDropdown({ id }) {
                 marginVertical: 8,
                 marginLeft: -size.width * 0.07,
               }}
-              onPress={() => navigation.navigate("defexchange")}
+              onPress={() => navigation.navigate("defiexchange")}
             >
               <Text
                 style={[
@@ -97,7 +97,7 @@ function DrawerDropdown({ id }) {
                 marginVertical: 8,
                 marginLeft: -size.width * 0.065,
               }}
-              onPress={() => navigation.navigate("home")}
+              onPress={() => navigation.navigate("defiexchange")}
             >
               <Text
                 style={[
@@ -113,7 +113,7 @@ function DrawerDropdown({ id }) {
                 marginVertical: 8,
                 marginLeft: -size.width * 0.065,
               }}
-              onPress={() => navigation.navigate("home")}
+              onPress={() => navigation.navigate("defiexchange")}
             >
               <Text
                 style={[
