@@ -22,8 +22,11 @@ function CustomModal({ children, onRequestClose, visible, isBig = false }) {
           styles.modalView,
           {
             height: isBig ? "91%" : "60%",
+<<<<<<< HEAD
             borderTopLeftRadius: size.width / 18,
             borderTopRightRadius: size.width / 18,
+=======
+>>>>>>> 8a6f1bf9938e0ce13607c20a8215e8100e363803
           },
         ]}
       >
@@ -38,6 +41,11 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingTop: 5,
     backgroundColor: Colors.white,
+<<<<<<< HEAD
+=======
+    borderTopLeftRadius: size.width / 18,
+    borderTopRightRadius: size.width / 18,
+>>>>>>> 8a6f1bf9938e0ce13607c20a8215e8100e363803
   },
 });
 export default CustomModal;

@@ -8,8 +8,12 @@ import Title from "../../components/Title";
 import DefiexchangeItem from "../../components/DefiexchangeItem";
 import CustomModal from "../../components/CustomModal";
 
+const size = Layout.window;
 function DefiExchange(props) {
+<<<<<<< HEAD
   const size = Layout.window;
+=======
+>>>>>>> 8a6f1bf9938e0ce13607c20a8215e8100e363803
   const [visible, setVisible] = useState(false);
   const data = [
     {
@@ -68,12 +72,18 @@ function DefiExchange(props) {
           />
         )}
       />
+<<<<<<< HEAD
       <View style={[styles.inputContainer, { width: size.width * 0.73 }]}>
         <Ionicons name="search-sharp" size={24} color={Colors.inputPropColor} />
         <TextInput
           placeholder="Search & add"
           style={{ width: size.width * 0.45 }}
         />
+=======
+      <View style={styles.inputContainer}>
+        <Ionicons name="search-sharp" size={24} color={Colors.inputPropColor} />
+        <TextInput placeholder="Search & add" style={styles.input} />
+>>>>>>> 8a6f1bf9938e0ce13607c20a8215e8100e363803
         <Text style={styles.inputText}>5/23 </Text>
         <View style={styles.saparator}></View>
         <Octicons
@@ -83,9 +93,15 @@ function DefiExchange(props) {
           style={{ marginLeft: 5 }}
         />
       </View>
+<<<<<<< HEAD
       <CustomModal isBig={true} onRequestClose={true} visible={visible}>
         <Text>afafdafdafadfsadsf</Text>
       </CustomModal>
+=======
+      {/* <CustomModal isBig={true} onRequestClose={true} visible={visible}>
+        <Text>afafdafd</Text>
+      </CustomModal> */}
+>>>>>>> 8a6f1bf9938e0ce13607c20a8215e8100e363803
     </View>
   );
 }
@@ -109,6 +125,10 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     height: 33,
+<<<<<<< HEAD
+=======
+    width: size.width * 0.73,
+>>>>>>> 8a6f1bf9938e0ce13607c20a8215e8100e363803
     alignSelf: "center",
     backgroundColor: Colors.white,
     elevation: 0.5,
@@ -119,7 +139,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 50,
   },
+<<<<<<< HEAD
   input: {},
+=======
+  input: {
+    width: size.width * 0.45,
+  },
+>>>>>>> 8a6f1bf9938e0ce13607c20a8215e8100e363803
   inputText: {
     color: Colors.inputPropColor,
     fontSize: 14,
