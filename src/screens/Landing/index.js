@@ -4,7 +4,6 @@ import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
-import AppDrawerNavigator from "../../navigation/DrawerNavigator";
 
 function Landing(props) {
   const navigation = useNavigation();

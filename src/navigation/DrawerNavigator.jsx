@@ -38,6 +38,7 @@ const AppDrawerNavigator = () => {
 
   return (
     <DrawerNavigator.Navigator
+      initialRouteName="defiexchange"
       drawerContent={(props) => {
         return (
           <View style={styles.container}>
@@ -87,13 +88,14 @@ const AppDrawerNavigator = () => {
         }}
       />
       <DrawerNavigator.Screen
-        name="defexchange"
+        name="defiexchange"
         component={DefiExchange}
         options={{
           title: "DefiExchange",
           drawerIcon: ({ focused }) => (
             <Foundation name="graph-bar" size={24} color={Colors.black} />
           ),
+          headerStyle: { backgroundColor: Colors.background, elevation: 1 },
           headerRight: () => <HeaderRightButton />,
           headerLeft: () => <HeaderLeft />,
         }}
