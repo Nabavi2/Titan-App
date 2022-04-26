@@ -6,7 +6,14 @@ import {
   MaterialIcons,
 } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { StyleSheet, View, StatusBar, Image, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  StatusBar,
+  Image,
+  ScrollView,
+  Pressable,
+} from "react-native";
 import { LinearProgress } from "react-native-elements";
 import {
   heightPercentageToDP as hp,
@@ -19,10 +26,9 @@ import CustomButton from "../../../components/CustomButton";
 import Subtitle from "../../../components/Subtitle";
 import Title from "../../../components/Title";
 import Colors from "../../../constants/Colors";
-import Layout from "../../../constants/Layout";
 import UpcomingBage from "./UpcomingBage";
 
-function ModalDetail({ image }) {
+function ModalDetail({ image, onRequestClose }) {
   const [value, setValue] = useState(0.2);
   return (
     <View style={styles.container}>
@@ -30,7 +36,9 @@ function ModalDetail({ image }) {
 
       {/* Header */}
       <View style={styles.header}>
-        <MaterialIcons name="keyboard-backspace" size={28} color="black" />
+        <Pressable onPress={onRequestClose}>
+          <MaterialIcons name="keyboard-backspace" size={28} color="black" />
+        </Pressable>
         <Ionicons name="ios-heart" size={26} color="#F24E1E" />
       </View>
       <ScrollView
@@ -151,6 +159,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: "5%",
     marginTop: "5%",
+    marginBottom: "3%",
   },
   image: {
     width: "25%",

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Image, Pressable, StatusBar, StyleSheet, View } from "react-native";
+import { AntDesign, Feather } from "@expo/vector-icons";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -9,7 +10,6 @@ import AppText from "../../../components/AppText";
 import Subtitle from "../../../components/Subtitle";
 import CardContainer from "../../../components/CardContainer";
 import CustomButton from "../../../components/CustomButton";
-import { AntDesign, Feather } from "@expo/vector-icons";
 import Colors from "../../../constants/Colors";
 import Modal from "react-native-modal";
 import ModalDetail from "./ModalDetail";
@@ -18,68 +18,73 @@ import Layout from "../../../constants/Layout";
 function Card({ image, time, title }) {
   const [showDetial, setShowDetail] = useState();
   return (
-    <Pressable onPress={() => setShowDetail(true)}>
-      <CardContainer style={styles.card}>
-        <Modal
-          isVisible={showDetial}
-          animationIn="slideInRight"
-          animationOut={"slideOutRight"}
-          style={styles.modalWrapper}
-          onBackButtonPress={() => setShowDetail(false)}
-        >
-          <ModalDetail image={image} />
-        </Modal>
-        {/* Image section */}
-        <View style={styles.cardImageWrapper}>
-          <Image resizeMode="cover" source={image} style={styles.cardImage} />
-          <AppText style={styles.cardImageText}>
-            Sale starts in : {"\n  "}
-            {time}
-          </AppText>
-        </View>
-        {/* Card title section */}
-        <View style={styles.cardTitle}>
-          <Subtitle style={styles.cardTitleText}>{title}</Subtitle>
-          <View style={styles.timeBageWrapper}>
-            <View style={styles.timeBageOp} />
-            <View style={styles.timeBage}>
-              <Feather name="clock" size={10} color={Colors.secondary} />
-              <AppText style={styles.timeBageText}>Upcoming</AppText>
-            </View>
+    <CardContainer style={styles.card}>
+      <Modal
+        isVisible={showDetial}
+        animationIn="slideInRight"
+        animationOut={"slideOutRight"}
+        style={styles.modalWrapper}
+        onBackButtonPress={() => setShowDetail(false)}
+      >
+        <ModalDetail
+          image={image}
+          onRequestClose={() => setShowDetail(false)}
+        />
+      </Modal>
+      {/* Image section */}
+      <View style={styles.cardImageWrapper}>
+        <Image resizeMode="cover" source={image} style={styles.cardImage} />
+        <AppText style={styles.cardImageText}>
+          Sale starts in : {"\n  "}
+          {time}
+        </AppText>
+      </View>
+      {/* Card title section */}
+      <View style={styles.cardTitle}>
+        <Subtitle style={styles.cardTitleText}>{title}</Subtitle>
+        <View style={styles.timeBageWrapper}>
+          <View style={styles.timeBageOp} />
+          <View style={styles.timeBage}>
+            <Feather name="clock" size={10} color={Colors.secondary} />
+            <AppText style={styles.timeBageText}>Upcoming</AppText>
           </View>
         </View>
-        {/* Range section */}
-        <View style={styles.rangeContainer}>
-          <AppText style={styles.rangeTitle}>Soft/Hard Cap:</AppText>
-          <AppText style={styles.rangeAmount}>10-20 BNB</AppText>
-        </View>
-        {/* About section */}
-        <View style={styles.aboutContainer}>
-          <AppText style={styles.about}>About</AppText>
-          <AppText style={styles.aboutDescription}>
-            Lorem ipsum dolor sit amet. Ea quia nostrum aut dolore tempore ad
-            velit numquam et praesentium autem eum explicabo eius. Et ullam
-            porro qui consequatur alias ut deserunt totam 33 quidem consectetur.
-            Id quia temporibus qui ratione{" "}
+      </View>
+      {/* Range section */}
+      <View style={styles.rangeContainer}>
+        <AppText style={styles.rangeTitle}>Soft/Hard Cap:</AppText>
+        <AppText style={styles.rangeAmount}>10-20 BNB</AppText>
+      </View>
+      {/* About section */}
+      <View style={styles.aboutContainer}>
+        <AppText style={styles.about}>About</AppText>
+        <AppText style={styles.aboutDescription}>
+          Lorem ipsum dolor sit amet. Ea quia nostrum aut dolore tempore ad
+          velit numquam et praesentium autem eum explicabo eius. Et ullam porro
+          qui consequatur alias ut deserunt totam 33 quidem consectetur. Id quia
+          temporibus qui ratione{" "}
+        </AppText>
+      </View>
+      {/* Other view section */}
+      <View style={styles.viewMore}>
+        <View style={styles.moreButton}>
+          <AppText style={{ fontSize: 6, color: Colors.primary }}>
+            View more
           </AppText>
+          <AntDesign
+            name="down"
+            size={8}
+            color={Colors.primary}
+            style={styles.moreIcon}
+          />
         </View>
-        {/* Other view section */}
-        <View style={styles.viewMore}>
-          <View style={styles.moreButton}>
-            <AppText style={{ fontSize: 6, color: Colors.primary }}>
-              View more
-            </AppText>
-            <AntDesign
-              name="down"
-              size={8}
-              color={Colors.primary}
-              style={styles.moreIcon}
-            />
-          </View>
-          <CustomButton title="View Presale" textStyle={styles.viewPresale} />
-        </View>
-      </CardContainer>
-    </Pressable>
+        <CustomButton
+          onPress={() => setShowDetail(true)}
+          title="View Presale"
+          textStyle={styles.viewPresale}
+        />
+      </View>
+    </CardContainer>
   );
 }
 

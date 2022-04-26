@@ -77,9 +77,3 @@ const styles = StyleSheet.create({
   },
 });
 export default Dashboard;
-
-const x = 23;
-const z = 45;
-console.log(
-  "this is the sud I also don't know that why the resolution of this is screen is correct indpendently.lsdjflsdjflksjdfljal;fkj;askldjflsadjflasdjfl;ksdjf;lksdjaflkdj fsdjf0wfjopir029384e=3="
-);
