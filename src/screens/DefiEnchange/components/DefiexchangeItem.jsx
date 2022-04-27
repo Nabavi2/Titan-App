@@ -1,20 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 
-import Colors from "../constants/Colors";
-import Layout from "../constants/Layout";
-
+import Colors from "../../../constants/Colors";
+import Layout from "../../../constants/Layout";
 const size = Layout.window;
 
-<<<<<<< HEAD
 function DefiexchangeItem({ title, number, subNumber, percentage, onPress }) {
   return (
     <Pressable style={styles.rowContainer} onPressIn={onPress}>
-=======
-function DefiexchangeItem({ title, number, subNumber, percentage,onPress }) {
-  return (
-    <Pressable style={styles.rowContainer} onPressIn={onPress} >
->>>>>>> 8a6f1bf9938e0ce13607c20a8215e8100e363803
       <Text style={styles.title}>{title}</Text>
       <View style={{ flexDirection: "column", alignItems: "flex-end" }}>
         <Text
