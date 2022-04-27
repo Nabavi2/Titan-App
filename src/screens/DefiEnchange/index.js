@@ -16,6 +16,7 @@ import DefiexchangeItem from "./components/DefiexchangeItem";
 import DefiModal from "./components/DefiModal";
 import InputAndDropdownExchange from "./components/InputAndDropdownExchange";
 import TokenDetails from "./components/TokenDetails";
+import ApeTransactions from "./components/ApeTransactions";
 
 const size = Layout.window;
 function DefiExchange(props) {
@@ -183,6 +184,7 @@ function DefiExchange(props) {
         <View
           style={[styles.separator, { borderWidth: 1, width: "90%" }]}
         ></View>
+        <ApeTransactions />
       </DefiModal>
     </View>
   );
