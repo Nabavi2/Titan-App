@@ -15,6 +15,7 @@ import Title from "../../components/Title";
 import DefiexchangeItem from "./components/DefiexchangeItem";
 import DefiModal from "./components/DefiModal";
 import InputAndDropdownExchange from "./components/InputAndDropdownExchange";
+import TokenDetails from "./components/TokenDetails";
 
 const size = Layout.window;
 function DefiExchange(props) {
@@ -175,6 +176,10 @@ function DefiExchange(props) {
             style={[styles.icon, { marginTop: 15 }]}
           />
         </Pressable>
+        <View
+          style={[styles.separator, { borderWidth: 1, width: "90%" }]}
+        ></View>
+        <TokenDetails />
         <View
           style={[styles.separator, { borderWidth: 1, width: "90%" }]}
         ></View>
