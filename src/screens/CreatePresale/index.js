@@ -11,7 +11,6 @@ import {
 
 import AppText from "../../components/AppText";
 import CardContainer from "../../components/CardContainer";
-import GlobalStyles from "../../constants/GlobalStyles";
 import Title from "../../components/Title";
 import LaptopPop from "../../../assets/laptopPop";
 import Colors from "../../constants/Colors";
