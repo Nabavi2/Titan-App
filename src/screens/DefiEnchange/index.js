@@ -88,7 +88,6 @@ function DefiExchange(props) {
             subNumber={item.subNumber}
             percentage={item.percentage}
             onPress={() => {
-              console.log("sfafdasfasfdafd", item.title);
               setItems({
                 title: item.title,
                 number: item.number,
