@@ -185,8 +185,7 @@ const styles = StyleSheet.create({
   viewPresale: { fontSize: 8 },
   modalWrapper: {
     margin: 0,
-    backgroundColor: "red",
-    height: Layout.window.height + StatusBar.currentHeight,
+    height: Layout.window.height,
   },
 });
 

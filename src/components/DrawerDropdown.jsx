@@ -81,7 +81,7 @@ function DrawerDropdown({ id }) {
                 marginVertical: 8,
                 marginLeft: -size.width * 0.07,
               }}
-              onPress={() => navigation.navigate("defiexchange")}
+              onPress={() => navigation.navigate("createPresale")}
             >
               <Text
                 style={[
