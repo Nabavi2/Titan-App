@@ -15,6 +15,7 @@ import MapScrollScreen from "../screens/MapScroll";
 import SubmitInfo from "../screens/SubmitInfo";
 import SupportScreen from "../screens/Support";
 import Layout from "../constants/Layout";
+import LockerScreen from "../screens/Lockers";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -23,7 +24,7 @@ export function BottomTabNavigator() {
   const { width, height } = Layout.window;
   return (
     <bottomTabNavigator.Navigator
-      initialRouteName="dashboard"
+      initialRouteName="locker"
       screenOptions={{
         tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: "#222222",
@@ -47,8 +48,8 @@ export function BottomTabNavigator() {
         })}
       />
       <bottomTabNavigator.Screen
-        name="lock"
-        component={MapScrollScreen}
+        name="locker"
+        component={LockerScreen}
         options={() => ({
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="lock-outline" size={34} color={color} />

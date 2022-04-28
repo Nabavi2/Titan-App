@@ -38,7 +38,7 @@ const AppDrawerNavigator = () => {
 
   return (
     <DrawerNavigator.Navigator
-      initialRouteName="defiexchange"
+      initialRouteName="home"
       drawerContent={(props) => {
         return (
           <View style={styles.container}>

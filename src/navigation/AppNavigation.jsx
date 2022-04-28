@@ -11,14 +11,10 @@ const AppNavigation = (props) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="defiexchange"
+        initialRouteName="home"
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen
-          name="defiexchange"
-          component={AppDrawerNavigator}
-          options={{}}
-        />
+        <Stack.Screen name="home" component={AppDrawerNavigator} options={{}} />
         <Stack.Screen name="landing" component={Landing} options={{}} />
       </Stack.Navigator>
     </NavigationContainer>
