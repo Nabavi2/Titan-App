@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View, Text } from "react-native";
+import { Image, StyleSheet, View, Text, ScrollView } from "react-native";
 
 import CustomButton from "../../../components/CustomButton";
 import Colors from "../../../constants/Colors";
@@ -7,32 +7,17 @@ import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
 
-function TopCart() {
-  return (
-    <View style={styles.container}>
-      <Image
-        source={require("../../../../assets/locker.png")}
-        style={styles.image}
-      />
-
-      <Text style={styles.text}>
-        Look your token with Apelock and earn/ withdraw
-      </Text>
-      <Text style={[styles.text, { marginBottom: 20 }]}>
-        rewards whilst locked
-      </Text>
-      <CustomButton
-        textStyle={styles.title}
-        title="View Token Lockers"
-        style={styles.button}
-      ></CustomButton>
-    </View>
-  );
+function SubCart() {
+  return <View style={styles.container}>
+      <View>
+          
+      </View>
+  </View>;
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: size.height * 0.35,
+    height: size.height * 0.8,
     width: size.width * 0.9,
     backgroundColor: Colors.primary,
     borderRadius: 20,
@@ -42,7 +27,7 @@ const styles = StyleSheet.create({
     margin: 15,
   },
   image: {
-    height: size.height * 0.2,
+    height: size.height * 0.23,
     width: size.width * 0.4,
     alignSelf: "center",
     marginTop: -20,
@@ -59,9 +44,9 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 10,
     width: size.width * 0.55,
-    height: size.height * 0.05,
+    height: size.height * 0.06,
     backgroundColor: Colors.inputBackground,
   },
 });
 
-export default TopCart;
+export default SubCart;

@@ -20,7 +20,12 @@ function LockerScreen(props) {
     <View style={styles.constainer}>
       <TopCart />
       <View style={[styles.inputContainer, { width: size.width * 0.8 }]}>
-        <Ionicons name="search-sharp" size={24} color={Colors.primary} />
+        <Ionicons
+          name="search-sharp"
+          size={24}
+          color={Colors.primary}
+          style={{ marginLeft: -8 }}
+        />
         <TextInput
           placeholder="Search & add"
           style={{ width: size.width * 0.45 }}
@@ -51,7 +56,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: Colors.primary,
-    width: size.width * 0.25,
+    width: size.width * 0.27,
     borderRadius: 15,
     height: "100%",
     marginRight: -15,
