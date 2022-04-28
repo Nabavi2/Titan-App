@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Colors.white,
+    marginBottom: "2%",
+    fontSize: 15,
+    fontFamily: "vietnamMedium",
   },
 });
 

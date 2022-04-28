@@ -15,6 +15,7 @@ import MapScrollScreen from "../screens/MapScroll";
 import SubmitInfo from "../screens/SubmitInfo";
 import SupportScreen from "../screens/Support";
 import Layout from "../constants/Layout";
+import DashboardNavigation from "./DashboardNavigation";
 import LockerScreen from "../screens/Lockers";
 
 const bottomTabNavigator = createBottomTabNavigator();
@@ -24,7 +25,7 @@ export function BottomTabNavigator() {
   const { width, height } = Layout.window;
   return (
     <bottomTabNavigator.Navigator
-      initialRouteName="locker"
+      initialRouteName="dashboard"
       screenOptions={{
         tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: "#222222",
@@ -42,6 +43,7 @@ export function BottomTabNavigator() {
         name="dashboard"
         component={Dashboard}
         options={() => ({
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <Feather name="grid" size={34} color={color} />
           ),

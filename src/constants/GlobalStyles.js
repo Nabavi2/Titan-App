@@ -1,4 +1,8 @@
 import { StyleSheet } from "react-native";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 
 import Colors from "./Colors";
 
@@ -13,6 +17,20 @@ const GlobalStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flex: 1,
+  },
+  inputStyle: {
+    width: "100%",
+    height: hp(6),
+    backgroundColor: Colors.inputBackground,
+    borderRadius: wp(100) / 80,
+    paddingHorizontal: "5%",
+    paddingVertical: "1%",
+  },
+  inputLabelStyle: {
+    fontSize: 10,
+    fontFamily: "vietnam",
+    color: Colors.primary,
+    opacity: 0.6,
   },
 });
 

@@ -9,6 +9,7 @@ function Subtitle({ children, style }) {
 const styles = StyleSheet.create({
   subtitle: {
     fontSize: 15,
+    fontFamily: "vietnamMedium",
   },
 });
 

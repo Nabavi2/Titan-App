@@ -50,7 +50,7 @@ function DrawerDropdown({ id }) {
         {!status ? (
           <Pressable
             onPressIn={() => setStatus(!status)}
-            style={{ marginLeft: size.width * 0.15 }}
+            style={{ marginLeft: size.width * 0.12 }}
           >
             <AntDesign
               name="caretright"
@@ -62,7 +62,7 @@ function DrawerDropdown({ id }) {
         ) : (
           <Pressable
             onPressIn={() => setStatus(!status)}
-            style={{ marginLeft: size.width * 0.16 }}
+            style={{ marginLeft: size.width * 0.12 }}
           >
             <AntDesign
               name="caretdown"
@@ -81,7 +81,7 @@ function DrawerDropdown({ id }) {
                 marginVertical: 8,
                 marginLeft: -size.width * 0.07,
               }}
-              onPress={() => navigation.navigate("defiexchange")}
+              onPress={() => navigation.navigate("createPresale")}
             >
               <Text
                 style={[
@@ -97,7 +97,7 @@ function DrawerDropdown({ id }) {
                 marginVertical: 8,
                 marginLeft: -size.width * 0.065,
               }}
-              onPress={() => navigation.navigate("home")}
+              onPress={() => navigation.navigate("defiexchange")}
             >
               <Text
                 style={[
@@ -113,7 +113,7 @@ function DrawerDropdown({ id }) {
                 marginVertical: 8,
                 marginLeft: -size.width * 0.065,
               }}
-              onPress={() => navigation.navigate("home")}
+              onPress={() => navigation.navigate("defiexchange")}
             >
               <Text
                 style={[

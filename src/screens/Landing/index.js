@@ -20,7 +20,7 @@ function Landing(props) {
           <Pressable
             style={styles.primaryButton}
             onPress={() => {
-              navigation.navigate("dashboard");
+              navigation.navigate("home");
             }}
           >
             <Text style={styles.primaryButtonText}>Launchpad</Text>

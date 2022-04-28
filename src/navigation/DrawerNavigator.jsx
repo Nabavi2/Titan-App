@@ -29,6 +29,8 @@ import SupportScreen from "../screens/Support";
 import AdvertiseScreen from "../screens/Advertise";
 import LounchpadComponent from "../components/LounchpadComponent";
 import DrawerDropdown from "../components/DrawerDropdown";
+import { StatusBar } from "expo-status-bar";
+import CreatePresale from "../screens/CreatePresale";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
@@ -59,6 +61,8 @@ const AppDrawerNavigator = () => {
         drawerActiveTintColor: Colors.white,
         drawerActiveBackgroundColor: Colors.primary,
         headerTintColor: Colors.white,
+        headerRight: () => <HeaderRightButton />,
+        headerLeft: () => <HeaderLeft />,
         drawerInactiveTintColor: Colors.text,
         drawerInactiveBackgroundColor: Colors.white,
         headerShadowVisible: false,
@@ -81,8 +85,6 @@ const AppDrawerNavigator = () => {
               color={focused ? Colors.white : Colors.black}
             />
           ),
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
 
           headerTitleStyle: { color: Colors.white },
         }}
@@ -95,9 +97,6 @@ const AppDrawerNavigator = () => {
           drawerIcon: ({ focused }) => (
             <Foundation name="graph-bar" size={24} color={Colors.black} />
           ),
-          headerStyle: { backgroundColor: Colors.background, elevation: 1 },
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
         }}
       />
 
@@ -107,9 +106,6 @@ const AppDrawerNavigator = () => {
         listeners={{ drawerItemPress: (e) => e.preventDefault() }}
         options={{
           drawerIcon: ({ focused }) => <DrawerDropdown id={1} />,
-
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
         }}
       />
       <DrawerNavigator.Screen
@@ -119,8 +115,6 @@ const AppDrawerNavigator = () => {
         options={{
           title: "Lockers",
           drawerIcon: () => <DrawerDropdown id={2} />,
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
         }}
       />
       <DrawerNavigator.Screen
@@ -142,8 +136,6 @@ const AppDrawerNavigator = () => {
               />
             </View>
           ),
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
         }}
       />
       <DrawerNavigator.Screen
@@ -158,8 +150,6 @@ const AppDrawerNavigator = () => {
               color={focused ? Colors.white : Colors.black}
             />
           ),
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
         }}
       />
       <DrawerNavigator.Screen
@@ -179,8 +169,6 @@ const AppDrawerNavigator = () => {
                 style={{ width: "12%", height: "68%" }}
               />
             ),
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
         }}
       />
       <DrawerNavigator.Screen
@@ -195,8 +183,6 @@ const AppDrawerNavigator = () => {
               color={focused ? Colors.white : Colors.black}
             />
           ),
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
         }}
       />
       <DrawerNavigator.Screen
@@ -211,8 +197,6 @@ const AppDrawerNavigator = () => {
               color={focused ? Colors.white : Colors.black}
             />
           ),
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
         }}
       />
       <DrawerNavigator.Screen
@@ -227,8 +211,6 @@ const AppDrawerNavigator = () => {
               color={focused ? Colors.white : Colors.black}
             />
           ),
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
         }}
       />
       <DrawerNavigator.Screen
@@ -243,8 +225,15 @@ const AppDrawerNavigator = () => {
               color={focused ? Colors.white : Colors.black}
             />
           ),
-          headerRight: () => <HeaderRightButton />,
-          headerLeft: () => <HeaderLeft />,
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="createPresale"
+        component={CreatePresale}
+        options={{
+          drawerItemStyle: {
+            display: "none",
+          },
         }}
       />
     </DrawerNavigator.Navigator>
