@@ -4,7 +4,6 @@ import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
-import { StatusBar } from "expo-status-bar";
 
 function Landing(props) {
   const navigation = useNavigation();
@@ -21,7 +20,7 @@ function Landing(props) {
           <Pressable
             style={styles.primaryButton}
             onPress={() => {
-              navigation.navigate("dashboard");
+              navigation.navigate("home");
             }}
           >
             <Text style={styles.primaryButtonText}>Launchpad</Text>

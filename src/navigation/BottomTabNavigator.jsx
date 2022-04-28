@@ -1,17 +1,12 @@
 import React from "react";
-import { Image, PixelRatio, View } from "react-native";
+import { Image, PixelRatio, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { DrawerActions, useNavigation } from "@react-navigation/native";
-import {
-  MaterialIcons,
-  AntDesign,
-  Feather,
-  FontAwesome,
-} from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import { MaterialIcons, Feather, FontAwesome } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
 import DefiExchange from "../screens/DefiEnchange";
@@ -21,6 +16,7 @@ import SubmitInfo from "../screens/SubmitInfo";
 import SupportScreen from "../screens/Support";
 import Layout from "../constants/Layout";
 import DashboardNavigation from "./DashboardNavigation";
+import LockerScreen from "../screens/Lockers";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -54,8 +50,8 @@ export function BottomTabNavigator() {
         })}
       />
       <bottomTabNavigator.Screen
-        name="lock"
-        component={MapScrollScreen}
+        name="locker"
+        component={LockerScreen}
         options={() => ({
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="lock-outline" size={34} color={color} />
@@ -70,18 +66,7 @@ export function BottomTabNavigator() {
         component={SupportScreen}
         options={() => ({
           tabBarIcon: ({ color }) => (
-            <View
-              style={{
-                width: wp(15),
-                height: "100%",
-                borderRadius: wp(15) / 2,
-                backgroundColor: Colors.primary,
-                alignItems: "center",
-                justifyContent: "center",
-                borderWidth: 2,
-                borderColor: "#D0BDEA",
-              }}
-            >
+            <View style={styles.supportButton}>
               <Feather name="home" size={36} color={Colors.white} />
             </View>
           ),
@@ -102,11 +87,7 @@ export function BottomTabNavigator() {
             ) : (
               <Image
                 source={require("../../assets/up.png")}
-                style={{
-                  width: "34%",
-                  height: "50%",
-                  marginTop: "1.5%",
-                }}
+                style={styles.image}
               />
             ),
 
@@ -119,21 +100,16 @@ export function BottomTabNavigator() {
         })}
       />
       <bottomTabNavigator.Screen
-        name="defienchange"
+        name="defiexchange"
         component={DefiExchange}
         options={() => ({
           title: "defienchange",
           tabBarIcon: ({ color, focused }) => (
             <View
-              style={{
-                borderColor: focused ? Colors.primary : color,
-                borderWidth: 3.5,
-                width: wp(PixelRatio.get() > 2 ? 8 : 7),
-                height: hp(4),
-                borderRadius: wp(8) / 2,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+              style={[
+                styles.DEButton,
+                { borderColor: focused ? Colors.primary : color },
+              ]}
             >
               <FontAwesome
                 name="bitcoin"
@@ -147,3 +123,28 @@ export function BottomTabNavigator() {
     </bottomTabNavigator.Navigator>
   );
 }
+const styles = StyleSheet.create({
+  DEButton: {
+    borderWidth: 3.5,
+    width: wp(PixelRatio.get() > 2 ? 8 : 7),
+    height: hp(4),
+    borderRadius: wp(8) / 2,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  supportButton: {
+    width: wp(15),
+    height: "100%",
+    borderRadius: wp(15) / 2,
+    backgroundColor: Colors.primary,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 2,
+    borderColor: "#D0BDEA",
+  },
+  image: {
+    width: "34%",
+    height: "50%",
+    marginTop: "1.5%",
+  },
+});

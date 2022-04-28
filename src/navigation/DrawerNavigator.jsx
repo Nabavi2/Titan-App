@@ -1,5 +1,4 @@
 import { Image, View, SafeAreaView, StyleSheet, Text } from "react-native";
-
 import {
   FontAwesome5,
   MaterialIcons,
@@ -13,7 +12,8 @@ import {
   DrawerItemList,
 } from "@react-navigation/drawer";
 import { BottomTabNavigator } from "./BottomTabNavigator";
-import { useNavigation, DrawerActions } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
+
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 import DefiExchange from "../screens/DefiEnchange";
@@ -40,6 +40,7 @@ const AppDrawerNavigator = () => {
 
   return (
     <DrawerNavigator.Navigator
+      initialRouteName="home"
       drawerContent={(props) => {
         return (
           <View style={styles.container}>

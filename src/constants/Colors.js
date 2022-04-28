@@ -35,6 +35,8 @@ export default {
   tint: primary,
   tabIconDefault: "#afb2b5",
   black: "#000",
+  inputPropColor: "#767676",
+  red: "#c74545",
   ...greens,
   ...blues,
   ...browns,

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import {
   AntDesign,
   MaterialCommunityIcons,
   MaterialIcons,
 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+
 import Layout from "../constants/Layout";
 import AppText from "./AppText";
-
 import Colors from "../constants/Colors";
 
 function DrawerDropdown({ id }) {

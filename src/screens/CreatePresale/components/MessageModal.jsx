@@ -8,8 +8,10 @@ import AppText from "../../../components/AppText";
 import JumpingWoman from "../../../../assets/jumpingWoman";
 import Colors from "../../../constants/Colors";
 import CustomButton from "../../../components/CustomButton";
+import { useNavigation } from "@react-navigation/native";
 
 function MessageModal({ onRequestClose, isVisible }) {
+  const navigation = useNavigation();
   return (
     <Modal
       onBackButtonPress={onRequestClose}
@@ -29,7 +31,14 @@ function MessageModal({ onRequestClose, isVisible }) {
         <AppText style={styles.message}>
           You have sucessfully created your presale.
         </AppText>
-        <CustomButton title={"GO TO DASHBOARD"} style={styles.buttton} />
+        <CustomButton
+          title={"GO TO DASHBOARD"}
+          style={styles.button}
+          onPress={() => {
+            onRequestClose();
+            navigation.navigate("dashboard");
+          }}
+        />
       </View>
     </Modal>
   );
@@ -37,8 +46,8 @@ function MessageModal({ onRequestClose, isVisible }) {
 
 const styles = StyleSheet.create({
   container: {
-    width: "65%",
-    height: "38%",
+    width: "70%",
+    height: "40%",
     padding: "5%",
     backgroundColor: "white",
     borderRadius: hp(100) / 40,
@@ -65,9 +74,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingHorizontal: "5%",
   },
-  buttton: {
+  button: {
     width: "90%",
-    height: "19%",
+    height: "18%",
     marginTop: " 15%",
     borderRadius: hp(100) / 90,
   },
