@@ -24,7 +24,7 @@ function LockerScreen(props) {
     },
     {
       title: "GOLD",
-      image: require("../../../assets/test.svg"),
+      image: require("../../../assets/em.png"),
     },
     {
       title: "Bayd",
