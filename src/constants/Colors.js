@@ -28,7 +28,7 @@ export default {
   white: "#FFF",
   black: "#000",
   text: "#222222",
-  inputBackground: "#CED4FF",
+  inputBackground: "#B4BDFF",
   background: "#F2F6FA",
   ModalBg: "#f8f8f8",
   bageBg: "#d8d8d8",
