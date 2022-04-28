@@ -6,8 +6,17 @@ import {
   Text,
   FlatList,
   Pressable,
+  Image,
 } from "react-native";
-import { AntDesign, Foundation, Ionicons, Octicons } from "@expo/vector-icons";
+import {
+  AntDesign,
+  Entypo,
+  Feather,
+  Foundation,
+  Ionicons,
+  MaterialCommunityIcons,
+  Octicons,
+} from "@expo/vector-icons";
 
 import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
@@ -17,12 +26,14 @@ import DefiModal from "./components/DefiModal";
 import InputAndDropdownExchange from "./components/InputAndDropdownExchange";
 import TokenDetails from "./components/TokenDetails";
 import ApeTransactions from "./components/ApeTransactions";
+import DefiGraphModal from "./components/DefiGraphModal";
 
 const size = Layout.window;
 function DefiExchange(props) {
   const size = Layout.window;
   const [visible, setVisible] = useState(false);
   const [items, setItems] = useState({});
+  const [showGhraphModal, setShowGraphModal] = useState(false);
   const data = [
     {
       id: "1",
@@ -96,7 +107,7 @@ function DefiExchange(props) {
           style={{ width: size.width * 0.45 }}
         />
         <Text style={styles.inputText}>5/23 </Text>
-        <View style={styles.saparator}></View>
+        <View style={styles.verticalSaparator}></View>
         <Octicons
           name="settings"
           size={24}
@@ -154,6 +165,7 @@ function DefiExchange(props) {
             alignSelf: "center",
             justifyContent: "center",
           }}
+          onPressIn={() => setShowGraphModal(true)}
         >
           <Foundation
             name="graph-bar"
@@ -185,6 +197,65 @@ function DefiExchange(props) {
           style={[styles.separator, { borderWidth: 1, width: "90%" }]}
         ></View>
         <ApeTransactions />
+        <DefiGraphModal
+          isBig={true}
+          onRequestClose={() => setShowGraphModal(false)}
+          visible={showGhraphModal}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              paddingHorizontal: 10,
+              backgroundColor: Colors.background,
+            }}
+          >
+            <Pressable onPressIn={() => setShowGraphModal(false)}>
+              <Entypo name="cross" size={34} color="black" />
+            </Pressable>
+            <View style={{ flexDirection: "row" }}>
+              <Feather name="refresh-cw" size={24} color="black" />
+              <Pressable>
+                <Image
+                  source={require("../../../assets/retry.png")}
+                  style={styles.iconImage}
+                />
+              </Pressable>
+            </View>
+          </View>
+          <View style={{ alignItems: "center", justifyContent: "center" }}>
+            <Image
+              source={require("../../../assets/image1.jpg")}
+              style={styles.image1}
+            />
+            <Image source={require("../../../assets/image2.jpg")} />
+            <View style={styles.footerRow}>
+              <Text>1d 1m 6m 1y</Text>
+
+              <View
+                style={[
+                  styles.verticalSaparator,
+                  { marginHorizontal: 10, width: 2 },
+                ]}
+              ></View>
+              <MaterialCommunityIcons
+                name="timetable"
+                size={34}
+                color="black"
+              />
+              <Text>09:04:67 (UTC)</Text>
+              <View
+                style={[
+                  styles.verticalSaparator,
+                  { marginHorizontal: 10, width: 1.5 },
+                ]}
+              ></View>
+              <Text> % </Text>
+              <Text> log </Text>
+              <Text style={{ color: Colors.red, marginLeft: 5 }}>auto</Text>
+            </View>
+          </View>
+        </DefiGraphModal>
       </DefiModal>
     </View>
   );
@@ -200,7 +271,6 @@ const styles = StyleSheet.create({
     height: "9%",
     justifyContent: "center",
     paddingBottom: 20,
-    // elevation:,
   },
   title: {
     marginLeft: "6%",
@@ -227,6 +297,11 @@ const styles = StyleSheet.create({
     color: Colors.inputPropColor,
     fontSize: 14,
   },
+  verticalSaparator: {
+    height: 25,
+    width: 1,
+    backgroundColor: Colors.inputPropColor,
+  },
   separator: {
     marginVertical: 15,
     borderWidth: 2,
@@ -244,7 +319,32 @@ const styles = StyleSheet.create({
     fontFamily: "vsBold",
     marginBottom: 20,
   },
-  icon: { marginTop: 10, marginLeft: 10 },
+  icon: {
+    marginTop: 10,
+    marginLeft: 10,
+  },
+  iconImage: {
+    height: 30,
+    width: 20,
+    marginRight: size.width * 0.03,
+    marginLeft: size.width * 0.05,
+  },
+  image1: {
+    width: "100%",
+    height: "5%",
+    alignSelf: "center",
+  },
+  image2: {
+    height: "85%",
+    width: "100%",
+    alignSelf: "center",
+  },
+  footerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 10,
+  },
 });
 
 export default DefiExchange;
