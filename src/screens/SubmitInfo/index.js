@@ -6,7 +6,7 @@ import GlobalStyles from "../../constants/GlobalStyles";
 function SubmitInfo(props) {
   return (
     <View style={GlobalStyles.center}>
-      <Text>SubmitInfo Screen</Text>
+      <Text>SubmitInfo Screen.....</Text>
     </View>
   );
 }
