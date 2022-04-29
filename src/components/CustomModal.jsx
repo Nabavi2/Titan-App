@@ -10,7 +10,7 @@ function CustomModal({
   onRequestClose,
   visible,
   isBig = false,
-  isLocker = false,
+  isLocker,
 }) {
   const size = Layout.window;
   return (
@@ -26,9 +26,9 @@ function CustomModal({
         style={[
           styles.modalView,
           {
-            height: isBig ? "91%" : isLocker ? "100%" : "60%",
-            borderTopLeftRadius: isLocker ? null : size.width / 18,
-            borderTopRightRadius: isLocker ? null : size.width / 18,
+            height: isLocker ? "100%" : isBig ? "91%" : "60%",
+            borderTopLeftRadius: isLocker ? 0 : size.width / 18,
+            borderTopRightRadius: isLocker ? 0 : size.width / 18,
             backgroundColor: isLocker ? Colors.background : Colors.white,
           },
         ]}

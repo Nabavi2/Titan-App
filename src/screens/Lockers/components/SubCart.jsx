@@ -146,21 +146,6 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
 
-  timeBageOp: {
-    backgroundColor: "#FFB500",
-    opacity: 0.3,
-    flex: 1,
-  },
-  timeBage: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    position: "absolute",
-    top: "18%",
-    left: "4%",
-    zIndex: 1,
-  },
   timeBageText: {
     marginTop: "-4%",
     fontSize: 5,

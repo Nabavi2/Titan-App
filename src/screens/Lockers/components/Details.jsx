@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, StyleSheet, Image, Pressable } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 
 import AppText from "../../../components/AppText";
 import CustomModal from "../../../components/CustomModal";
@@ -20,7 +20,12 @@ const Details = ({ image, visible, onRequestClose }) => {
           <AntDesign name="arrowleft" size={24} color={Colors.white} />
         </Pressable>
         <Image source={image} style={styles.image} />
+
+        <View style={styles.lockIcons}>
+          <MaterialIcons name="lock-outline" size={34} color={Colors.white} />
+        </View>
       </View>
+
       <View style={styles.whiteCart}>
         <View style={styles.column}>
           <View style={styles.row}>
@@ -66,7 +71,26 @@ const Details = ({ image, visible, onRequestClose }) => {
           </View>
           <View style={styles.row}>
             <AppText style={styles.text}>Lock Further</AppText>
-            <AppText style={styles.text2}>Lock Further</AppText>
+            <View style={styles.ydRow}>
+              <View style={styles.numberContainer}>
+                <AppText style={styles.text2}>30 Days </AppText>
+              </View>
+              <View style={styles.numberContainer}>
+                <AppText style={styles.text2}>1 Year </AppText>
+              </View>
+            </View>
+          </View>
+          <View style={styles.buttonRow}>
+            <Pressable style={styles.firstButton}>
+              <AppText style={{ color: Colors.white, fontSize: 10 }}>
+                Unlock
+              </AppText>
+            </Pressable>
+            <Pressable style={styles.secondButton}>
+              <AppText style={{ color: Colors.secondary, fontSize: 10 }}>
+                Withdraw Rewards
+              </AppText>
+            </Pressable>
           </View>
         </View>
       </View>
@@ -77,7 +101,7 @@ const styles = StyleSheet.create({
   blackCart: {
     width: size.width * 0.9,
     height: size.height * 0.3,
-    backgroundColor: Colors.black,
+    backgroundColor: "#191919",
     justifyContent: "center",
     alignItems: "center",
     elevation: 0.8,
@@ -86,8 +110,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   iconContainer: {
-    marginLeft: -size.width * 0.75,
-    marginTop: -10,
+    marginLeft: -size.width * 0.76,
+    marginTop: -20,
   },
   image: {
     height: size.width * 0.4,
@@ -100,7 +124,7 @@ const styles = StyleSheet.create({
     elevation: 0.6,
     borderRadius: 10,
     alignSelf: "center",
-    marginTop: 20,
+    marginTop: size.height * 0.04,
   },
   column: {
     flexDirection: "column",
@@ -120,6 +144,61 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginVertical: 10,
+    marginHorizontal: 6,
+  },
+  buttonRow: {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    paddingHorizontal: 20,
+    marginTop: 10,
+  },
+  firstButton: {
+    width: size.width * 0.35,
+    height: size.height * 0.035,
+    backgroundColor: Colors.secondary,
+    borderRadius: 10,
+    elevation: 0.5,
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: -16,
+  },
+  secondButton: {
+    width: size.width * 0.35,
+    height: size.height * 0.035,
+    backgroundColor: Colors.white,
+    borderColor: Colors.secondary,
+    borderWidth: 2,
+    borderRadius: 10,
+    elevation: 0.5,
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: size.width * 0.08,
+  },
+  numberContainer: {
+    borderColor: Colors.primary,
+    borderWidth: 2,
+    width: size.width * 0.1,
+    height: 20,
+    borderRadius: 12,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  ydRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: size.width * 0.22,
+  },
+  lockIcons: {
+    backgroundColor: Colors.primary,
+    width: size.width * 0.155,
+    height: size.height * 0.08,
+    borderRadius: 35,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    zIndex: 20,
+    position: "absolute",
+    top: size.height * 0.255,
   },
 });
 export default Details;
