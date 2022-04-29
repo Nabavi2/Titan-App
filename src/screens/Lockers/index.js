@@ -19,11 +19,11 @@ const size = Layout.window;
 function LockerScreen(props) {
   const data = [
     {
-      title: "APE coin",
+      title: "GOLD",
       image: require("../../../assets/em.png"),
     },
     {
-      title: "GOLD",
+      title: "TEST",
       image: require("../../../assets/test.png"),
     },
     {
