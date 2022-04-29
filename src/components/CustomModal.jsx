@@ -5,7 +5,13 @@ import Modal from "react-native-modal";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 
-function CustomModal({ children, onRequestClose, visible, isBig = false }) {
+function CustomModal({
+  children,
+  onRequestClose,
+  visible,
+  isBig = false,
+  isLocker,
+}) {
   const size = Layout.window;
   return (
     <Modal
@@ -20,9 +26,10 @@ function CustomModal({ children, onRequestClose, visible, isBig = false }) {
         style={[
           styles.modalView,
           {
-            height: isBig ? "91%" : "60%",
-            borderTopLeftRadius: size.width / 18,
-            borderTopRightRadius: size.width / 18,
+            height: isLocker ? "100%" : isBig ? "91%" : "60%",
+            borderTopLeftRadius: isLocker ? 0 : size.width / 18,
+            borderTopRightRadius: isLocker ? 0 : size.width / 18,
+            backgroundColor: isLocker ? Colors.background : Colors.white,
           },
         ]}
       >

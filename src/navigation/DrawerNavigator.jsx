@@ -29,7 +29,6 @@ import SupportScreen from "../screens/Support";
 import AdvertiseScreen from "../screens/Advertise";
 import LounchpadComponent from "../components/LounchpadComponent";
 import DrawerDropdown from "../components/DrawerDropdown";
-import { StatusBar } from "expo-status-bar";
 import CreatePresale from "../screens/CreatePresale";
 import ManagePresale from "../screens/ManagePresale";
 

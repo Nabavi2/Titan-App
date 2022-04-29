@@ -21,7 +21,7 @@ const others = {
 
 export default {
   primary: "#6E00FF",
-  secondary: "#FF7A49",
+  secondary: "#FF6E38",
   header: "#F9F9F9",
   iconColor: "#222222",
   yellow: "#F3BA2F",

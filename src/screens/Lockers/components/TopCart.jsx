@@ -31,20 +31,20 @@ function TopCart() {
 
 const styles = StyleSheet.create({
   container: {
-    height: size.height * 0.4,
+    height: size.height * 0.35,
     width: size.width * 0.9,
     backgroundColor: Colors.primary,
     borderRadius: 20,
     elevation: 3,
     alignItems: "center",
     justifyContent: "center",
-    margin: 15,
+    margin: 12,
   },
   image: {
-    height: size.height * 0.23,
+    height: size.height * 0.22,
     width: size.width * 0.4,
     alignSelf: "center",
-    marginTop: -20,
+    marginTop: -15,
   },
   text: {
     fontSize: 13,
@@ -53,10 +53,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   button: {
-    marginTop: 10,
     width: size.width * 0.55,
-    height: size.height * 0.06,
+    height: size.height * 0.045,
     backgroundColor: Colors.inputBackground,
+    marginBottom: 7,
   },
 });
 

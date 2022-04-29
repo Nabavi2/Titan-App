@@ -11,7 +11,7 @@ const AppNavigation = (props) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="landing"
+        initialRouteName="home"
         screenOptions={{ animation: "slide_from_right", headerShown: false }}
       >
         <Stack.Screen name="home" component={AppDrawerNavigator} options={{}} />

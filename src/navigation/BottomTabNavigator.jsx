@@ -11,11 +11,11 @@ import { MaterialIcons, Feather, FontAwesome } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import DefiExchange from "../screens/DefiEnchange";
 import Dashboard from "../screens/Dashboard";
-import MapScrollScreen from "../screens/MapScroll";
 import SubmitInfo from "../screens/SubmitInfo";
 import SupportScreen from "../screens/Support";
 import Layout from "../constants/Layout";
 import LockerScreen from "../screens/Lockers";
+import NFTScreen from "../screens/NFTScreen";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -24,7 +24,7 @@ export function BottomTabNavigator() {
   const { width, height } = Layout.window;
   return (
     <bottomTabNavigator.Navigator
-      initialRouteName="dashboard"
+      initialRouteName="nftmint"
       screenOptions={{
         tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: "#222222",
@@ -32,7 +32,7 @@ export function BottomTabNavigator() {
         tabBarStyle: {
           backgroundColor: Colors.white,
           overflow: "hidden",
-          height: hp(PixelRatio.get() > 2 ? 7.5 : 8.5),
+          height: hp(PixelRatio.get() > 2 ? 7.5 : 8.1),
         },
         tabBarShowLabel: false,
         headerShown: false,
@@ -73,10 +73,10 @@ export function BottomTabNavigator() {
       />
 
       <bottomTabNavigator.Screen
-        name="submitinfo"
-        component={SubmitInfo}
+        name="nftmint"
+        component={NFTScreen}
         options={() => ({
-          title: "SubmitInfo",
+          title: "nftmint",
           tabBarIcon: ({ focused }) =>
             focused ? (
               <Image
@@ -99,10 +99,10 @@ export function BottomTabNavigator() {
         })}
       />
       <bottomTabNavigator.Screen
-        name="defiexchange"
-        component={DefiExchange}
+        name="submitinfo"
+        component={SubmitInfo}
         options={() => ({
-          title: "defienchange",
+          title: "submitinfo",
           tabBarIcon: ({ color, focused }) => (
             <View
               style={[
