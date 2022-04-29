@@ -81,7 +81,11 @@ function DrawerDropdown({ id }) {
                 marginVertical: 8,
                 marginLeft: -size.width * 0.07,
               }}
-              onPress={() => navigation.navigate("createPresale")}
+              onPress={() =>
+                navigation.navigate("createPresale", {
+                  type: id === 1 ? "presale" : "lock",
+                })
+              }
             >
               <Text
                 style={[
@@ -89,7 +93,7 @@ function DrawerDropdown({ id }) {
                   { color: status ? Colors.primary : Colors.text },
                 ]}
               >
-                Create launchpad
+                {id === 1 ? "Create Launchpad" : "Create Lock"}
               </Text>
             </Pressable>
             <Pressable
@@ -113,7 +117,7 @@ function DrawerDropdown({ id }) {
                 marginVertical: 8,
                 marginLeft: -size.width * 0.065,
               }}
-              onPress={() => navigation.navigate("defiexchange")}
+              onPress={() => navigation.navigate("managePresale")}
             >
               <Text
                 style={[

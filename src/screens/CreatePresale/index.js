@@ -3,7 +3,7 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import AppText from "../../components/AppText";
 import CardContainer from "../../components/CardContainer";
@@ -13,95 +13,113 @@ import Colors from "../../constants/Colors";
 import CustomInput from "../../components/CustomInput";
 import MessageModal from "./components/MessageModal";
 import CustomButton from "../../components/CustomButton";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { MaterialIcons } from "@expo/vector-icons";
+import CustomScrollView from "../../components/CustomScrollView";
 
-function CreatePresale(props) {
+function CreatePresale({ route }) {
   const [showMessage, setShowMessage] = useState(false);
+  const { type } = route.params;
 
   return (
-    <View style={{ height: hp(100), width: wp(100) }}>
-      <ScrollView
-        contentContainerStyle={styles.contentContainer}
-        style={styles.container}
+    <CustomScrollView
+      contentContainerStyle={styles.contentStyle}
+      style={styles.container}
+    >
+      <MessageModal
+        isVisible={showMessage}
+        onRequestClose={() => {
+          console.log("Pressed");
+          setShowMessage(false);
+        }}
+      />
+      <CardContainer
+        style={{
+          ...styles.card,
+          height: type === "presale" ? hp(127) : hp(97),
+        }}
       >
-        <MessageModal
-          isVisible={showMessage}
-          onRequestClose={() => {
-            console.log("Pressed");
-            setShowMessage(false);
-          }}
-        />
-        <CardContainer style={styles.card}>
+        {type === "presale" ? (
           <LaptopPop width={"22%"} height={"10%"} />
+        ) : (
+          <MaterialIcons name="lock-outline" size={70} color={Colors.primary} />
+        )}
 
-          <Title style={styles.title}>Create Presale</Title>
-          <AppText style={styles.subtitle}>
-            Lock tokens in a instant. Simply fill out the below form
-          </AppText>
-          <View style={styles.inputsContainer}>
-            <CustomInput
-              title="Token Address"
-              placeholder="Enter contact address"
-            />
-            <View style={styles.box} />
-            <CustomInput title="Hard Cap" placeholder="Example 100 BNB" />
-            <View style={styles.box} />
-            <CustomInput title="Promocode" placeholder="Example 50 BNB" />
-            <View style={styles.box} />
-            <CustomInput title="Liquidity%" placeholder="70%" />
-            <View style={styles.box} />
-            <CustomInput title="Select Router" placeholder="PancakeSwap v2" />
-            <View style={styles.box} />
+        <Title style={styles.title}>
+          {type === "lock" ? "Lock Tokens" : "Create Presale"}
+        </Title>
+        <AppText style={styles.subtitle}>
+          Lock tokens in a instant. Simply fill out the below form
+        </AppText>
+
+        <View style={styles.inputsContainer}>
+          <CustomInput
+            title="Token Address"
+            placeholder="Enter contact address"
+          />
+          <View style={styles.box} />
+          <CustomInput
+            title={type === "presale" ? "Hard Cap" : "Reward Token address"}
+            placeholder={
+              type === "lock" ? "Enter contact address" : "Example 100 BNB"
+            }
+          />
+          <View style={styles.box} />
+          <CustomInput
+            title={
+              type === "lock" ? "Enter amount of tokens lock" : "Promocode"
+            }
+            placeholder={type === "lock" ? "1000000" : "Example 50 BNB"}
+          />
+          <View style={styles.box} />
+          <CustomInput
+            title={type === "lock" ? "Unlock date" : "Liquidity%"}
+            placeholder={type === "lock" ? "2022-03-19" : "70%"}
+          />
+          <View style={styles.box} />
+          <CustomInput
+            title={type === "lock" ? "Lock link" : "Select Router"}
+            placeholder={
+              type === "lock" ? " Logolink.jpg/png" : "PancakeSwap v2"
+            }
+          />
+          {type === "presale" && <View style={styles.box} />}
+          {type === "presale" && (
             <CustomInput title="Listing Rate" placeholder="Example 50 BNB" />
-            <View style={styles.box} />
+          )}
+          <View style={styles.box} />
+          {type === "presale" && (
             <CustomInput title="Presale Rate" placeholder="Example 50 BNB" />
-            <View style={styles.box} />
-            <View style={styles.buttonsContainer}>
-              <CustomButton
-                title="Create Presale"
-                style={styles.createPresale}
-              />
-              <CustomButton
-                title="Deposit"
-                style={styles.deposit}
-                textStyle={styles.depositText}
-              />
-            </View>
+          )}
+          {type === "presale" && <View style={styles.box} />}
+          <View style={styles.buttonsContainer}>
+            <CustomButton
+              title={type === "presale" ? "Create Presale" : "Create Lock"}
+              onPress={() => setShowMessage(true)}
+              style={styles.createPresale}
+            />
+            <CustomButton
+              title="Deposit"
+              style={styles.deposit}
+              textStyle={styles.depositText}
+            />
           </View>
-        </CardContainer>
-        <AppText>dkfjsldfjlsd</AppText>
-        <AppText>dkfjsldfjlsd</AppText>
-        <AppText>dkfjsldfjlsd</AppText>
-        <AppText>dkfjsldfjlsd</AppText>
-        <AppText>dkfjsldfjlsd</AppText>
-        <AppText>dkfjsldfjlsd</AppText>
-        <AppText>dkfjsldfjlsd</AppText>
-        <AppText>dkfjsldfjlsd</AppText>
-        <AppText>dkfjsldfjlsd</AppText>
-        <AppText>dkfjsldfjlsd</AppText>
-      </ScrollView>
-    </View>
+        </View>
+      </CardContainer>
+    </CustomScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    width: wp(100),
-    height: hp(100),
-    padding: "5%",
-  },
-  contentContainerStyle: {
-    alignItems: "center",
-    paddingVertical: "3%",
-    paddingHorizontal: "5%",
-  },
   card: {
     alignItems: "center",
-    paddingVertical: "7%",
+    paddingVertical: "5%",
+    justifyContent: "flex-start",
+    overflow: "hidden",
   },
   title: {
     fontFamily: "vsBold",
     color: Colors.primary,
-    marginTop: "2%",
   },
   subtitle: {
     fontSize: 10,
@@ -118,16 +136,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: "2%",
-    marginBottom: "5%",
+
     width: "100%",
   },
   createPresale: {
     width: "45%",
-    height: "30%",
+    height: hp(5.5),
   },
   deposit: {
     width: "45%",
-    height: "30%",
+    height: hp(5.5),
     backgroundColor: "white",
     borderWidth: 2,
     borderColor: Colors.secondary,

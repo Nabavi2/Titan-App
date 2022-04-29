@@ -34,11 +34,11 @@ function Dashboard(props) {
       image: require("../../../assets/cr.png"),
       time: "00:09:17:12",
     },
-    // {
-    //   title: "Tike",
-    //   image: require("../../../assets/tik.png"),
-    //   time: "00:09:17:56",
-    // },
+    {
+      title: "Tike",
+      image: require("../../../assets/tik.png"),
+      time: "00:09:17:56",
+    },
   ];
   return (
     <View style={styles.container}>
@@ -46,12 +46,10 @@ function Dashboard(props) {
         <Title style={styles.title}>Dashboard</Title>
       </View>
       <FlatList
-        contentContainerStyle={{
-          width: "100%",
-          alignItems: "center",
-        }}
+        style={{ width: "100%" }}
+        contentContainerStyle={styles.listContent}
         data={data}
-        numColumns={1}
+        numColumns={2}
         horizontal={false}
         keyExtractor={(item, ind) => ind}
         renderItem={({ item }) => (
@@ -74,6 +72,10 @@ const styles = StyleSheet.create({
   title: {
     marginLeft: "6%",
     marginBottom: "1%",
+  },
+  listContent: {
+    width: "100%",
+    paddingLeft: "4%",
   },
 });
 export default Dashboard;
