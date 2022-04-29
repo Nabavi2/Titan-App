@@ -13,6 +13,7 @@ import Colors from "../../constants/Colors";
 import TopCart from "./components/TopCart";
 import Layout from "../../constants/Layout";
 import SubCard from "./components/SubCart";
+import Em2 from "../../../assets/Em2";
 
 const size = Layout.window;
 

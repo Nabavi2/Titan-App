@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Image, Pressable } from "react-native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 import AppText from "../../../components/AppText";
 import CustomModal from "../../../components/CustomModal";
@@ -8,15 +9,21 @@ import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
-const Details = ({ image, visible, onRequestClose }) => {
+const Details = (props) => {
+  const navigation = useNavigation();
+  let image = props.route.params.image1;
   return (
-    <CustomModal
+    <View style={{ paddingTop: 20 }}>
+      {/* <CustomModal
       visible={visible}
       onRequestClose={onRequestClose}
       isLocker={true}
-    >
+    > */}
       <View style={styles.blackCart}>
-        <Pressable style={styles.iconContainer} onPressIn={onRequestClose}>
+        <Pressable
+          style={styles.iconContainer}
+          onPressIn={() => navigation.goBack()}
+        >
           <AntDesign name="arrowleft" size={24} color={Colors.white} />
         </Pressable>
         <Image source={image} style={styles.image} />
@@ -94,7 +101,8 @@ const Details = ({ image, visible, onRequestClose }) => {
           </View>
         </View>
       </View>
-    </CustomModal>
+      {/* </CustomModal> */}
+    </View>
   );
 };
 const styles = StyleSheet.create({

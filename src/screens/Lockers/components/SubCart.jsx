@@ -4,6 +4,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { useNavigation } from "@react-navigation/native";
 
 import AppText from "../../../components/AppText";
 import Subtitle from "../../../components/Subtitle";
@@ -15,14 +16,15 @@ import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
 function SubCard({ image, title }) {
+  const navigation = useNavigation();
   const [showDetial, setShowDetail] = useState(false);
   return (
     <CardContainer style={styles.card}>
-      <Details
+      {/* <Details
         image={image}
         visible={showDetial}
         onRequestClose={() => setShowDetail(false)}
-      />
+      /> */}
       {/* Image section */}
       <View style={styles.cardImageWrapper}>
         <Image resizeMode="cover" source={image} style={styles.cardImage} />
@@ -71,7 +73,11 @@ function SubCard({ image, title }) {
           </AppText>
         </View>
         <CustomButton
-          onPress={() => setShowDetail(true)}
+          onPress={() =>
+            navigation.navigate("details", {
+              image1: image,
+            })
+          }
           title="View Lock"
           textStyle={styles.viewPresale}
           style={{ width: "80%", marginVertical: 5 }}

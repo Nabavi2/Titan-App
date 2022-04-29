@@ -10,6 +10,8 @@ import { useNavigation } from "@react-navigation/native";
 import Layout from "../constants/Layout";
 import AppText from "./AppText";
 import Colors from "../constants/Colors";
+import Launch from "../../assets/Launch";
+import Lock from "../../assets/Lock";
 
 function DrawerDropdown({ id }) {
   const size = Layout.window;
@@ -22,17 +24,18 @@ function DrawerDropdown({ id }) {
         onPressIn={() => setStatus(!status)}
       >
         {id === 1 ? (
-          <MaterialCommunityIcons
-            name="rocket-launch-outline"
-            size={24}
-            color={Colors.black}
-          />
+          // <MaterialCommunityIcons
+          //   name="rocket-launch-outline"
+          //   size={24}
+          //   color={Colors.black}
+          // />
+          <Launch />
         ) : (
-          <MaterialIcons name="lock-outline" size={28} color={Colors.black} />
+          <Lock />
         )}
         {id === 1 ? (
           <AppText
-            style={{ fontFamily: "vsBold", marginLeft: size.width * 0.066 }}
+            style={{ fontFamily: "vsBold", marginLeft: size.width * 0.068 }}
           >
             Launchpad
           </AppText>
@@ -40,8 +43,8 @@ function DrawerDropdown({ id }) {
           <AppText
             style={{
               fontFamily: "vsBold",
-              marginLeft: size.width * 0.065,
-              marginRight: 22,
+              marginLeft: size.width * 0.071,
+              marginRight: 27,
             }}
           >
             Lockers

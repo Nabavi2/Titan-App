@@ -1,4 +1,11 @@
-import { Image, View, SafeAreaView, StyleSheet, Text } from "react-native";
+import {
+  Image,
+  View,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  ScrollView,
+} from "react-native";
 import {
   FontAwesome5,
   MaterialIcons,
@@ -32,6 +39,19 @@ import DrawerDropdown from "../components/DrawerDropdown";
 import CreatePresale from "../screens/CreatePresale";
 import ManagePresale from "../screens/ManagePresale";
 
+//The SVG's import section
+import Logo2 from "../../assets/Logo2";
+import Home from "../../assets/Home";
+import Defi from "../../assets/Defi";
+import Stake from "../../assets/Stake";
+import Scan from "../../assets/Scan";
+import NFT from "../../assets/NFT";
+import Game from "../../assets/Game";
+import Lounge from "../../assets/Lounge";
+import LoungeT from "../../assets/LoungeT";
+import Support from "../../assets/Support";
+import Ads from "../../assets/Ads";
+
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 
@@ -43,29 +63,28 @@ const AppDrawerNavigator = () => {
       initialRouteName="home"
       drawerContent={(props) => {
         return (
-          <View style={styles.container}>
+          <ScrollView>
             <SafeAreaView forceInset={{ top: "always", horizontal: "never" }}>
               <View style={{ alignItems: "center", justifyContent: "center" }}>
-                <Image
-                  style={styles.image}
-                  source={require("../../assets/logo.png")}
-                />
+                <View style={styles.image}>
+                  <Logo2 />
+                </View>
               </View>
-
               <DrawerItemList {...props} />
             </SafeAreaView>
-          </View>
+          </ScrollView>
         );
       }}
       screenOptions={{
-        drawerActiveTintColor: Colors.white,
-        drawerActiveBackgroundColor: Colors.primary,
-        headerTintColor: Colors.white,
+        drawerActiveTintColor: Colors.text,
+        drawerActiveBackgroundColor: Colors.white,
+        headerTintColor: Colors.black,
         headerRight: () => <HeaderRightButton />,
         headerLeft: () => <HeaderLeft />,
         drawerInactiveTintColor: Colors.text,
         drawerInactiveBackgroundColor: Colors.white,
         headerShadowVisible: false,
+        headerStyle: { height: 110 },
         drawerItemStyle: {
           marginLeft: 20,
           marginRight: 20,
@@ -78,13 +97,7 @@ const AppDrawerNavigator = () => {
         component={BottomTabNavigator}
         options={{
           title: "Home",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="home"
-              size={27}
-              color={focused ? Colors.white : Colors.black}
-            />
-          ),
+          drawerIcon: ({ focused }) => <Home />,
 
           headerTitleStyle: { color: Colors.white },
         }}
@@ -94,9 +107,7 @@ const AppDrawerNavigator = () => {
         component={DefiExchange}
         options={{
           title: "DefiExchange",
-          drawerIcon: ({ focused }) => (
-            <Foundation name="graph-bar" size={24} color={Colors.black} />
-          ),
+          drawerIcon: ({ focused }) => <Defi />,
         }}
       />
 
@@ -129,11 +140,7 @@ const AppDrawerNavigator = () => {
                 { borderColor: focused ? Colors.white : Colors.black },
               ]}
             >
-              <FontAwesome5
-                name="dollar-sign"
-                size={24}
-                color={focused ? Colors.white : Colors.black}
-              />
+              <Stake />
             </View>
           ),
         }}
@@ -143,13 +150,7 @@ const AppDrawerNavigator = () => {
         component={ScanScreen}
         options={{
           title: "Scan",
-          drawerIcon: ({ focused }) => (
-            <FontAwesome
-              name="search"
-              size={24}
-              color={focused ? Colors.white : Colors.black}
-            />
-          ),
+          drawerIcon: ({ focused }) => <Scan />,
         }}
       />
       <DrawerNavigator.Screen
@@ -157,18 +158,7 @@ const AppDrawerNavigator = () => {
         component={NFTScreen}
         options={{
           title: "NFT mint",
-          drawerIcon: ({ focused }) =>
-            focused ? (
-              <Image
-                source={require("../../assets/wup.png")}
-                style={{ width: "12%", height: "68%" }}
-              />
-            ) : (
-              <Image
-                source={require("../../assets/up.png")}
-                style={{ width: "12%", height: "68%" }}
-              />
-            ),
+          drawerIcon: ({ focused }) => <NFT />,
         }}
       />
       <DrawerNavigator.Screen
@@ -176,13 +166,7 @@ const AppDrawerNavigator = () => {
         component={MapScrollScreen}
         options={{
           title: "Titanx Game",
-          drawerIcon: ({ focused }) => (
-            <MaterialCommunityIcons
-              name="gamepad-circle-right"
-              size={24}
-              color={focused ? Colors.white : Colors.black}
-            />
-          ),
+          drawerIcon: ({ focused }) => <Game />,
         }}
       />
       <DrawerNavigator.Screen
@@ -191,11 +175,10 @@ const AppDrawerNavigator = () => {
         options={{
           title: "Lounge",
           drawerIcon: ({ focused }) => (
-            <MaterialIcons
-              name="keyboard-voice"
-              size={24}
-              color={focused ? Colors.white : Colors.black}
-            />
+            <View style={{ alignItems: "center", justifyContent: "center" }}>
+              <LoungeT />
+              <Lounge />
+            </View>
           ),
         }}
       />
@@ -204,13 +187,7 @@ const AppDrawerNavigator = () => {
         component={SupportScreen}
         options={{
           title: "Support",
-          drawerIcon: ({ focused }) => (
-            <MaterialCommunityIcons
-              name="headset"
-              size={24}
-              color={focused ? Colors.white : Colors.black}
-            />
-          ),
+          drawerIcon: ({ focused }) => <Support />,
         }}
       />
       <DrawerNavigator.Screen
@@ -218,31 +195,7 @@ const AppDrawerNavigator = () => {
         component={AdvertiseScreen}
         options={{
           title: "Advertise",
-          drawerIcon: ({ focused }) => (
-            <FontAwesome5
-              name="adversal"
-              size={27}
-              color={focused ? Colors.white : Colors.black}
-            />
-          ),
-        }}
-      />
-      <DrawerNavigator.Screen
-        name="createPresale"
-        component={CreatePresale}
-        options={{
-          drawerItemStyle: {
-            display: "none",
-          },
-        }}
-      />
-      <DrawerNavigator.Screen
-        name="managePresale"
-        component={ManagePresale}
-        options={{
-          drawerItemStyle: {
-            display: "none",
-          },
+          drawerIcon: ({ focused }) => <Ads />,
         }}
       />
     </DrawerNavigator.Navigator>
@@ -251,24 +204,18 @@ const AppDrawerNavigator = () => {
 const styles = StyleSheet.create({
   image: {
     width: size.width * 0.24,
-    height: 60,
+    height: size.height * 0.06,
     marginLeft: 10,
     marginBottom: 20,
-    marginTop: 20,
-    borderRadius: 100,
+    marginTop: 25,
   },
-  constainer: {
-    flex: 1,
-    paddingTop: 20,
-    backgroundColor: Colors.white,
-    flexDirection: "row",
-  },
+
   icon: {
     borderColor: Colors.black,
     borderWidth: 2,
-    width: 28,
-    height: 28,
-    borderRadius: 20,
+    width: 18,
+    height: 18,
+    borderRadius: 15,
     justifyContent: "center",
     alignItems: "center",
     marginRight: -6,

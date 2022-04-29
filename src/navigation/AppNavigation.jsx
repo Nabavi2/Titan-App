@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppDrawerNavigator from "./DrawerNavigator";
 import Landing from "../screens/Landing";
+import Details from "../screens/Lockers/components/Details";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ const AppNavigation = (props) => {
       >
         <Stack.Screen name="home" component={AppDrawerNavigator} options={{}} />
         <Stack.Screen name="landing" component={Landing} options={{}} />
+        <Stack.Screen name="details" component={Details} />
       </Stack.Navigator>
     </NavigationContainer>
   );
