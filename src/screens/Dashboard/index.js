@@ -34,11 +34,11 @@ function Dashboard(props) {
       image: require("../../../assets/cr.png"),
       time: "00:09:17:12",
     },
-    {
-      title: "Tike",
-      image: require("../../../assets/tik.png"),
-      time: "00:09:17:56",
-    },
+    // {
+    //   title: "Tike",
+    //   image: require("../../../assets/tik.png"),
+    //   time: "00:09:17:56",
+    // },
   ];
   return (
     <View style={styles.container}>
@@ -51,7 +51,7 @@ function Dashboard(props) {
           alignItems: "center",
         }}
         data={data}
-        numColumns={2}
+        numColumns={1}
         horizontal={false}
         keyExtractor={(item, ind) => ind}
         renderItem={({ item }) => (

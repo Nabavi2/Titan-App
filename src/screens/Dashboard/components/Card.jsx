@@ -89,7 +89,7 @@ function Card({ image, time, title }) {
 }
 
 const styles = StyleSheet.create({
-  card: { width: wp(43), height: hp(35), margin: 10, padding: 5 },
+  card: { width: wp(42), height: hp(35), margin: 10, padding: 5 },
   cardImageWrapper: {
     width: "100%",
     height: "25%",
