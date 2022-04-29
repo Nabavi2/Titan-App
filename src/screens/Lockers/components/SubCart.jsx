@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-import { Image, Pressable, StatusBar, StyleSheet, View } from "react-native";
-import { AntDesign, Feather } from "@expo/vector-icons";
+import { Image, StyleSheet, View } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import Modal from "react-native-modal";
 
 import AppText from "../../../components/AppText";
 import Subtitle from "../../../components/Subtitle";
 import CardContainer from "../../../components/CardContainer";
 import CustomButton from "../../../components/CustomButton";
 import Colors from "../../../constants/Colors";
-
-import Layout from "../../../constants/Layout";
 import Details from "./Details";
+import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
 function SubCard({ image, title }) {

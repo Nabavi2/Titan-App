@@ -9,7 +9,6 @@ import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons, Feather, FontAwesome } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
-import DefiExchange from "../screens/DefiEnchange";
 import Dashboard from "../screens/Dashboard";
 import SubmitInfo from "../screens/SubmitInfo";
 import SupportScreen from "../screens/Support";
@@ -71,7 +70,6 @@ export function BottomTabNavigator() {
           ),
         })}
       />
-
       <bottomTabNavigator.Screen
         name="nftmint"
         component={NFTScreen}
