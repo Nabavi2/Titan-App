@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     elevation: 3,
     borderRadius: Layout.window.width / 45,
-    flex: 1,
+    // flex: 1,
   },
 });
 

@@ -31,6 +31,7 @@ import LounchpadComponent from "../components/LounchpadComponent";
 import DrawerDropdown from "../components/DrawerDropdown";
 import { StatusBar } from "expo-status-bar";
 import CreatePresale from "../screens/CreatePresale";
+import ManagePresale from "../screens/ManagePresale";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
@@ -230,6 +231,15 @@ const AppDrawerNavigator = () => {
       <DrawerNavigator.Screen
         name="createPresale"
         component={CreatePresale}
+        options={{
+          drawerItemStyle: {
+            display: "none",
+          },
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="managePresale"
+        component={ManagePresale}
         options={{
           drawerItemStyle: {
             display: "none",

@@ -23,6 +23,7 @@ import {
 import AppText from "../../../components/AppText";
 import CardContainer from "../../../components/CardContainer";
 import CustomButton from "../../../components/CustomButton";
+import CustomProgressbar from "../../../components/CustomProgressbar";
 import Subtitle from "../../../components/Subtitle";
 import Title from "../../../components/Title";
 import Colors from "../../../constants/Colors";
@@ -94,7 +95,13 @@ function ModalDetail({ image, onRequestClose }) {
         {/* Amount section */}
         <CardContainer style={styles.amountCard}>
           <Title style={styles.amountCardTitle}>Presale Not Started</Title>
-          <Subtitle style={styles.amountProgressTitle}>
+          <CustomProgressbar
+            title={"0 BNB / 100 BNB"}
+            value={value}
+            startValue="0.1 BNB"
+            endValue={"2 BNB"}
+          />
+          {/* <Subtitle style={styles.amountProgressTitle}>
             0 BNB / 100 BNB
           </Subtitle>
           <LinearProgress
@@ -107,7 +114,7 @@ function ModalDetail({ image, onRequestClose }) {
           <View style={styles.progressRange}>
             <AppText style={styles.progressRangText}>0.1 BNB</AppText>
             <AppText style={styles.progressRangText}>2 BNB</AppText>
-          </View>
+          </View> */}
           <View style={styles.contributed}>
             <AppText style={styles.contributedTitle}>
               Your contributed amount{"\n"}(in BNB)
