@@ -22,7 +22,6 @@ function TopCart() {
         rewards whilst locked
       </Text>
       <CustomButton
-        textStyle={styles.title}
         title="View Token Lockers"
         style={styles.button}
       ></CustomButton>
@@ -32,7 +31,7 @@ function TopCart() {
 
 const styles = StyleSheet.create({
   container: {
-    height: size.height * 0.35,
+    height: size.height * 0.4,
     width: size.width * 0.9,
     backgroundColor: Colors.primary,
     borderRadius: 20,
@@ -42,13 +41,10 @@ const styles = StyleSheet.create({
     margin: 15,
   },
   image: {
-    height: size.height * 0.2,
+    height: size.height * 0.23,
     width: size.width * 0.4,
     alignSelf: "center",
     marginTop: -20,
-  },
-  title: {
-    color: Colors.primary,
   },
   text: {
     fontSize: 13,
@@ -59,7 +55,7 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 10,
     width: size.width * 0.55,
-    height: size.height * 0.05,
+    height: size.height * 0.06,
     backgroundColor: Colors.inputBackground,
   },
 });

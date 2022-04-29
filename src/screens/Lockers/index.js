@@ -6,72 +6,21 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  FlatList,
 } from "react-native";
 
+import GlobalStyles from "../../constants/GlobalStyles";
 import Colors from "../../constants/Colors";
 import TopCart from "./components/TopCart";
 import Layout from "../../constants/Layout";
-import SubCard from "./components/SubCart";
 
 const size = Layout.window;
 
 function LockerScreen(props) {
-  const data = [
-    {
-      title: "APE coin",
-      image: require("../../../assets/em.png"),
-    },
-    {
-      title: "GOLD",
-      image: require("../../../assets/em.png"),
-    },
-    {
-      title: "Bayd",
-      image: require("../../../assets/boy.png"),
-    },
-    {
-      title: "123x",
-      image: require("../../../assets/ti.png"),
-    },
-    {
-      title: "Crypt",
-      image: require("../../../assets/cr.png"),
-    },
-    {
-      title: "Tike",
-      image: require("../../../assets/tik.png"),
-    },
-  ];
   return (
     <View style={styles.constainer}>
       <TopCart />
-      <FlatList
-        contentContainerStyle={{
-          width: "100%",
-          alignItems: "center",
-          elevation: 1,
-          borderRadius: 15,
-          marginTop: size.height * 0.03,
-          backgroundColor: Colors.inputBackground,
-          paddingTop: size.height * 0.05,
-          paddingHorizontal: 5,
-        }}
-        data={data}
-        numColumns={2}
-        horizontal={false}
-        keyExtractor={(item, ind) => ind}
-        renderItem={({ item }) => (
-          <SubCard title={item.title} image={item.image} />
-        )}
-      />
       <View style={[styles.inputContainer, { width: size.width * 0.8 }]}>
-        <Ionicons
-          name="search-sharp"
-          size={24}
-          color={Colors.primary}
-          style={{ marginLeft: -8 }}
-        />
+        <Ionicons name="search-sharp" size={24} color={Colors.primary} />
         <TextInput
           placeholder="Search & add"
           style={{ width: size.width * 0.45 }}
@@ -91,22 +40,19 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flexDirection: "row",
-    height: size.height * 0.045,
+    height: 33,
     width: size.width * 0.73,
     alignSelf: "center",
     backgroundColor: Colors.white,
     elevation: 0.5,
-    borderRadius: 20,
+    borderRadius: 15,
     alignItems: "center",
     justifyContent: "center",
-    zIndex: 1,
-    position: "absolute",
-    top: size.height * 0.396,
   },
   button: {
     backgroundColor: Colors.primary,
-    width: size.width * 0.28,
-    borderRadius: 20,
+    width: size.width * 0.25,
+    borderRadius: 15,
     height: "100%",
     marginRight: -15,
     alignItems: "center",
