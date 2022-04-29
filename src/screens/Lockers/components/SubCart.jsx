@@ -21,11 +21,11 @@ function SubCard({ image, title }) {
   const [showDetial, setShowDetail] = useState(false);
   return (
     <CardContainer style={styles.card}>
-      {/* <Details
+      <Details
         image={image}
         visible={showDetial}
         onRequestClose={() => setShowDetail(false)}
-      /> */}
+      />
       {/* Image section */}
       <View style={styles.cardImageWrapper}>
         <Image resizeMode="cover" source={image} style={styles.cardImage} />
