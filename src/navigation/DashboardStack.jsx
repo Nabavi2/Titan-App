@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppDrawerNavigator from "./DrawerNavigator";
@@ -10,16 +10,22 @@ import LockerScreen from "../screens/Lockers";
 
 const Stack = createNativeStackNavigator();
 
-const LockerStack = (props) => {
+const DashboardStack = (props) => {
+  const navigation = useNavigation();
+  //   navigation.setParams({ name: "dashboard1" });
   return (
     <Stack.Navigator
-      initialRouteName="locker"
+      initialRouteName="dashboard"
       screenOptions={{ animation: "slide_from_right", headerShown: false }}
     >
-      <Stack.Screen name="locker" component={AppDrawerNavigator} options={{}} />
-      <Stack.Screen name="details" component={Details} />
+      <Stack.Screen
+        name="dashboard"
+        component={AppDrawerNavigator}
+        options={{ headerShown: false }}
+      />
+      {/* <Stack.Screen name="details" component={BottomTabNavigator} /> */}
     </Stack.Navigator>
   );
 };
 
-export default LockerStack;
+export default DashboardStack;

@@ -18,7 +18,6 @@ const AppNavigation = (props) => {
       >
         <Stack.Screen name="home" component={BottomTabNavigator} options={{}} />
         <Stack.Screen name="landing" component={Landing} options={{}} />
-        <Stack.Screen name="details" component={Details} />
       </Stack.Navigator>
     </NavigationContainer>
   );

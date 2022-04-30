@@ -16,23 +16,17 @@ import Lock from "../../assets/Lock";
 function DrawerDropdown({ id }) {
   const size = Layout.window;
   const navigation = useNavigation();
-  const [status, setStatus] = useState(false);
+  const [generalStatus, setGeneralStatus] = useState(false);
+  const [lounchStatus, setLounchStatus] = useState(false);
+  const [dashboardStatus, setDashboardStatus] = useState(false);
+  const [presalStatus, setPresalStatus] = useState(false);
   return (
     <View>
       <Pressable
         style={{ flexDirection: "row" }}
-        onPressIn={() => setStatus(!status)}
+        onPressIn={() => setGeneralStatus(generalStatus)}
       >
-        {id === 1 ? (
-          // <MaterialCommunityIcons
-          //   name="rocket-launch-outline"
-          //   size={24}
-          //   color={Colors.black}
-          // />
-          <Launch />
-        ) : (
-          <Lock />
-        )}
+        {id === 1 ? <Launch /> : <Lock />}
         {id === 1 ? (
           <AppText
             style={{ fontFamily: "vsBold", marginLeft: size.width * 0.068 }}
@@ -50,9 +44,9 @@ function DrawerDropdown({ id }) {
             Lockers
           </AppText>
         )}
-        {!status ? (
+        {!generalStatus ? (
           <Pressable
-            onPressIn={() => setStatus(!status)}
+            onPressIn={() => setGeneralStatus(!generalStatus)}
             style={{ marginLeft: size.width * 0.12 }}
           >
             <AntDesign
@@ -64,7 +58,7 @@ function DrawerDropdown({ id }) {
           </Pressable>
         ) : (
           <Pressable
-            onPressIn={() => setStatus(!status)}
+            onPressIn={() => setGeneralStatus(!generalStatus)}
             style={{ marginLeft: size.width * 0.12 }}
           >
             <AntDesign
@@ -77,23 +71,26 @@ function DrawerDropdown({ id }) {
         )}
       </Pressable>
       <Pressable style={{ marginLeft: size.width * 0.2 }}>
-        {status ? (
+        {generalStatus ? (
           <View>
             <Pressable
               style={{
                 marginVertical: 8,
                 marginLeft: -size.width * 0.07,
               }}
-              onPress={() =>
+              onPress={() => {
+                setLounchStatus(!lounchStatus);
+                setDashboardStatus(false);
+                setPresalStatus(false);
                 navigation.navigate("createPresale", {
                   type: id === 1 ? "presale" : "lock",
-                })
-              }
+                });
+              }}
             >
               <Text
                 style={[
                   styles.text,
-                  { color: status ? Colors.primary : Colors.text },
+                  { color: lounchStatus ? Colors.primary : Colors.text },
                 ]}
               >
                 {id === 1 ? "Create Launchpad" : "Create Lock"}
@@ -104,12 +101,17 @@ function DrawerDropdown({ id }) {
                 marginVertical: 8,
                 marginLeft: -size.width * 0.065,
               }}
-              onPress={() => navigation.navigate("defiexchange")}
+              onPress={() => {
+                setLounchStatus(false);
+                setDashboardStatus(!dashboardStatus);
+                setPresalStatus(false);
+                navigation.navigate("dashboard");
+              }}
             >
               <Text
                 style={[
                   styles.text,
-                  { color: !status ? Colors.primary : Colors.text },
+                  { color: dashboardStatus ? Colors.primary : Colors.text },
                 ]}
               >
                 Dashboard
@@ -120,12 +122,17 @@ function DrawerDropdown({ id }) {
                 marginVertical: 8,
                 marginLeft: -size.width * 0.065,
               }}
-              onPress={() => navigation.navigate("managePresale")}
+              onPress={() => {
+                setLounchStatus(false);
+                setDashboardStatus(false);
+                setPresalStatus(!presalStatus);
+                navigation.navigate("managePresale");
+              }}
             >
               <Text
                 style={[
                   styles.text,
-                  { color: !status ? Colors.primary : Colors.text },
+                  { color: presalStatus ? Colors.primary : Colors.text },
                 ]}
               >
                 Manage Presal

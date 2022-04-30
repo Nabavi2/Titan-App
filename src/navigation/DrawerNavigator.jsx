@@ -7,18 +7,9 @@ import {
   ScrollView,
 } from "react-native";
 import {
-  FontAwesome5,
-  MaterialIcons,
-  MaterialCommunityIcons,
-  Foundation,
-  FontAwesome,
-  Feather,
-} from "@expo/vector-icons";
-import {
   createDrawerNavigator,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import { BottomTabNavigator } from "./BottomTabNavigator";
 import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../constants/Colors";
@@ -51,18 +42,19 @@ import Lounge from "../../assets/Lounge";
 import LoungeT from "../../assets/LoungeT";
 import Support from "../../assets/Support";
 import Ads from "../../assets/Ads";
-import HomeScreen from "../screens/Home";
 import Dashboard from "../screens/Dashboard";
+import Details from "../screens/Lockers/components/Details";
+import SubmitInfo from "../screens/SubmitInfo";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 
-const AppDrawerNavigator = () => {
+const AppDrawerNavigator = (props) => {
   const navigation = useNavigation();
 
   return (
     <DrawerNavigator.Navigator
-      initialRouteName="home"
+      initialRouteName={"dashboard"}
       drawerContent={(props) => {
         return (
           <ScrollView>
@@ -95,11 +87,11 @@ const AppDrawerNavigator = () => {
       }}
     >
       <DrawerNavigator.Screen
-        name="home"
+        name="dashboard"
         component={Dashboard}
         options={{
-          title: "Home",
-          drawerIcon: ({ focused }) => <Home />,
+          title: "HomePage",
+          drawerIcon: () => <Home />,
 
           headerTitleStyle: { color: Colors.white },
         }}
@@ -109,10 +101,10 @@ const AppDrawerNavigator = () => {
         component={DefiExchange}
         options={{
           title: "DefiExchange",
+          headerTitle: "",
           drawerIcon: ({ focused }) => <Defi />,
         }}
       />
-
       <DrawerNavigator.Screen
         name="launchpad"
         component={LounchpadComponent}
@@ -126,27 +118,24 @@ const AppDrawerNavigator = () => {
         component={LockerScreen}
         listeners={{ drawerItemPress: (e) => e.preventDefault() }}
         options={{
-          title: "Lockers",
+          title: "",
           drawerIcon: () => <DrawerDropdown id={2} />,
         }}
       />
       <DrawerNavigator.Screen
         name="stake"
-        component={StackScreen}
+        component={SubmitInfo}
         options={{
           title: "Stake",
+          headerTitle: "",
           drawerIcon: ({ focused }) => (
-            <View
-              style={[
-                styles.icon,
-                { borderColor: focused ? Colors.white : Colors.black },
-              ]}
-            >
+            <View style={styles.icon}>
               <Stake />
             </View>
           ),
         }}
       />
+
       <DrawerNavigator.Screen
         name="scan"
         component={ScanScreen}
@@ -156,11 +145,12 @@ const AppDrawerNavigator = () => {
         }}
       />
       <DrawerNavigator.Screen
-        name="nft"
+        name="nftmint"
         component={NFTScreen}
         options={{
-          title: "NFT mint",
-          drawerIcon: ({ focused }) => <NFT />,
+          title: "NFTMint",
+          headerTitle: "",
+          drawerIcon: () => <NFT />,
         }}
       />
       <DrawerNavigator.Screen
@@ -168,6 +158,7 @@ const AppDrawerNavigator = () => {
         component={MapScrollScreen}
         options={{
           title: "Titanx Game",
+          headerTitle: "",
           drawerIcon: ({ focused }) => <Game />,
         }}
       />
@@ -176,6 +167,7 @@ const AppDrawerNavigator = () => {
         component={LoungeScreen}
         options={{
           title: "Lounge",
+          headerTitle: "",
           drawerIcon: ({ focused }) => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <LoungeT />
@@ -189,6 +181,7 @@ const AppDrawerNavigator = () => {
         component={SupportScreen}
         options={{
           title: "Support",
+          headerTitle: "",
           drawerIcon: ({ focused }) => <Support />,
         }}
       />
@@ -197,13 +190,15 @@ const AppDrawerNavigator = () => {
         component={AdvertiseScreen}
         options={{
           title: "Advertise",
-          drawerIcon: ({ focused }) => <Ads />,
+          headerTitle: "",
+          drawerIcon: () => <Ads />,
         }}
       />
       <DrawerNavigator.Screen
         name="createPresale"
         component={CreatePresale}
         options={{
+          headerTitle: "",
           drawerItemStyle: {
             display: "none",
           },
@@ -213,6 +208,18 @@ const AppDrawerNavigator = () => {
         name="managePresale"
         component={ManagePresale}
         options={{
+          title: "Manage Presal",
+          headerTitle: "",
+          drawerItemStyle: {
+            display: "none",
+          },
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="details"
+        component={Details}
+        options={{
+          headerShown: false,
           drawerItemStyle: {
             display: "none",
           },

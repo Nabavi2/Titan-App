@@ -1,5 +1,5 @@
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 import { useNavigation, DrawerActions } from "@react-navigation/native";
 import { Foundation } from "@expo/vector-icons";
 import Logo from "../../assets/Logo";
@@ -7,6 +7,8 @@ import IconContainer from "./IconContainer";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 import Menu from "../../assets/Menu";
+import Modal from "react-native-modal";
+import AppText from "./AppText";
 
 const size = Layout.window;
 function HeaderLeft(props) {
