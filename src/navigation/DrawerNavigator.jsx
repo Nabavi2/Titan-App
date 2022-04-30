@@ -198,6 +198,24 @@ const AppDrawerNavigator = () => {
           drawerIcon: ({ focused }) => <Ads />,
         }}
       />
+      <DrawerNavigator.Screen
+        name="createPresale"
+        component={CreatePresale}
+        options={{
+          drawerItemStyle: {
+            display: "none",
+          },
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="managePresale"
+        component={ManagePresale}
+        options={{
+          drawerItemStyle: {
+            display: "none",
+          },
+        }}
+      />
     </DrawerNavigator.Navigator>
   );
 };
