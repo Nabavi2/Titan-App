@@ -69,13 +69,15 @@ const AppDrawerNavigator = (props) => {
       screenOptions={{
         drawerActiveTintColor: Colors.text,
         drawerActiveBackgroundColor: Colors.white,
+        drawerContentContainerStyle: { backfaceVisibility: "hidden" },
         headerTintColor: Colors.black,
         headerRight: () => <HeaderRightButton />,
         headerLeft: () => <HeaderLeft />,
         drawerInactiveTintColor: Colors.text,
         drawerInactiveBackgroundColor: Colors.white,
+        drawerHideStatusBarOnOpen: false,
         headerShadowVisible: false,
-        headerStyle: { height: 110 },
+        headerStyle: { height: size.height * 0.12 },
         drawerItemStyle: {
           marginLeft: 20,
           marginRight: 20,
