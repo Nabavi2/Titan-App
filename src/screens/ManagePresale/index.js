@@ -5,6 +5,8 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import { AntDesign, Entypo } from "@expo/vector-icons";
+import { Switch } from "react-native-elements";
 
 import AppText from "../../components/AppText";
 import CardContainer from "../../components/CardContainer";
@@ -14,8 +16,7 @@ import Subtitle from "../../components/Subtitle";
 import Title from "../../components/Title";
 import Colors from "../../constants/Colors";
 import CopyIcon from "../../../assets/copyIcon";
-import { AntDesign, Entypo } from "@expo/vector-icons";
-import { Switch } from "react-native-elements";
+import Telegram from "../../../assets/telegram";
 
 function ManagePresale(props) {
   const [value, setValue] = useState(0.2);
@@ -194,6 +195,43 @@ function ManagePresale(props) {
             onValueChange={(val) => setEnabled(val)}
           />
         </View>
+        <View style={{ ...styles.toolsRow, height: "12%" }}>
+          <AppText style={styles.toolsRowTitle}>
+            Add/Remove Addresses (Whitelist)
+          </AppText>
+          <View
+            style={{
+              ...styles.plusIconContainer,
+              height: "50%",
+              marginTop: "-2%",
+            }}
+          >
+            <Entypo name="plus" size={14} color={Colors.black} />
+          </View>
+        </View>
+        <View style={styles.toolsRow}>
+          <View style={styles.supportCol}>
+            <AppText style={styles.toolsRowTitle}>Need Support?</AppText>
+            <AppText style={{ fontSize: 6 }}>
+              if you still cannot finalize then after recieveing support please
+              cancel your sale and test your contract thoroughly on our
+              supported test nets!
+            </AppText>
+          </View>
+          {/* Telegram App icon by Icons8 */}
+
+          <View style={styles.telegramContainer}>
+            <Telegram width={"60%"} height={"90%"} style={styles.telegram} />
+          </View>
+        </View>
+        <View style={styles.toolsRow}>
+          <AppText style={styles.toolsRowTitle}>
+            Withdraw Liquidity tokens
+          </AppText>
+          <View style={styles.plusIconContainer}>
+            <Entypo name="plus" size={14} color={Colors.black} />
+          </View>
+        </View>
       </CardContainer>
     </CustomScrollView>
   );
@@ -349,19 +387,32 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "space-between",
     alignItems: "center",
-    marginVertical: "5%",
+    marginVertical: "4%",
   },
-  toolsRowTitle: { fontSize: 15 },
+  toolsRowTitle: { fontSize: 15, width: "60%" },
   plusIconContainer: {
     width: "13%",
     height: "70%",
     borderRadius: wp(100) / 2,
     borderWidth: 2,
-    marginTop: "2%",
+    marginTop: "3%",
     borderColor: Colors.black,
     justifyContent: "center",
     alignItems: "center",
   },
+  supportCol: {
+    width: "70%",
+  },
+  telegramContainer: {
+    width: wp(8),
+    height: hp(4.5),
+    borderRadius: wp(100) / 2,
+    backgroundColor: "#40b3e0",
+    elevation: 6,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  telegram: { marginRight: "6%", marginTop: "5%" },
 });
 
 export default ManagePresale;
