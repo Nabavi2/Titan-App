@@ -24,7 +24,7 @@ export function BottomTabNavigator() {
   const { width, height } = Layout.window;
   return (
     <bottomTabNavigator.Navigator
-      initialRouteName="nftmint"
+      initialRouteName="dashboard"
       screenOptions={{
         tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: "#222222",
