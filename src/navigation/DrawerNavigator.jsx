@@ -10,7 +10,6 @@ import {
   createDrawerNavigator,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
@@ -50,8 +49,6 @@ const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 
 const AppDrawerNavigator = (props) => {
-  const navigation = useNavigation();
-
   return (
     <DrawerNavigator.Navigator
       initialRouteName={"dashboard"}
@@ -102,7 +99,7 @@ const AppDrawerNavigator = (props) => {
         options={{
           title: "DefiExchange",
           headerTitle: "",
-          drawerIcon: ({ focused }) => <Defi />,
+          drawerIcon: () => <Defi />,
         }}
       />
       <DrawerNavigator.Screen
@@ -110,7 +107,7 @@ const AppDrawerNavigator = (props) => {
         component={LounchpadComponent}
         listeners={{ drawerItemPress: (e) => e.preventDefault() }}
         options={{
-          drawerIcon: ({ focused }) => <DrawerDropdown id={1} />,
+          drawerIcon: () => <DrawerDropdown id={1} />,
         }}
       />
       <DrawerNavigator.Screen
@@ -141,7 +138,7 @@ const AppDrawerNavigator = (props) => {
         component={ScanScreen}
         options={{
           title: "Scan",
-          drawerIcon: ({ focused }) => <Scan />,
+          drawerIcon: () => <Scan />,
         }}
       />
       <DrawerNavigator.Screen
@@ -159,7 +156,7 @@ const AppDrawerNavigator = (props) => {
         options={{
           title: "Titanx Game",
           headerTitle: "",
-          drawerIcon: ({ focused }) => <Game />,
+          drawerIcon: () => <Game />,
         }}
       />
       <DrawerNavigator.Screen
@@ -168,7 +165,7 @@ const AppDrawerNavigator = (props) => {
         options={{
           title: "Lounge",
           headerTitle: "",
-          drawerIcon: ({ focused }) => (
+          drawerIcon: () => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <LoungeT />
               <Lounge />
