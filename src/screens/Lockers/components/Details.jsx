@@ -1,5 +1,5 @@
-import React from "react";
-import { View, StyleSheet, Image, Pressable } from "react-native";
+import React, { useEffect } from "react";
+import { View, StyleSheet, Image, Pressable, BackHandler } from "react-native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
@@ -12,6 +12,13 @@ const size = Layout.window;
 const Details = (props) => {
   const navigation = useNavigation();
   let image = props.route.params.image1;
+
+  BackHandler.addEventListener("hardwareBackPress", () => {
+    navigation.navigate("locker");
+
+    return true;
+  });
+
   return (
     <View style={{ paddingTop: 20 }}>
       {/* <CustomModal
@@ -22,7 +29,7 @@ const Details = (props) => {
       <View style={styles.blackCart}>
         <Pressable
           style={styles.iconContainer}
-          onPressIn={() => navigation.goBack()}
+          onPressIn={() => navigation.navigate("locker")}
         >
           <AntDesign name="arrowleft" size={24} color={Colors.white} />
         </Pressable>

@@ -1,12 +1,11 @@
-import React from "react";
-import { Image, PixelRatio, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { PixelRatio, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { useNavigation } from "@react-navigation/native";
-import { MaterialIcons, Feather, FontAwesome } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
 import Dashboard from "../screens/Dashboard";
@@ -26,15 +25,17 @@ import NFT1 from "../../assets/NFT1";
 import Home2 from "../../assets/Home2";
 import Bitcoin2 from "../../assets/Bitcoin2";
 import Bitcoin1 from "../../assets/Bitcoin1";
+import AppDrawerNavigator from "./DrawerNavigator";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
 export function BottomTabNavigator() {
   const navigation = useNavigation();
   const { width, height } = Layout.window;
+  const [currentScreen, setCurrentScreen] = useState("Dashboard");
   return (
     <bottomTabNavigator.Navigator
-      initialRouteName="dashboard"
+      initialRouteName="Dashboard"
       screenOptions={{
         tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: "#222222",
@@ -49,23 +50,45 @@ export function BottomTabNavigator() {
       }}
     >
       <bottomTabNavigator.Screen
-        name="dashboard"
-        component={Dashboard}
+        name="Dashboard"
+        component={AppDrawerNavigator}
         options={() => ({
-          tabBarIcon: ({ color, focused }) =>
-            focused ? <Dashboard2 /> : <Dashboard1 />,
+          tabBarIcon: ({ color, focused }) => {
+            return currentScreen === "Dashboard" ? (
+              <Dashboard2 />
+            ) : (
+              <Dashboard1 />
+            );
+          },
         })}
+        listeners={{
+          tabPress: (e) => {
+            e.preventDefault();
+            setCurrentScreen("Dashboard");
+            navigation.navigate("dashboard");
+          },
+        }}
       />
       <bottomTabNavigator.Screen
-        name="locker"
-        component={LockerScreen}
+        name="lockerTab"
+        component={SubmitInfo}
+        listeners={{
+          tabPress: (e) => {
+            e.preventDefault();
+            setCurrentScreen("lockerTab");
+            navigation.navigate("locker");
+          },
+        }}
         options={() => ({
-          tabBarIcon: ({ color, focused }) => (focused ? <Lock2 /> : <Lock1 />),
+          tabBarIcon: ({ color, focused }) =>
+            currentScreen === "lockerTab" ? <Lock2 /> : <Lock1 />,
         })}
       />
       <bottomTabNavigator.Screen
         listeners={{
-          tabPress: (e) => e.preventDefault(),
+          tabPress: (e) => {
+            e.preventDefault();
+          },
         }}
         name="home"
         component={SupportScreen}
@@ -78,47 +101,38 @@ export function BottomTabNavigator() {
         })}
       />
       <bottomTabNavigator.Screen
-        name="nftmint"
+        name="nftMint"
         component={NFTScreen}
         options={() => ({
-          title: "nftmint",
-          tabBarIcon: ({ focused }) => (focused ? <NFT2 /> : <NFT1 />),
-
-          headerStyle: {
-            backgroundColor: Colors.white,
-          },
-          headerTitleStyle: {
-            color: "white",
-          },
+          headerShown: false,
+          title: "",
+          tabBarIcon: ({ focused }) =>
+            currentScreen === "nftmint" ? <NFT2 /> : <NFT1 />,
         })}
+        listeners={{
+          tabPress: (e) => {
+            e.preventDefault();
+            setCurrentScreen("nftmint");
+            navigation.navigate("nftmint");
+          },
+        }}
       />
       <bottomTabNavigator.Screen
-        name="submitinfo"
+        name="Stake"
         component={SubmitInfo}
         options={() => ({
-          title: "submitinfo",
-          tabBarIcon: ({ color, focused }) =>
-            focused ? <Bitcoin2 /> : <Bitcoin1 />,
+          title: "",
+          tabBarIcon: () =>
+            currentScreen === "stake" ? <Bitcoin2 /> : <Bitcoin1 />,
         })}
-      />
-      {/* <DrawerNavigator.Screen
-        name="createPresale"
-        component={CreatePresale}
-        options={{
-          drawerItemStyle: {
-            display: "none",
+        listeners={{
+          tabPress: (e) => {
+            e.preventDefault();
+            setCurrentScreen("stake");
+            navigation.navigate("stake");
           },
         }}
       />
-      <DrawerNavigator.Screen
-        name="managePresale"
-        component={ManagePresale}
-        options={{
-          drawerItemStyle: {
-            display: "none",
-          },
-        }}
-      /> */}
     </bottomTabNavigator.Navigator>
   );
 }
