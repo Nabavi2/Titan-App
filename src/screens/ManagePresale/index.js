@@ -14,7 +14,7 @@ import Subtitle from "../../components/Subtitle";
 import Title from "../../components/Title";
 import Colors from "../../constants/Colors";
 import CopyIcon from "../../../assets/copyIcon";
-import { AntDesign, Entypo } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import { Switch } from "react-native-elements";
 
 function ManagePresale(props) {

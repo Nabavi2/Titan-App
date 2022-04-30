@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { View, StyleSheet, Image, Pressable, BackHandler } from "react-native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import AppText from "../../../components/AppText";
-import CustomModal from "../../../components/CustomModal";
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 
@@ -21,11 +20,6 @@ const Details = (props) => {
 
   return (
     <View style={{ paddingTop: 20 }}>
-      {/* <CustomModal
-      visible={visible}
-      onRequestClose={onRequestClose}
-      isLocker={true}
-    > */}
       <View style={styles.blackCart}>
         <Pressable
           style={styles.iconContainer}

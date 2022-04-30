@@ -14,7 +14,6 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
-import { LinearProgress } from "react-native-elements";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,

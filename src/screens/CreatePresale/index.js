@@ -13,7 +13,6 @@ import Colors from "../../constants/Colors";
 import CustomInput from "../../components/CustomInput";
 import MessageModal from "./components/MessageModal";
 import CustomButton from "../../components/CustomButton";
-import { useNavigation, useRoute } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 import CustomScrollView from "../../components/CustomScrollView";
 
