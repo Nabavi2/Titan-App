@@ -53,7 +53,7 @@ export function BottomTabNavigator() {
         name="Dashboard"
         component={AppDrawerNavigator}
         options={() => ({
-          tabBarIcon: ({ color, focused }) => {
+          tabBarIcon: () => {
             return currentScreen === "Dashboard" ? (
               <Dashboard2 />
             ) : (
@@ -80,7 +80,7 @@ export function BottomTabNavigator() {
           },
         }}
         options={() => ({
-          tabBarIcon: ({ color, focused }) =>
+          tabBarIcon: () =>
             currentScreen === "lockerTab" ? <Lock2 /> : <Lock1 />,
         })}
       />
@@ -93,7 +93,7 @@ export function BottomTabNavigator() {
         name="home"
         component={SupportScreen}
         options={() => ({
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: () => (
             <View style={styles.supportButton}>
               <Home2 />
             </View>
@@ -106,8 +106,7 @@ export function BottomTabNavigator() {
         options={() => ({
           headerShown: false,
           title: "",
-          tabBarIcon: ({ focused }) =>
-            currentScreen === "nftmint" ? <NFT2 /> : <NFT1 />,
+          tabBarIcon: () => (currentScreen === "nftmint" ? <NFT2 /> : <NFT1 />),
         })}
         listeners={{
           tabPress: (e) => {

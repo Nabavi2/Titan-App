@@ -2,14 +2,12 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import AppDrawerNavigator from "./DrawerNavigator";
 import Landing from "../screens/Landing";
-import Details from "../screens/Lockers/components/Details";
 import { BottomTabNavigator } from "./BottomTabNavigator";
 
 const Stack = createNativeStackNavigator();
 
-const AppNavigation = (props) => {
+const AppNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator

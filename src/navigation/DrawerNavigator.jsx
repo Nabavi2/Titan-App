@@ -1,11 +1,4 @@
-import {
-  Image,
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  ScrollView,
-} from "react-native";
+import { View, SafeAreaView, StyleSheet, ScrollView } from "react-native";
 import {
   createDrawerNavigator,
   DrawerItemList,
@@ -19,7 +12,6 @@ import MapScrollScreen from "../screens/MapScroll";
 import HeaderRightButton from "../components/HeaderRightButton";
 import HeaderLeft from "../components/HeaderLeft";
 import LockerScreen from "../screens/Lockers";
-import StackScreen from "../screens/Stack";
 import ScanScreen from "../screens/Scan";
 import LoungeScreen from "../screens/Lounge";
 import SupportScreen from "../screens/Support";
@@ -48,7 +40,7 @@ import SubmitInfo from "../screens/SubmitInfo";
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 
-const AppDrawerNavigator = (props) => {
+const AppDrawerNavigator = () => {
   return (
     <DrawerNavigator.Navigator
       initialRouteName={"dashboard"}
@@ -67,12 +59,12 @@ const AppDrawerNavigator = (props) => {
         );
       }}
       screenOptions={{
+        headerRight: () => <HeaderRightButton />,
+        headerLeft: () => <HeaderLeft />,
         drawerActiveTintColor: Colors.text,
         drawerActiveBackgroundColor: Colors.white,
         drawerContentContainerStyle: { backfaceVisibility: "hidden" },
         headerTintColor: Colors.black,
-        headerRight: () => <HeaderRightButton />,
-        headerLeft: () => <HeaderLeft />,
         drawerInactiveTintColor: Colors.text,
         drawerInactiveBackgroundColor: Colors.white,
         drawerHideStatusBarOnOpen: false,
@@ -127,7 +119,7 @@ const AppDrawerNavigator = (props) => {
         options={{
           title: "Stake",
           headerTitle: "",
-          drawerIcon: ({ focused }) => (
+          drawerIcon: () => (
             <View style={styles.icon}>
               <Stake />
             </View>
