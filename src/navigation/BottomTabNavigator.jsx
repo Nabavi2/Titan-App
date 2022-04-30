@@ -1,12 +1,11 @@
 import React from "react";
-import { Image, PixelRatio, StyleSheet, View } from "react-native";
+import { PixelRatio, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { useNavigation } from "@react-navigation/native";
-import { MaterialIcons, Feather, FontAwesome } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
 import Dashboard from "../screens/Dashboard";
@@ -26,6 +25,8 @@ import NFT1 from "../../assets/NFT1";
 import Home2 from "../../assets/Home2";
 import Bitcoin2 from "../../assets/Bitcoin2";
 import Bitcoin1 from "../../assets/Bitcoin1";
+import AppDrawerNavigator from "./DrawerNavigator";
+import LockerStack from "./LockerStack";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -50,7 +51,7 @@ export function BottomTabNavigator() {
     >
       <bottomTabNavigator.Screen
         name="dashboard"
-        component={Dashboard}
+        component={AppDrawerNavigator}
         options={() => ({
           tabBarIcon: ({ color, focused }) =>
             focused ? <Dashboard2 /> : <Dashboard1 />,
@@ -58,7 +59,7 @@ export function BottomTabNavigator() {
       />
       <bottomTabNavigator.Screen
         name="locker"
-        component={LockerScreen}
+        component={LockerStack}
         options={() => ({
           tabBarIcon: ({ color, focused }) => (focused ? <Lock2 /> : <Lock1 />),
         })}

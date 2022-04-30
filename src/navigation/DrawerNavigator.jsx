@@ -51,6 +51,8 @@ import Lounge from "../../assets/Lounge";
 import LoungeT from "../../assets/LoungeT";
 import Support from "../../assets/Support";
 import Ads from "../../assets/Ads";
+import HomeScreen from "../screens/Home";
+import Dashboard from "../screens/Dashboard";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
@@ -94,7 +96,7 @@ const AppDrawerNavigator = () => {
     >
       <DrawerNavigator.Screen
         name="home"
-        component={BottomTabNavigator}
+        component={Dashboard}
         options={{
           title: "Home",
           drawerIcon: ({ focused }) => <Home />,
