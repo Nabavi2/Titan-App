@@ -6,7 +6,6 @@ import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
-
 function TopCart() {
   return (
     <View style={styles.container}>
@@ -14,7 +13,6 @@ function TopCart() {
         source={require("../../../../assets/locker.png")}
         style={styles.image}
       />
-
       <Text style={styles.text}>
         Look your token with Apelock and earn/ withdraw
       </Text>

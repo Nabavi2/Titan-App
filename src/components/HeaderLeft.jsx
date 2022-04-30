@@ -1,11 +1,12 @@
 import React from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { useNavigation, DrawerActions } from "@react-navigation/native";
 import { Foundation } from "@expo/vector-icons";
-
+import Logo from "../../assets/Logo";
 import IconContainer from "./IconContainer";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
+import Menu from "../../assets/Menu";
 
 const size = Layout.window;
 function HeaderLeft(props) {
@@ -14,13 +15,10 @@ function HeaderLeft(props) {
     <IconContainer
       onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
     >
-      <Foundation
-        name="graph-horizontal"
-        size={30}
-        color={Colors.black}
-        style={{ marginLeft: 14 }}
-      />
-      <Image style={styles.image} source={require("../../assets/logo.png")} />
+      <Menu />
+      <View style={styles.image}>
+        <Logo />
+      </View>
     </IconContainer>
   );
 }
@@ -31,11 +29,12 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   image: {
-    width: size.width * 0.18,
-    height: size.height * 0.1,
-    marginLeft: size.width * 0.06,
+    width: size.width * 0.15,
+    height: size.height * 0.07,
+    marginLeft: size.width * 0.05,
     marginBottom: 20,
     marginTop: 20,
+    alignItems: "center",
   },
 });
 

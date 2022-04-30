@@ -9,13 +9,23 @@ import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons, Feather, FontAwesome } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
-import DefiExchange from "../screens/DefiEnchange";
 import Dashboard from "../screens/Dashboard";
 import SubmitInfo from "../screens/SubmitInfo";
 import SupportScreen from "../screens/Support";
 import Layout from "../constants/Layout";
 import LockerScreen from "../screens/Lockers";
 import NFTScreen from "../screens/NFTScreen";
+
+//The SVG's import section
+import Dashboard1 from "../../assets/Dashboard1";
+import Dashboard2 from "../../assets/Dashboard2";
+import Lock2 from "../../assets/Lock2";
+import Lock1 from "../../assets/Lock1";
+import NFT2 from "../../assets/NFT2";
+import NFT1 from "../../assets/NFT1";
+import Home2 from "../../assets/Home2";
+import Bitcoin2 from "../../assets/Bitcoin2";
+import Bitcoin1 from "../../assets/Bitcoin1";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -42,19 +52,15 @@ export function BottomTabNavigator() {
         name="dashboard"
         component={Dashboard}
         options={() => ({
-          headerShown: false,
-          tabBarIcon: ({ color }) => (
-            <Feather name="grid" size={34} color={color} />
-          ),
+          tabBarIcon: ({ color, focused }) =>
+            focused ? <Dashboard2 /> : <Dashboard1 />,
         })}
       />
       <bottomTabNavigator.Screen
         name="locker"
         component={LockerScreen}
         options={() => ({
-          tabBarIcon: ({ color }) => (
-            <MaterialIcons name="lock-outline" size={34} color={color} />
-          ),
+          tabBarIcon: ({ color, focused }) => (focused ? <Lock2 /> : <Lock1 />),
         })}
       />
       <bottomTabNavigator.Screen
@@ -66,29 +72,17 @@ export function BottomTabNavigator() {
         options={() => ({
           tabBarIcon: ({ color }) => (
             <View style={styles.supportButton}>
-              <Feather name="home" size={36} color={Colors.white} />
+              <Home2 />
             </View>
           ),
         })}
       />
-
       <bottomTabNavigator.Screen
         name="nftmint"
         component={NFTScreen}
         options={() => ({
           title: "nftmint",
-          tabBarIcon: ({ focused }) =>
-            focused ? (
-              <Image
-                source={require("../../assets/pup.png")}
-                style={{ width: "34%", height: "50%", marginTop: "1.5%" }}
-              />
-            ) : (
-              <Image
-                source={require("../../assets/up.png")}
-                style={styles.image}
-              />
-            ),
+          tabBarIcon: ({ focused }) => (focused ? <NFT2 /> : <NFT1 />),
 
           headerStyle: {
             backgroundColor: Colors.white,
@@ -103,22 +97,28 @@ export function BottomTabNavigator() {
         component={SubmitInfo}
         options={() => ({
           title: "submitinfo",
-          tabBarIcon: ({ color, focused }) => (
-            <View
-              style={[
-                styles.DEButton,
-                { borderColor: focused ? Colors.primary : color },
-              ]}
-            >
-              <FontAwesome
-                name="bitcoin"
-                size={24}
-                color={focused ? Colors.primary : color}
-              />
-            </View>
-          ),
+          tabBarIcon: ({ color, focused }) =>
+            focused ? <Bitcoin2 /> : <Bitcoin1 />,
         })}
       />
+      {/* <DrawerNavigator.Screen
+        name="createPresale"
+        component={CreatePresale}
+        options={{
+          drawerItemStyle: {
+            display: "none",
+          },
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="managePresale"
+        component={ManagePresale}
+        options={{
+          drawerItemStyle: {
+            display: "none",
+          },
+        }}
+      /> */}
     </bottomTabNavigator.Navigator>
   );
 }
