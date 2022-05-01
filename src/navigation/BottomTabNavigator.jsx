@@ -26,6 +26,7 @@ import Home2 from "../../assets/Home2";
 import Bitcoin2 from "../../assets/Bitcoin2";
 import Bitcoin1 from "../../assets/Bitcoin1";
 import AppDrawerNavigator from "./DrawerNavigator";
+import StakeScreen from "../screens/Stack";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
@@ -118,7 +119,7 @@ export function BottomTabNavigator() {
       />
       <bottomTabNavigator.Screen
         name="Stake"
-        component={SubmitInfo}
+        component={StakeScreen}
         options={() => ({
           title: "",
           tabBarIcon: () =>

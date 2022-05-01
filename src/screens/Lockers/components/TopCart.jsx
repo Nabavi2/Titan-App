@@ -9,7 +9,7 @@ import Ilocker from "../../../../assets/Ilocker";
 const size = Layout.window;
 function TopCart() {
   return (
-    <View style={styles.container}>
+    <View style={styles.cart}>
       <Ilocker />
       <Text style={styles.text}>
         Look your token with Apelock and earn/ withdraw
@@ -26,7 +26,7 @@ function TopCart() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  cart: {
     height: size.height * 0.35,
     width: size.width * 0.93,
     backgroundColor: Colors.primary,
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     width: size.width * 0.55,
     height: size.height * 0.045,
     backgroundColor: Colors.inputBackground,
-    marginBottom: 7,
+    marginBottom: 20,
   },
 });
 

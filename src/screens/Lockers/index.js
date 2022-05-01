@@ -14,17 +14,22 @@ import TopCart from "./components/TopCart";
 import Layout from "../../constants/Layout";
 import SubCard from "./components/SubCart";
 
+import Em2 from "../../../assets/Em2";
+import Test from "../../../assets/Test";
+import Angry from "../../../assets/Angry";
+import Man from "../../../assets/Man";
+
 const size = Layout.window;
 
 function LockerScreen(props) {
   const data = [
     {
       title: "GOLD",
-      image: require("../../../assets/em.png"),
+      image: Em2,
     },
     {
       title: "TEST",
-      image: require("../../../assets/test.png"),
+      image: "../../../assets/Test",
     },
     {
       title: "Bayd",

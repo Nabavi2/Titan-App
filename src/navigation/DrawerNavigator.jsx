@@ -36,6 +36,7 @@ import Ads from "../../assets/Ads";
 import Dashboard from "../screens/Dashboard";
 import Details from "../screens/Lockers/components/Details";
 import SubmitInfo from "../screens/SubmitInfo";
+import StakeScreen from "../screens/Stack";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
@@ -115,8 +116,9 @@ const AppDrawerNavigator = () => {
       />
       <DrawerNavigator.Screen
         name="stake"
-        component={SubmitInfo}
+        component={StakeScreen}
         options={{
+          headerStyle: { height: size.height * 0.135 },
           title: "Stake",
           headerTitle: "",
           drawerIcon: () => (
@@ -131,7 +133,9 @@ const AppDrawerNavigator = () => {
         name="scan"
         component={ScanScreen}
         options={{
+          headerStyle: { height: size.height * 0.135 },
           title: "Scan",
+          headerTitle: "",
           drawerIcon: () => <Scan />,
         }}
       />
@@ -139,6 +143,7 @@ const AppDrawerNavigator = () => {
         name="nftmint"
         component={NFTScreen}
         options={{
+          headerStyle: { height: size.height * 0.135 },
           title: "NFTMint",
           headerTitle: "",
           drawerIcon: () => <NFT />,
