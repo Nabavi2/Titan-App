@@ -1,4 +1,3 @@
-import { Card } from "native-base";
 import React, { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import {

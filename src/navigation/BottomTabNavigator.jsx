@@ -32,14 +32,7 @@ const bottomTabNavigator = createBottomTabNavigator();
 
 export function BottomTabNavigator() {
   const navigation = useNavigation();
-  const dispatch = useDispatch();
-  const screen = useSelector((state) => state.screen.selectedScreen);
-  console.log(screen);
-  const { width, height } = Layout.window;
   const [currentScreen, setCurrentScreen] = useState("dashboard");
-  useEffect(() => {
-    setCurrentScreen(screen);
-  }, [screen]);
   return (
     <bottomTabNavigator.Navigator
       initialRouteName="Dashboard"
@@ -71,7 +64,7 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-
+            setCurrentScreen("dashboard");
             navigation.navigate("dashboard");
           },
         }}
@@ -82,14 +75,13 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            // setCurrentScreen("lockerTab");
+            setCurrentScreen("lockerTab");
             navigation.navigate("locker");
-            dispatch(changeSelectedScreen("locker"));
           },
         }}
         options={() => ({
-          tabBarIcon: ({ color, focused }) =>
-            currentScreen === "locker" ? <Lock2 /> : <Lock1 />,
+          tabBarIcon: () =>
+            currentScreen === "lockerTab" ? <Lock2 /> : <Lock1 />,
         })}
       />
       <bottomTabNavigator.Screen
@@ -120,9 +112,8 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            // setCurrentScreen("nftmint");
+            setCurrentScreen("nftmint");
             navigation.navigate("nftmint");
-            dispatch(changeSelectedScreen("nftmint"));
           },
         }}
       />
@@ -137,9 +128,8 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            // setCurrentScreen("stake");
+            setCurrentScreen("stake");
             navigation.navigate("stake");
-            dispatch(changeSelectedScreen("stake"));
           },
         }}
       />

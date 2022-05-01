@@ -12,10 +12,9 @@ const AppNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="landing"
+        initialRouteName="home"
         screenOptions={{ animation: "slide_from_right", headerShown: false }}
       >
-        <Stack.Screen name="landing" component={Landing} options={{}} />
         <Stack.Screen name="home" component={BottomTabNavigator} options={{}} />
       </Stack.Navigator>
     </NavigationContainer>

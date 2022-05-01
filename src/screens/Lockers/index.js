@@ -14,22 +14,22 @@ import TopCart from "./components/TopCart";
 import Layout from "../../constants/Layout";
 import SubCard from "./components/SubCart";
 
-import Em2 from "../../../assets/Em2";
-import Test from "../../../assets/Test";
-import Angry from "../../../assets/Angry";
-import Man from "../../../assets/Man";
+// import Em2 from "../../../assets/Em2";
+// import Test from "../../../assets/Test";
+// import Angry from "../../../assets/Angry";
+// import Man from "../../../assets/Man";
 
 const size = Layout.window;
 
 function LockerScreen(props) {
   const data = [
     {
-      title: "GOLD",
-      image: Em2,
+      title: "Bayd",
+      image: require("../../../assets/angry.png"),
     },
     {
-      title: "TEST",
-      image: "../../../assets/Test",
+      title: "Bayd",
+      image: require("../../../assets/angry.png"),
     },
     {
       title: "Bayd",
@@ -37,7 +37,7 @@ function LockerScreen(props) {
     },
     {
       title: "123x",
-      image: require("../../../assets/man.png"),
+      image: require("../../../assets/Man.png"),
     },
     {
       title: "Crypt",

@@ -42,7 +42,6 @@ const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 
 const AppDrawerNavigator = (props) => {
-  const disptach = useDispatch();
   return (
     <DrawerNavigator.Navigator
       initialRouteName={"dashboard"}
