@@ -2,9 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Landing from "../screens/Landing";
 import { BottomTabNavigator } from "./BottomTabNavigator";
-import Dashboard from "../screens/Dashboard";
 
 const Stack = createNativeStackNavigator();
 

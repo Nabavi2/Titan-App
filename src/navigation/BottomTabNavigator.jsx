@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { PixelRatio, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
@@ -8,11 +8,8 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../constants/Colors";
-import Dashboard from "../screens/Dashboard";
 import SubmitInfo from "../screens/SubmitInfo";
 import SupportScreen from "../screens/Support";
-import Layout from "../constants/Layout";
-import LockerScreen from "../screens/Lockers";
 import NFTScreen from "../screens/NFTScreen";
 
 //The SVG's import section
