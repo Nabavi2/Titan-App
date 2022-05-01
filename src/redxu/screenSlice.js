@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const screenSlice = createSlice({
   name: "screen",
   initialState: {
-    selectedScreen: "dashboard",
+    selectedScreen: "",
   },
   reducers: {
     changeSelectedScreen: (state, action) => {

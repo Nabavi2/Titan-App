@@ -2,40 +2,33 @@ import React, { useState } from "react";
 import { Image, Pressable, StyleSheet, View } from "react-native";
 import { useNavigation, DrawerActions } from "@react-navigation/native";
 import { Foundation } from "@expo/vector-icons";
-import Logo from "../../assets/Logo";
-import IconContainer from "./IconContainer";
-import Colors from "../constants/Colors";
-import Layout from "../constants/Layout";
-import Menu from "../../assets/Menu";
-import Modal from "react-native-modal";
-import AppText from "./AppText";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 
-const size = Layout.window;
+import IconContainer from "./IconContainer";
+import Menu from "../../assets/Menu";
+import Logo from "../../assets/logo";
+
 function HeaderLeft(props) {
   const navigation = useNavigation();
   return (
     <IconContainer
       onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
     >
-      <Menu />
-      <View style={styles.image}>
-        <Logo />
-      </View>
+      <Menu style={styles.menu} />
+
+      <Logo style={styles.image} width={wp(25)} height={hp(7)} />
     </IconContainer>
   );
 }
 const styles = StyleSheet.create({
   menu: {
-    height: 20,
-    width: 30,
-    marginLeft: 10,
+    marginLeft: wp(12),
   },
   image: {
-    width: size.width * 0.15,
-    height: size.height * 0.07,
-    marginLeft: size.width * 0.05,
-    marginBottom: 20,
-    marginTop: 20,
+    marginLeft: wp(3),
     alignItems: "center",
   },
 });

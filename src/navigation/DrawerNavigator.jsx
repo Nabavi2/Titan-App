@@ -41,7 +41,8 @@ import StakeScreen from "../screens/Stack";
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 
-const AppDrawerNavigator = () => {
+const AppDrawerNavigator = (props) => {
+  const disptach = useDispatch();
   return (
     <DrawerNavigator.Navigator
       initialRouteName={"dashboard"}
@@ -71,6 +72,7 @@ const AppDrawerNavigator = () => {
         drawerHideStatusBarOnOpen: false,
         headerShadowVisible: false,
         headerStyle: { height: size.height * 0.12 },
+        headerTitleStyle: { display: "none" },
         drawerItemStyle: {
           marginLeft: 20,
           marginRight: 20,
@@ -147,6 +149,9 @@ const AppDrawerNavigator = () => {
           title: "NFTMint",
           headerTitle: "",
           drawerIcon: () => <NFT />,
+        }}
+        listeners={{
+          drawerItemPress: (_) => disptach(changeSelectedScreen("nftmint")),
         }}
       />
       <DrawerNavigator.Screen

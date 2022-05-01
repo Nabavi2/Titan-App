@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PixelRatio, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
@@ -32,8 +32,14 @@ const bottomTabNavigator = createBottomTabNavigator();
 
 export function BottomTabNavigator() {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const screen = useSelector((state) => state.screen.selectedScreen);
+  console.log(screen);
   const { width, height } = Layout.window;
-  const [currentScreen, setCurrentScreen] = useState("Dashboard");
+  const [currentScreen, setCurrentScreen] = useState("dashboard");
+  useEffect(() => {
+    setCurrentScreen(screen);
+  }, [screen]);
   return (
     <bottomTabNavigator.Navigator
       initialRouteName="Dashboard"
@@ -54,8 +60,8 @@ export function BottomTabNavigator() {
         name="Dashboard"
         component={AppDrawerNavigator}
         options={() => ({
-          tabBarIcon: () => {
-            return currentScreen === "Dashboard" ? (
+          tabBarIcon: ({ color, focused }) => {
+            return currentScreen === "dashboard" ? (
               <Dashboard2 />
             ) : (
               <Dashboard1 />
@@ -65,7 +71,7 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("Dashboard");
+
             navigation.navigate("dashboard");
           },
         }}
@@ -76,13 +82,14 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("lockerTab");
+            // setCurrentScreen("lockerTab");
             navigation.navigate("locker");
+            dispatch(changeSelectedScreen("locker"));
           },
         }}
         options={() => ({
-          tabBarIcon: () =>
-            currentScreen === "lockerTab" ? <Lock2 /> : <Lock1 />,
+          tabBarIcon: ({ color, focused }) =>
+            currentScreen === "locker" ? <Lock2 /> : <Lock1 />,
         })}
       />
       <bottomTabNavigator.Screen
@@ -94,7 +101,7 @@ export function BottomTabNavigator() {
         name="home"
         component={SupportScreen}
         options={() => ({
-          tabBarIcon: () => (
+          tabBarIcon: ({ color }) => (
             <View style={styles.supportButton}>
               <Home2 />
             </View>
@@ -107,13 +114,15 @@ export function BottomTabNavigator() {
         options={() => ({
           headerShown: false,
           title: "",
-          tabBarIcon: () => (currentScreen === "nftmint" ? <NFT2 /> : <NFT1 />),
+          tabBarIcon: ({ focused }) =>
+            currentScreen === "nftmint" ? <NFT2 /> : <NFT1 />,
         })}
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("nftmint");
+            // setCurrentScreen("nftmint");
             navigation.navigate("nftmint");
+            dispatch(changeSelectedScreen("nftmint"));
           },
         }}
       />
@@ -128,8 +137,9 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("stake");
+            // setCurrentScreen("stake");
             navigation.navigate("stake");
+            dispatch(changeSelectedScreen("stake"));
           },
         }}
       />

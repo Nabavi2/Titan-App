@@ -2,8 +2,8 @@ import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { NativeBaseProvider } from "native-base";
 import { MenuProvider } from "react-native-popup-menu";
-import AppNavigation from "./src/navigation/AppNavigation";
 import { Provider } from "react-redux";
+import AppNavigation from "./src/navigation/AppNavigation";
 import { store } from "./src/redxu/ConfigStore";
 
 export default function App() {

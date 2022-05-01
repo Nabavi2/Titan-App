@@ -1,9 +1,11 @@
-import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
+import React, { useEffect } from "react";
 import { View, StyleSheet, FlatList, Pressable } from "react-native";
+import { useDispatch } from "react-redux";
 
 import Title from "../../components/Title";
 import Colors from "../../constants/Colors";
+import { changeSelectedScreen } from "../../redxu/screenSlice";
 import Card from "./components/Card";
 
 function Dashboard(props) {
@@ -40,6 +42,14 @@ function Dashboard(props) {
       time: "00:09:17:56",
     },
   ];
+  const disptach = useDispatch();
+  const focused = useIsFocused();
+  useEffect(() => {
+    if (focused) {
+      console.log("lsdjflskjdfkjsd");
+      disptach(changeSelectedScreen("dashboard"));
+    }
+  }, [focused]);
   return (
     <View style={styles.container}>
       <View style={styles.subHeader}>
