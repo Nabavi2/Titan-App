@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PixelRatio, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
@@ -26,13 +26,24 @@ import Home2 from "../../assets/Home2";
 import Bitcoin2 from "../../assets/Bitcoin2";
 import Bitcoin1 from "../../assets/Bitcoin1";
 import AppDrawerNavigator from "./DrawerNavigator";
+import { useDispatch, useSelector } from "react-redux";
+import { changeSelectedScreen } from "../redxu/screenSlice";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
 export function BottomTabNavigator() {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const screen = useSelector((state) => state.screen.selectedScreen);
+  console.log(screen);
   const { width, height } = Layout.window;
-  const [currentScreen, setCurrentScreen] = useState("Dashboard");
+  const [currentScreen, setCurrentScreen] = useState("dashboard");
+  useEffect(() => {
+    // if (screen === "nftmint") setCurrentScreen("nftmint");
+
+    // if (screen === "dashboard") setCurrentScreen("dashboard");
+    setCurrentScreen(screen);
+  }, [screen]);
   return (
     <bottomTabNavigator.Navigator
       initialRouteName="Dashboard"
@@ -54,7 +65,7 @@ export function BottomTabNavigator() {
         component={AppDrawerNavigator}
         options={() => ({
           tabBarIcon: ({ color, focused }) => {
-            return currentScreen === "Dashboard" ? (
+            return currentScreen === "dashboard" ? (
               <Dashboard2 />
             ) : (
               <Dashboard1 />
@@ -64,7 +75,7 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("Dashboard");
+            // setCurrentScreen("dashboard");
             navigation.navigate("dashboard");
           },
         }}
@@ -75,13 +86,14 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("lockerTab");
+            // setCurrentScreen("lockerTab");
             navigation.navigate("locker");
+            dispatch(changeSelectedScreen("locker"));
           },
         }}
         options={() => ({
           tabBarIcon: ({ color, focused }) =>
-            currentScreen === "lockerTab" ? <Lock2 /> : <Lock1 />,
+            currentScreen === "locker" ? <Lock2 /> : <Lock1 />,
         })}
       />
       <bottomTabNavigator.Screen
@@ -112,8 +124,9 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("nftmint");
+            // setCurrentScreen("nftmint");
             navigation.navigate("nftmint");
+            dispatch(changeSelectedScreen("nftmint"));
           },
         }}
       />
@@ -128,8 +141,9 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("stake");
+            // setCurrentScreen("stake");
             navigation.navigate("stake");
+            dispatch(changeSelectedScreen("stake"));
           },
         }}
       />

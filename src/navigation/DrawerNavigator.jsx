@@ -45,13 +45,14 @@ import Ads from "../../assets/Ads";
 import Dashboard from "../screens/Dashboard";
 import Details from "../screens/Lockers/components/Details";
 import SubmitInfo from "../screens/SubmitInfo";
+import { useDispatch } from "react-redux";
+import { changeSelectedScreen } from "../redxu/screenSlice";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 
 const AppDrawerNavigator = (props) => {
-  const navigation = useNavigation();
-
+  const disptach = useDispatch();
   return (
     <DrawerNavigator.Navigator
       initialRouteName={"dashboard"}
@@ -151,6 +152,9 @@ const AppDrawerNavigator = (props) => {
           title: "NFTMint",
           headerTitle: "",
           drawerIcon: () => <NFT />,
+        }}
+        listeners={{
+          drawerItemPress: (_) => disptach(changeSelectedScreen("nftmint")),
         }}
       />
       <DrawerNavigator.Screen
