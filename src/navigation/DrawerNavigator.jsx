@@ -73,6 +73,7 @@ const AppDrawerNavigator = (props) => {
         drawerHideStatusBarOnOpen: false,
         headerShadowVisible: false,
         headerStyle: { height: size.height * 0.12 },
+        headerTitleStyle: { display: "none" },
         drawerItemStyle: {
           marginLeft: 20,
           marginRight: 20,

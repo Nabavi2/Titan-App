@@ -17,15 +17,22 @@ import Title from "../../components/Title";
 import Colors from "../../constants/Colors";
 import CopyIcon from "../../../assets/copyIcon";
 import Telegram from "../../../assets/telegram";
+import CustomButton from "../../components/CustomButton";
+import WhitelistModal from "./components/WhitelistModal";
 
 function ManagePresale(props) {
   const [value, setValue] = useState(0.2);
   const [enabled, setEnabled] = useState(true);
+  const [showWhitelist, setShowWhitelist] = useState(false);
   return (
     <CustomScrollView
       style={styles.container}
       contentContainerStyle={styles.contentStyle}
     >
+      <WhitelistModal
+        visible={showWhitelist}
+        onRequestClose={() => setShowWhitelist(false)}
+      />
       {/* Presale Manager  */}
       <CardContainer style={styles.managerCard}>
         <Title style={styles.managerTitle}>Presale Manager</Title>
@@ -199,7 +206,8 @@ function ManagePresale(props) {
           <AppText style={styles.toolsRowTitle}>
             Add/Remove Addresses (Whitelist)
           </AppText>
-          <View
+          <Pressable
+            onPress={() => setShowWhitelist(true)}
             style={{
               ...styles.plusIconContainer,
               height: "50%",
@@ -207,7 +215,7 @@ function ManagePresale(props) {
             }}
           >
             <Entypo name="plus" size={14} color={Colors.black} />
-          </View>
+          </Pressable>
         </View>
         <View style={styles.toolsRow}>
           <View style={styles.supportCol}>
@@ -218,7 +226,6 @@ function ManagePresale(props) {
               supported test nets!
             </AppText>
           </View>
-          {/* Telegram App icon by Icons8 */}
 
           <View style={styles.telegramContainer}>
             <Telegram width={"60%"} height={"90%"} style={styles.telegram} />
@@ -228,9 +235,30 @@ function ManagePresale(props) {
           <AppText style={styles.toolsRowTitle}>
             Withdraw Liquidity tokens
           </AppText>
-          <View style={styles.plusIconContainer}>
-            <Entypo name="plus" size={14} color={Colors.black} />
+          <View style={styles.withdrawCol}>
+            <Pressable
+              android_ripple={{ color: Colors.white }}
+              style={styles.withdrawButton}
+            >
+              <Subtitle style={styles.withdrawButtonText}>Withdraw</Subtitle>
+            </Pressable>
+            <AppText style={styles.withdrawDate}>
+              02/05/2022 0-22:0-52:0-4:1
+            </AppText>
           </View>
+        </View>
+        <View style={styles.buttonsContainer}>
+          <CustomButton
+            title="Cancel Presale"
+            onPress={() => setShowMessage(true)}
+            style={styles.createPresale}
+            textStyle={styles.cancelText}
+          />
+          <CustomButton
+            title="Finalize"
+            style={styles.finalize}
+            textStyle={styles.finalizeText}
+          />
         </View>
       </CardContainer>
     </CustomScrollView>
@@ -375,7 +403,7 @@ const styles = StyleSheet.create({
     marginVertical: "2%",
     paddingHorizontal: "7%",
     paddingVertical: "5%",
-    height: hp(54),
+    height: hp(60),
     alignItems: "center",
   },
   toolsTitle: {
@@ -404,15 +432,69 @@ const styles = StyleSheet.create({
     width: "70%",
   },
   telegramContainer: {
-    width: wp(8),
-    height: hp(4.5),
+    width: wp(6),
+    height: hp(3.5),
     borderRadius: wp(100) / 2,
     backgroundColor: "#40b3e0",
     elevation: 6,
     justifyContent: "center",
     alignItems: "center",
+    marginRight: "1%",
   },
   telegram: { marginRight: "6%", marginTop: "5%" },
+  withdrawButton: {
+    width: wp(17),
+    height: hp(3.5),
+    backgroundColor: Colors.primary,
+    borderRadius: wp(100) / 2,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  withdrawButtonText: {
+    fontFamily: "vietnamMedium",
+    fontSize: 7,
+    color: Colors.white,
+    marginBottom: "3%",
+  },
+  withdrawDate: {
+    fontSize: 6,
+    fontFamily: "vietnamMedium",
+  },
+  withdrawCol: {
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "flex-end",
+    marginTop: "5%",
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: "8%",
+    width: "100%",
+  },
+  createPresale: {
+    width: "45%",
+    height: hp(4),
+    borderRadius: wp(100) / 40,
+  },
+  finalize: {
+    width: "45%",
+    height: hp(4),
+    backgroundColor: "white",
+    borderWidth: 2,
+    borderColor: Colors.secondary,
+    borderRadius: wp(100) / 40,
+  },
+  finalizeText: {
+    color: Colors.secondary,
+    fontSize: 13,
+    marginTop: "1%",
+  },
+  cancelText: {
+    color: Colors.white,
+    fontSize: 13,
+    marginTop: "1%",
+  },
 });
 
 export default ManagePresale;
