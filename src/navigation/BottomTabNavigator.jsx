@@ -39,9 +39,6 @@ export function BottomTabNavigator() {
   const { width, height } = Layout.window;
   const [currentScreen, setCurrentScreen] = useState("dashboard");
   useEffect(() => {
-    // if (screen === "nftmint") setCurrentScreen("nftmint");
-
-    // if (screen === "dashboard") setCurrentScreen("dashboard");
     setCurrentScreen(screen);
   }, [screen]);
   return (
@@ -75,7 +72,7 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            // setCurrentScreen("dashboard");
+
             navigation.navigate("dashboard");
           },
         }}

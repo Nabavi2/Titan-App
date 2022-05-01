@@ -1,16 +1,8 @@
-import {
-  Image,
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  ScrollView,
-} from "react-native";
+import { View, SafeAreaView, StyleSheet, ScrollView } from "react-native";
 import {
   createDrawerNavigator,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
@@ -20,7 +12,6 @@ import MapScrollScreen from "../screens/MapScroll";
 import HeaderRightButton from "../components/HeaderRightButton";
 import HeaderLeft from "../components/HeaderLeft";
 import LockerScreen from "../screens/Lockers";
-import StackScreen from "../screens/Stack";
 import ScanScreen from "../screens/Scan";
 import LoungeScreen from "../screens/Lounge";
 import SupportScreen from "../screens/Support";
@@ -71,15 +62,17 @@ const AppDrawerNavigator = (props) => {
         );
       }}
       screenOptions={{
-        drawerActiveTintColor: Colors.text,
-        drawerActiveBackgroundColor: Colors.white,
-        headerTintColor: Colors.black,
         headerRight: () => <HeaderRightButton />,
         headerLeft: () => <HeaderLeft />,
+        drawerActiveTintColor: Colors.text,
+        drawerActiveBackgroundColor: Colors.white,
+        drawerContentContainerStyle: { backfaceVisibility: "hidden" },
+        headerTintColor: Colors.black,
         drawerInactiveTintColor: Colors.text,
         drawerInactiveBackgroundColor: Colors.white,
+        drawerHideStatusBarOnOpen: false,
         headerShadowVisible: false,
-        headerStyle: { height: 110 },
+        headerStyle: { height: size.height * 0.12 },
         drawerItemStyle: {
           marginLeft: 20,
           marginRight: 20,
@@ -103,7 +96,7 @@ const AppDrawerNavigator = (props) => {
         options={{
           title: "DefiExchange",
           headerTitle: "",
-          drawerIcon: ({ focused }) => <Defi />,
+          drawerIcon: () => <Defi />,
         }}
       />
       <DrawerNavigator.Screen
@@ -111,7 +104,7 @@ const AppDrawerNavigator = (props) => {
         component={LounchpadComponent}
         listeners={{ drawerItemPress: (e) => e.preventDefault() }}
         options={{
-          drawerIcon: ({ focused }) => <DrawerDropdown id={1} />,
+          drawerIcon: () => <DrawerDropdown id={1} />,
         }}
       />
       <DrawerNavigator.Screen
@@ -129,7 +122,7 @@ const AppDrawerNavigator = (props) => {
         options={{
           title: "Stake",
           headerTitle: "",
-          drawerIcon: ({ focused }) => (
+          drawerIcon: () => (
             <View style={styles.icon}>
               <Stake />
             </View>
@@ -142,7 +135,7 @@ const AppDrawerNavigator = (props) => {
         component={ScanScreen}
         options={{
           title: "Scan",
-          drawerIcon: ({ focused }) => <Scan />,
+          drawerIcon: () => <Scan />,
         }}
       />
       <DrawerNavigator.Screen
@@ -163,7 +156,7 @@ const AppDrawerNavigator = (props) => {
         options={{
           title: "Titanx Game",
           headerTitle: "",
-          drawerIcon: ({ focused }) => <Game />,
+          drawerIcon: () => <Game />,
         }}
       />
       <DrawerNavigator.Screen
@@ -172,7 +165,7 @@ const AppDrawerNavigator = (props) => {
         options={{
           title: "Lounge",
           headerTitle: "",
-          drawerIcon: ({ focused }) => (
+          drawerIcon: () => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <LoungeT />
               <Lounge />

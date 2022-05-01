@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Pressable,
-  TextInput,
-  Image,
-} from "react-native";
-import PickerComponent from "../../../components/PickerComponent";
+import { View, Text, StyleSheet } from "react-native";
 
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";

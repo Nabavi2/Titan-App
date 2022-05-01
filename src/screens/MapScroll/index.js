@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { PixelRatio, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { PixelRatio, Text, View } from "react-native";
 
-import Colors from "../../constants/Colors";
-import Layout from "../../constants/Layout";
 import GlobalStyles from "../../constants/GlobalStyles";
 
 function MapScrollScreen(props) {

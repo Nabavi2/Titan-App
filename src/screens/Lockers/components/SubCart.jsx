@@ -11,7 +11,6 @@ import Subtitle from "../../../components/Subtitle";
 import CardContainer from "../../../components/CardContainer";
 import CustomButton from "../../../components/CustomButton";
 import Colors from "../../../constants/Colors";
-import Details from "./Details";
 import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
