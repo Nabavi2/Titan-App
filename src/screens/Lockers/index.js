@@ -25,11 +25,11 @@ function LockerScreen(props) {
   const data = [
     {
       title: "Bayd",
-      image: require("../../../assets/angry.png"),
+      image: require("../../../assets/em.png"),
     },
     {
       title: "Bayd",
-      image: require("../../../assets/angry.png"),
+      image: require("../../../assets/test.png"),
     },
     {
       title: "Bayd",
@@ -37,7 +37,7 @@ function LockerScreen(props) {
     },
     {
       title: "123x",
-      image: require("../../../assets/man.png"),
+      image: require("../../../assets/Man.png"),
     },
     {
       title: "Crypt",

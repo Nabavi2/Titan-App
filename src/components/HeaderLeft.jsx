@@ -9,7 +9,7 @@ import {
 
 import IconContainer from "./IconContainer";
 import Menu from "../../assets/Menu";
-import Logo from "../../assets/logo";
+import Logo from "../../assets/Logo";
 
 function HeaderLeft(props) {
   const navigation = useNavigation();
