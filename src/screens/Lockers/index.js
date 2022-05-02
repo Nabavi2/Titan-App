@@ -14,8 +14,8 @@ import TopCart from "./components/TopCart";
 import Layout from "../../constants/Layout";
 import SubCard from "./components/SubCart";
 
-// import Em2 from "../../../assets/Em2";
-// import Test from "../../../assets/Test";
+import Em2 from "../../../assets/Em2";
+import Test from "../../../assets/Test";
 // import Angry from "../../../assets/Angry";
 // import Man from "../../../assets/Man";
 
@@ -28,15 +28,15 @@ function LockerScreen(props) {
       image: require("../../../assets/em.png"),
     },
     {
-      title: "Bayd",
+      title: "Test",
       image: require("../../../assets/test.png"),
     },
     {
-      title: "Bayd",
+      title: "Angry",
       image: require("../../../assets/angry.png"),
     },
     {
-      title: "123x",
+      title: "Man",
       image: require("../../../assets/Man.png"),
     },
     {

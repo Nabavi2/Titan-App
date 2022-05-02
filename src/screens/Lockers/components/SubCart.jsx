@@ -14,7 +14,7 @@ import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
-function SubCard({ image, title }) {
+function SubCard({ Image2, title }) {
   const navigation = useNavigation();
   const [showDetial, setShowDetail] = useState(false);
   return (
@@ -26,7 +26,8 @@ function SubCard({ image, title }) {
       /> */}
       {/* Image section */}
       <View style={styles.cardImageWrapper}>
-        <Image resizeMode="cover" source={image} style={styles.cardImage} />
+        {/* <Image resizeMode="cover" source={image} style={styles.cardImage} /> */}
+        <Image2 />
       </View>
       {/* Card title section */}
       <View style={styles.cardTitle}>
