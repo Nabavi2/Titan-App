@@ -102,26 +102,31 @@ function SubmitInfo(props) {
             )}
           </View>
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             title={"Website Link"}
             icon={<MaterialIcons name="web" size={24} color={Colors.primary} />}
           />
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             icon={<AntDesign name="github" size={24} color={Colors.primary} />}
             title={"Github Link"}
           />
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             title={"Twitter Link"}
             icon={<AntDesign name="twitter" size={24} color={Colors.primary} />}
           />
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             title={"Medium Link"}
             icon={<Medium width={wp(5)} height={hp(3)} />}
           />
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             title={"Reddit Link"}
             icon={
@@ -129,6 +134,7 @@ function SubmitInfo(props) {
             }
           />
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             title={"Telegram Link"}
             icon={

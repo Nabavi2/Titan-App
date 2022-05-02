@@ -9,7 +9,7 @@ import {
 
 import IconContainer from "./IconContainer";
 import Menu from "../../assets/Menu";
-import Logo from "../../assets/Logo";
+import Logo from "../../assets/logo";
 
 function HeaderLeft(props) {
   const navigation = useNavigation();
@@ -18,7 +18,6 @@ function HeaderLeft(props) {
       onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
     >
       <Menu style={styles.menu} />
-
       <Logo style={styles.image} width={wp(25)} height={hp(7)} />
     </IconContainer>
   );

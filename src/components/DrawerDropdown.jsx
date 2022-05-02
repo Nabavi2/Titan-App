@@ -24,7 +24,7 @@ function DrawerDropdown({ id }) {
     <View>
       <Pressable
         style={{ flexDirection: "row" }}
-        onPressIn={() => setGeneralStatus(generalStatus)}
+        onPressIn={() => setGeneralStatus(!generalStatus)}
       >
         {id === 1 ? <Launch /> : <Lock />}
         {id === 1 ? (
@@ -82,7 +82,7 @@ function DrawerDropdown({ id }) {
                 marginLeft: -size.width * 0.07,
               }}
               onPress={() => {
-                setLounchStatus(!lounchStatus);
+                setLounchStatus(true);
                 setDashboardStatus(false);
                 setPresalStatus(false);
                 navigation.navigate("createPresale", {
@@ -106,7 +106,7 @@ function DrawerDropdown({ id }) {
               }}
               onPress={() => {
                 setLounchStatus(false);
-                setDashboardStatus(!dashboardStatus);
+                setDashboardStatus(true);
                 setPresalStatus(false);
                 navigation.navigate("dashboard");
               }}
@@ -128,7 +128,7 @@ function DrawerDropdown({ id }) {
               onPress={() => {
                 setLounchStatus(false);
                 setDashboardStatus(false);
-                setPresalStatus(!presalStatus);
+                setPresalStatus(true);
                 navigation.navigate("managePresale");
               }}
             >

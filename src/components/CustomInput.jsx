@@ -7,10 +7,22 @@ import GlobalStyles from "../constants/GlobalStyles";
 import AppText from "./AppText";
 import { AntDesign } from "@expo/vector-icons";
 
-function CustomInput({ placeholder, title, titleStyle, icon }) {
+function CustomInput({
+  placeholder,
+  title,
+  titleStyle,
+  icon,
+  hasIcon = false,
+}) {
   const [text, setText] = useState("");
   return (
-    <View style={styles.container}>
+    <View
+      style={
+        hasIcon
+          ? { ...styles.container, marginVertical: "6%" }
+          : styles.container
+      }
+    >
       <View style={styles.headerRow}>
         {icon && <View style={styles.iconContainer}>{icon}</View>}
         <AppText style={{ ...styles.title, ...titleStyle }}>{title}</AppText>
@@ -32,7 +44,6 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: hp(8),
-    marginVertical: "6%",
     justifyContent: "center",
     borderBottomWidth: 0,
   },
