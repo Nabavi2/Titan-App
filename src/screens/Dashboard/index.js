@@ -46,7 +46,6 @@ function Dashboard(props) {
   const focused = useIsFocused();
   useEffect(() => {
     if (focused) {
-      console.log("lsdjflskjdfkjsd");
       disptach(changeSelectedScreen("dashboard"));
     }
   }, [focused]);

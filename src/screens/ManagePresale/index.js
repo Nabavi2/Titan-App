@@ -18,11 +18,13 @@ import CopyIcon from "../../../assets/copyIcon";
 import Telegram from "../../../assets/telegram";
 import CustomButton from "../../components/CustomButton";
 import WhitelistModal from "./components/WhitelistModal";
+import { useNavigation } from "@react-navigation/native";
 
 function ManagePresale(props) {
   const [value, setValue] = useState(0.2);
   const [enabled, setEnabled] = useState(true);
   const [showWhitelist, setShowWhitelist] = useState(false);
+  const navigation = useNavigation();
   return (
     <CustomScrollView
       style={styles.container}
@@ -179,9 +181,12 @@ function ManagePresale(props) {
         <Title style={styles.toolsTitle}>Tools</Title>
         <View style={styles.toolsRow}>
           <AppText style={styles.toolsRowTitle}>Update Presale Details</AppText>
-          <View style={styles.plusIconContainer}>
+          <Pressable
+            onPress={() => navigation.navigate("SubmitInfo")}
+            style={styles.plusIconContainer}
+          >
             <Entypo name="plus" size={14} color={Colors.black} />
-          </View>
+          </Pressable>
         </View>
         <View style={styles.toolsRow}>
           <AppText style={styles.toolsRowTitle}>
@@ -249,7 +254,7 @@ function ManagePresale(props) {
         <View style={styles.buttonsContainer}>
           <CustomButton
             title="Cancel Presale"
-            onPress={() => setShowMessage(true)}
+            // onPress={() => setShowMessage(true)}
             style={styles.createPresale}
             textStyle={styles.cancelText}
           />

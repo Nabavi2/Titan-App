@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PixelRatio, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
@@ -24,12 +24,21 @@ import Bitcoin2 from "../../assets/Bitcoin2";
 import Bitcoin1 from "../../assets/Bitcoin1";
 import AppDrawerNavigator from "./DrawerNavigator";
 import StakeScreen from "../screens/Stack";
+import { useDispatch, useSelector } from "react-redux";
+import { changeSelectedScreen } from "../redxu/screenSlice";
 
 const bottomTabNavigator = createBottomTabNavigator();
 
 export function BottomTabNavigator() {
   const navigation = useNavigation();
+  const screen = useSelector((state) => state.screen.selectedScreen);
   const [currentScreen, setCurrentScreen] = useState("dashboard");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setCurrentScreen(screen);
+  }, [screen]);
+
   return (
     <bottomTabNavigator.Navigator
       initialRouteName="Dashboard"
@@ -61,7 +70,6 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("dashboard");
             navigation.navigate("dashboard");
           },
         }}
@@ -72,13 +80,13 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("lockerTab");
             navigation.navigate("locker");
+            dispatch(changeSelectedScreen("locker"));
           },
         }}
         options={() => ({
           tabBarIcon: () =>
-            currentScreen === "lockerTab" ? <Lock2 /> : <Lock1 />,
+            currentScreen === "locker" ? <Lock2 /> : <Lock1 />,
         })}
       />
       <bottomTabNavigator.Screen
@@ -109,8 +117,8 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("nftmint");
             navigation.navigate("nftmint");
+            dispatch(changeSelectedScreen("nftmint"));
           },
         }}
       />
@@ -125,8 +133,8 @@ export function BottomTabNavigator() {
         listeners={{
           tabPress: (e) => {
             e.preventDefault();
-            setCurrentScreen("stake");
             navigation.navigate("stake");
+            dispatch(changeSelectedScreen("stake"));
           },
         }}
       />

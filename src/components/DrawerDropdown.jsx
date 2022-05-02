@@ -70,7 +70,10 @@ function DrawerDropdown({ id }) {
           </Pressable>
         )}
       </Pressable>
-      <Pressable style={{ marginLeft: size.width * 0.2 }}>
+      <Pressable
+        style={{ marginLeft: size.width * 0.2 }}
+        onPressIn={() => setGeneralStatus(!generalStatus)}
+      >
         {generalStatus ? (
           <View>
             <Pressable

@@ -5,12 +5,16 @@ import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import Colors from "../constants/Colors";
 import GlobalStyles from "../constants/GlobalStyles";
 import AppText from "./AppText";
+import { AntDesign } from "@expo/vector-icons";
 
-function CustomInput({ placeholder, title }) {
+function CustomInput({ placeholder, title, titleStyle, icon }) {
   const [text, setText] = useState("");
   return (
     <View style={styles.container}>
-      <AppText style={styles.title}>{title}</AppText>
+      <View style={styles.headerRow}>
+        {icon && <View style={styles.iconContainer}>{icon}</View>}
+        <AppText style={{ ...styles.title, ...titleStyle }}>{title}</AppText>
+      </View>
       <Input
         value={text}
         onChangeText={(text) => setText(text)}
@@ -28,7 +32,7 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: hp(8),
-
+    marginVertical: "6%",
     justifyContent: "center",
     borderBottomWidth: 0,
   },
@@ -38,6 +42,15 @@ const styles = StyleSheet.create({
     marginBottom: "1%",
   },
   inputContainerStyle: { borderBottomWidth: 0 },
+  headerRow: {
+    flexDirection: "row",
+    width: "100%",
+    alignItems: "center",
+  },
+  iconContainer: {
+    marginRight: "4%",
+    marginBottom: "1%",
+  },
 });
 
 export default CustomInput;

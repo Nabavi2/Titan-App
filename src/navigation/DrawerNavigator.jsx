@@ -37,11 +37,14 @@ import Dashboard from "../screens/Dashboard";
 import Details from "../screens/Lockers/components/Details";
 import SubmitInfo from "../screens/SubmitInfo";
 import StakeScreen from "../screens/Stack";
+import { useDispatch } from "react-redux";
+import { changeSelectedScreen } from "../redxu/screenSlice";
 
 const size = Layout.window;
 const DrawerNavigator = createDrawerNavigator();
 
 const AppDrawerNavigator = (props) => {
+  const dispatch = useDispatch();
   return (
     <DrawerNavigator.Navigator
       initialRouteName={"dashboard"}
@@ -150,7 +153,7 @@ const AppDrawerNavigator = (props) => {
           drawerIcon: () => <NFT />,
         }}
         listeners={{
-          drawerItemPress: (_) => disptach(changeSelectedScreen("nftmint")),
+          drawerItemPress: (_) => dispatch(changeSelectedScreen("nftmint")),
         }}
       />
       <DrawerNavigator.Screen
@@ -220,6 +223,15 @@ const AppDrawerNavigator = (props) => {
         component={Details}
         options={{
           headerShown: false,
+          drawerItemStyle: {
+            display: "none",
+          },
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="SubmitInfo"
+        component={SubmitInfo}
+        options={{
           drawerItemStyle: {
             display: "none",
           },
