@@ -4,13 +4,13 @@ import { Image, StyleSheet, View, Text } from "react-native";
 import CustomButton from "../../../components/CustomButton";
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
-import Ilocker from "../../../../assets/Ilocker";
+import ILocker2 from "../../../../assets/ILocker2";
 
 const size = Layout.window;
 function TopCart() {
   return (
     <View style={styles.cart}>
-      <Ilocker />
+      <ILocker2 />
       <Text style={styles.text}>
         Look your token with Apelock and earn/ withdraw
       </Text>
