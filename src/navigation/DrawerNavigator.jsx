@@ -131,6 +131,9 @@ const AppDrawerNavigator = (props) => {
             </View>
           ),
         }}
+        listeners={{
+          drawerItemPress: (_) => dispatch(changeSelectedScreen("stake")),
+        }}
       />
 
       <DrawerNavigator.Screen

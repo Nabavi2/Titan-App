@@ -21,7 +21,7 @@ const GlobalStyles = StyleSheet.create({
   inputStyle: {
     width: "100%",
     height: hp(6),
-    backgroundColor: Colors.inputBackground,
+    backgroundColor: "#CED4FF",
     borderRadius: wp(100) / 80,
     paddingHorizontal: "5%",
     paddingVertical: "1%",
