@@ -12,6 +12,7 @@ export default function App() {
     vietnamBold: require("./assets/fonts/BeVietnamPro-Bold.ttf"),
     vsBold: require("./assets/fonts/BeVietnamPro-SemiBold.ttf"),
     vietnamMedium: require("./assets/fonts/BeVietnamPro-Medium.ttf"),
+    vItalic: require("./assets/fonts/BeVietnamPro-Italic.ttf"),
   });
   if (!loaded) {
     return null;

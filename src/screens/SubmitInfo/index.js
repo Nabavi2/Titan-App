@@ -5,7 +5,12 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
-import { Menu, MenuTrigger } from "react-native-popup-menu";
+import {
+  Menu,
+  MenuOption,
+  MenuOptions,
+  MenuTrigger,
+} from "react-native-popup-menu";
 
 import AppText from "../../components/AppText";
 import CardContainer from "../../components/CardContainer";
@@ -16,9 +21,13 @@ import Subtitle from "../../components/Subtitle";
 import CustomInput from "../../components/CustomInput";
 import Colors from "../../constants/Colors";
 import Medium from "../../../assets/medium";
-import Image from "../../../assets/image";
+import ChevDown from "../../../assets/chev-down";
+import Upload from "../../../assets/upload";
+import { Input } from "react-native-elements";
 
 function SubmitInfo(props) {
+  const [linkType, setLinkType] = useState("Choose a method");
+  const [logoLinkText, setLogoLinkText] = useState("");
   return (
     <CustomScrollView style={GlobalStyles.center}>
       <CardContainer style={styles.card}>
@@ -32,35 +41,92 @@ function SubmitInfo(props) {
               <FontAwesome name="photo" size={24} color={Colors.primary} />
               <AppText style={styles.logoText}>Logo Link</AppText>
             </View>
-            <Menu>
+            <Menu onSelect={(value) => setLinkType(value)}>
               <MenuTrigger>
                 <View style={GlobalStyles.inputStyle}>
-                  <AppText>Choose an option</AppText>
+                  <View style={styles.menuTriggerRow}>
+                    <AppText
+                      style={
+                        linkType === "Choose a method"
+                          ? styles.menuDescription
+                          : { ...styles.menuDescription, fontFamily: "vietnam" }
+                      }
+                    >
+                      {linkType}
+                    </AppText>
+                    <ChevDown />
+                  </View>
                 </View>
               </MenuTrigger>
+              <MenuOptions
+                customStyles={{
+                  optionText: {
+                    fontFamily: "vietnamMedium",
+                    fontSize: 13,
+                    color: Colors.primary,
+                  },
+                  optionsContainer: {
+                    borderRadius: wp(100) / 65,
+                    padding: "5%",
+                  },
+                }}
+              >
+                <MenuOption text="Choose a method" value={"Choose a method"} />
+                <MenuOption text="Logo link URL" value={"Logo link URL"} />
+                <MenuOption
+                  text="Logo link upload"
+                  value={"Logo link upload"}
+                />
+              </MenuOptions>
             </Menu>
+            {linkType === "Logo link upload" && (
+              <View style={styles.upload}>
+                <AppText style={styles.uploadText}>Upload</AppText>
+                <Upload width={"20%"} height={"30%"} />
+              </View>
+            )}
+            {linkType === "Logo link URL" && (
+              <Input
+                containerStyle={{ ...GlobalStyles.inputStyle, marginTop: "6%" }}
+                placeholder="Type here"
+                placeholderTextColor={"rgba(110, 0, 255, 0.61)"}
+                inputContainerStyle={{ borderBottomWidth: 0 }}
+                inputStyle={
+                  logoLinkText.length === 0
+                    ? styles.urlText
+                    : { ...styles.urlText, fontFamily: "vietnam" }
+                }
+                value={logoLinkText}
+                onChangeText={(val) => setLogoLinkText(val)}
+              />
+            )}
           </View>
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             title={"Website Link"}
             icon={<MaterialIcons name="web" size={24} color={Colors.primary} />}
           />
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             icon={<AntDesign name="github" size={24} color={Colors.primary} />}
             title={"Github Link"}
           />
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             title={"Twitter Link"}
             icon={<AntDesign name="twitter" size={24} color={Colors.primary} />}
           />
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             title={"Medium Link"}
             icon={<Medium width={wp(5)} height={hp(3)} />}
           />
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             title={"Reddit Link"}
             icon={
@@ -68,6 +134,7 @@ function SubmitInfo(props) {
             }
           />
           <CustomInput
+            hasIcon
             titleStyle={styles.inputTitleStyle}
             title={"Telegram Link"}
             icon={
@@ -128,6 +195,39 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginBottom: "1%",
+  },
+  menuDescription: {
+    fontSize: 10,
+    color: "rgba(68, 10, 211, 0.6)",
+    fontFamily: "vItalic",
+  },
+  menuTriggerRow: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  upload: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#e1e1e1",
+    borderWidth: 1,
+    borderColor: "#000",
+    width: wp(25),
+    height: hp(5),
+    borderRadius: wp(100) / 75,
+    marginTop: "3%",
+  },
+  uploadText: {
+    fontSize: 13,
+    fontFamily: "vsBold",
+    marginRight: "7%",
+  },
+  urlText: {
+    fontFamily: "vItalic",
+    fontSize: 10,
+    color: "rgba(68, 10, 211, 0.86)",
   },
 });
 

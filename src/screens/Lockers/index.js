@@ -36,8 +36,8 @@ function LockerScreen(props) {
       image: require("../../../assets/angry.png"),
     },
     {
-      title: "Man",
-      image: require("../../../assets/Man.png"),
+      title: "123x",
+      image: require("../../../assets/man.png"),
     },
     {
       title: "Crypt",
