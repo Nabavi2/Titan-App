@@ -14,8 +14,8 @@ import TopCart from "./components/TopCart";
 import Layout from "../../constants/Layout";
 import SubCard from "./components/SubCart";
 
-import Em2 from "../../../assets/Em2";
-import Test from "../../../assets/Test";
+// import Em2 from "../../../assets/Em2";
+// import Test from "../../../assets/Test";
 // import Angry from "../../../assets/Angry";
 // import Man from "../../../assets/Man";
 
