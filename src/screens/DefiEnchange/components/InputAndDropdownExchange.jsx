@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput, Image } from "react-native";
+import DropdownComponent from "../../../components/DropdownComponent";
 import PickerComponent from "../../../components/PickerComponent";
 
 import Colors from "../../../constants/Colors";
@@ -24,7 +25,7 @@ function InputAndDropdownExchange({ title }) {
         style={[
           styles.rowContainer,
           {
-            marginLeft: title === "From" ? 20 : null,
+            marginLeft: title === "From" ? 10 : null,
           },
         ]}
       >
@@ -33,19 +34,16 @@ function InputAndDropdownExchange({ title }) {
           placeholder="0.0"
           placeholderTextColor={Colors.black}
         />
-        {title === "From" ? (
-          <View style={styles.dropdownIcon}>
-            <Image source={require("../../../../assets/d.svg")} />
-          </View>
-        ) : null}
-        <PickerComponent width={size.width * 0.25} dataArray={data} />
+
+        {/* <PickerComponent width={size.width * 0.25} dataArray={data} /> */}
+        <DropdownComponent From={title} />
       </View>
     </View>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    height: size.height * 0.09,
+    height: size.height * 0.097,
     width: size.width * 0.42,
     borderColor: Colors.black,
     borderWidth: 1,
@@ -63,9 +61,9 @@ const styles = StyleSheet.create({
   input: {
     width: size.width * 0.1,
     height: size.height * 0.08,
-    marginLeft: 10,
     fontFamily: "vsBold",
-    marginRight: 10,
+    marginLeft: -5,
+    marginRight: size.width * 0.08,
   },
   dropdownIcon: {
     height: 20,
