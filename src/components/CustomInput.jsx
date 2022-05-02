@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Input } from "react-native-elements";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
-import Colors from "../constants/Colors";
 import GlobalStyles from "../constants/GlobalStyles";
 import AppText from "./AppText";
-import { AntDesign } from "@expo/vector-icons";
 
 function CustomInput({
   placeholder,
