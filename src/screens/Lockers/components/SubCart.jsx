@@ -14,20 +14,19 @@ import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 
 const size = Layout.window;
-function SubCard({ Image2, title }) {
+function SubCard({ image, title }) {
   const navigation = useNavigation();
   const [showDetial, setShowDetail] = useState(false);
   return (
     <CardContainer style={styles.card}>
-      {/* <Details
+      <Details
         image={image}
         visible={showDetial}
         onRequestClose={() => setShowDetail(false)}
-      /> */}
+      />
       {/* Image section */}
       <View style={styles.cardImageWrapper}>
-        {/* <Image resizeMode="cover" source={image} style={styles.cardImage} /> */}
-        <Image2 />
+        <Image resizeMode="cover" source={image} style={styles.cardImage} />
       </View>
       {/* Card title section */}
       <View style={styles.cardTitle}>

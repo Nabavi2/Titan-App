@@ -1,6 +1,6 @@
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import React, { useEffect } from "react";
-import { View, StyleSheet, FlatList, Pressable } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 import { useDispatch } from "react-redux";
 
 import Title from "../../components/Title";
@@ -9,7 +9,6 @@ import { changeSelectedScreen } from "../../redxu/screenSlice";
 import Card from "./components/Card";
 
 function Dashboard(props) {
-  const navigation = useNavigation();
   const data = [
     {
       title: "APE coin",

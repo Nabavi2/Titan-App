@@ -52,17 +52,7 @@ function LockerScreen(props) {
     <View style={styles.constainer}>
       <TopCart />
       <FlatList
-        contentContainerStyle={{
-          width: "100%",
-          alignItems: "center",
-          elevation: 1,
-          borderRadius: 15,
-          marginTop: size.height * 0.03,
-          backgroundColor: Colors.inputBackground,
-          paddingTop: size.height * 0.03,
-          paddingHorizontal: 5,
-          paddingBottom: 24,
-        }}
+        contentContainerStyle={styles.flatListContainer}
         data={data}
         numColumns={2}
         horizontal={false}
@@ -94,6 +84,17 @@ const styles = StyleSheet.create({
   constainer: {
     flex: 1,
     alignItems: "center",
+  },
+  flatListContainer: {
+    width: "100%",
+    alignItems: "center",
+    elevation: 1,
+    borderRadius: 15,
+    marginTop: size.height * 0.03,
+    backgroundColor: Colors.inputBackground,
+    paddingTop: size.height * 0.03,
+    paddingHorizontal: 5,
+    paddingBottom: 24,
   },
   inputContainer: {
     flexDirection: "row",

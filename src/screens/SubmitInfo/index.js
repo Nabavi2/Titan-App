@@ -1,6 +1,6 @@
 import { AntDesign, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,

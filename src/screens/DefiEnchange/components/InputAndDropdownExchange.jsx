@@ -1,22 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput, Image } from "react-native";
 import DropdownComponent from "../../../components/DropdownComponent";
-import PickerComponent from "../../../components/PickerComponent";
 
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 const size = Layout.window;
-const data = [
-  {
-    title: "BNB",
-  },
-  {
-    title: "SRC",
-  },
-  {
-    title: "CMA",
-  },
-];
+
 function InputAndDropdownExchange({ title }) {
   return (
     <View style={styles.container}>
