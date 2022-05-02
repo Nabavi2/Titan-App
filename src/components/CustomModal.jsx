@@ -1,4 +1,3 @@
-import { Box, Column, Pressable, ScrollView, ZStack } from "native-base";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import Modal from "react-native-modal";
