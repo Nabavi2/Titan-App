@@ -138,11 +138,25 @@ function CreatePresale({ route }) {
             </View>
           )}
           {type === "presale" && (
-            <View style={styles.buttonContainer}>
+            <View style={styles.createbuttonContainer}>
               <CustomButton
                 textStyle={{ fontSize: 18 }}
                 title={"CREATE"}
+                onPress={() => setShowMessage(true)}
                 style={styles.createButton}
+              />
+            </View>
+          )}
+          {type === "lock" && (
+            <View style={styles.buttonsContainer}>
+              <CustomButton
+                title={"Create Lock"}
+                style={styles.createPresale}
+              />
+              <CustomButton
+                title="Deposit"
+                style={styles.deposit}
+                textStyle={styles.depositText}
               />
             </View>
           )}
@@ -206,7 +220,7 @@ const styles = StyleSheet.create({
     marginTop: "8%",
     paddingRight: "7%",
   },
-  buttonContainer: {
+  createbuttonContainer: {
     width: "100%",
     alignItems: "center",
   },
