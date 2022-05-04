@@ -4,6 +4,7 @@ import { ScrollView, StyleSheet } from "react-native";
 function CustomScrollView({ children, contentStyle }) {
   return (
     <ScrollView
+      showsVerticalScrollIndicator={false}
       style={styles.container}
       contentContainerStyle={{ ...styles.contentStyle, ...contentStyle }}
     >

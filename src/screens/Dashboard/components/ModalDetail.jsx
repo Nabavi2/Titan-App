@@ -26,6 +26,7 @@ import CustomProgressbar from "../../../components/CustomProgressbar";
 import Subtitle from "../../../components/Subtitle";
 import Title from "../../../components/Title";
 import Colors from "../../../constants/Colors";
+import PresaleInfoRow, { Rowstyles } from "./PresaleInfoRow";
 import UpcomingBage from "./UpcomingBage";
 
 function ModalDetail({ image, onRequestClose }) {
@@ -95,25 +96,12 @@ function ModalDetail({ image, onRequestClose }) {
         <CardContainer style={styles.amountCard}>
           <Title style={styles.amountCardTitle}>Presale Not Started</Title>
           <CustomProgressbar
+            style={styles.CustomProgressbar}
             title={"0 BNB / 100 BNB"}
             value={value}
             startValue="0.1 BNB"
             endValue={"2 BNB"}
           />
-          {/* <Subtitle style={styles.amountProgressTitle}>
-            0 BNB / 100 BNB
-          </Subtitle>
-          <LinearProgress
-            value={value}
-            color={Colors.primary}
-            variant={"determinate"}
-            trackColor="rgba(68, 10, 211, 0.3)"
-            style={styles.progress}
-          />
-          <View style={styles.progressRange}>
-            <AppText style={styles.progressRangText}>0.1 BNB</AppText>
-            <AppText style={styles.progressRangText}>2 BNB</AppText>
-          </View> */}
           <View style={styles.contributed}>
             <AppText style={styles.contributedTitle}>
               Your contributed amount{"\n"}(in BNB)
@@ -136,17 +124,103 @@ function ModalDetail({ image, onRequestClose }) {
         <CardContainer style={styles.whiteList}>
           {/* used from amountCardTitle style */}
           <Title style={styles.amountCardTitle}>Whitelisted Presale!</Title>
+          <AppText style={styles.whitelistNote}>
+            Your wallet needs to be whitelisted to participate in this presale.
+          </AppText>
           <CustomButton
-            title={"Presale"}
-            style={{
-              marginTop: "5%",
-              opacity: 0.7,
-              width: "80%",
-              height: "15%",
-            }}
+            textStyle={styles.customButtonText}
+            title={"My this is some text"}
+            style={styles.customButton}
           />
         </CardContainer>
-        <View style={{ height: 80 }}></View>
+        {/* Presale information */}
+        <CardContainer style={styles.presaleInfo}>
+          <View style={styles.presaleInfoHeader}>
+            <Title style={styles.presaleInfoTitle}>Presale Information</Title>
+          </View>
+
+          <View style={Rowstyles.PIRow}>
+            <View>
+              <Subtitle style={Rowstyles.PIRowTitle}>Token Address</Subtitle>
+              <AppText style={styles.PIRowDescription}>
+                This is some description for the token.
+              </AppText>
+            </View>
+            <View style={Rowstyles.linkContainer}>
+              <Subtitle
+                style={{
+                  ...Rowstyles.PIRowSubtitle,
+                  color: Colors.primary,
+                }}
+              >
+                0xsfgy.....Dwd9T
+              </Subtitle>
+            </View>
+          </View>
+          <PresaleInfoRow title={"Listing on"} rest={"Poscokeswap"} />
+          <PresaleInfoRow title={"Soft Cap"} rest={"50"} />
+          <PresaleInfoRow title={"Hard Cap"} rest={"100"} />
+          <PresaleInfoRow title={"Liquidity %"} rest={"70"} />
+          <PresaleInfoRow title={"Enable Whitelist"} rest={"ND"} />
+          <PresaleInfoRow title={"Listing Rate"} rest={"10"} />
+          <PresaleInfoRow title={"Presale Rate"} rest={"20"} />
+          <PresaleInfoRow title={"Presale Rate"} rest={"20"} />
+          <PresaleInfoRow title={"Minimum Contribution"} rest={"0.1"} />
+          <PresaleInfoRow title={"Maximum Contribution"} rest={"2"} />
+          <PresaleInfoRow
+            title={"Presale start date"}
+            rest={"20 May 2022 00:00:00"}
+          />
+          <PresaleInfoRow
+            title={"Presale end date"}
+            rest={"20 May 2022 00:00:00"}
+          />
+          <PresaleInfoRow
+            title={"Liquidity lock time"}
+            rest={"25 Jul 2022 00:00:00"}
+          />
+        </CardContainer>
+        {/* Emergency withdraw & Public cancel */}
+        <CardContainer style={styles.EPCard}>
+          <View style={styles.EPRowsContainer}>
+            <View style={styles.EPRow}>
+              <View>
+                <AppText style={styles.presaleInfoTitle}>
+                  Emergency Withdraw
+                </AppText>
+                <AppText style={styles.PIRowDescription}>
+                  This is some description about emergency widthdraw.
+                </AppText>
+              </View>
+              <CustomButton
+                textStyle={{ fontSize: 12 }}
+                title={"Withdraw"}
+                style={styles.withdrawButton}
+              />
+            </View>
+            <View
+              style={{
+                ...styles.EPRow,
+                borderTopColor: "#000",
+                borderTopWidth: 1,
+              }}
+            >
+              <View style={styles.EPCol}>
+                <AppText style={styles.presaleInfoTitle}>Public Cancel</AppText>
+                <AppText style={styles.EPDescription}>
+                  This is some description about emergency widthdraw.This is
+                  This is
+                </AppText>
+              </View>
+              <CustomButton
+                textStyle={styles.publicCancelButtonText}
+                title={"Submit"}
+                style={styles.publicCancelButton}
+              />
+            </View>
+          </View>
+        </CardContainer>
+        <View style={{ height: 120 }}></View>
       </ScrollView>
     </View>
   );
@@ -198,7 +272,6 @@ const styles = StyleSheet.create({
   upComingTitle: {
     flexDirection: "row",
     alignItems: "center",
-    // backgroundColor: "lightgreen",
   },
   upComingTitleText: {
     fontSize: 22,
@@ -267,6 +340,7 @@ const styles = StyleSheet.create({
   progressRangText: {
     fontFamily: "vietnamMedium",
   },
+  CustomProgressbar: { marginVertical: "12%" },
   contributed: {
     width: "90%",
     height: "21%",
@@ -305,10 +379,88 @@ const styles = StyleSheet.create({
   whiteList: {
     marginVertical: "5%",
     width: "100%",
-    height: hp(40),
+    height: hp(24),
     alignItems: "center",
     paddingHorizontal: "5%",
     paddingVertical: "7%",
+  },
+  whitelistNote: {
+    fontSize: 13,
+    fontFamily: "vietnamMedium",
+    textAlign: "center",
+    paddingHorizontal: "1%",
+  },
+  customButton: {
+    marginTop: "5%",
+    backgroundColor: "rgba(255, 46, 0, 0.3)",
+    width: "80%",
+    height: hp(4.5),
+  },
+  customButtonText: {
+    color: Colors.secondary,
+    fontSize: 12,
+    fontFamily: "vietnamMedium",
+  },
+  presaleInfo: {
+    height: hp(96),
+    width: "100%",
+  },
+  presaleInfoHeader: {
+    flexDirection: "row",
+    width: "100%",
+    height: "6.5%",
+    borderBottomColor: "#000",
+    borderBottomWidth: 1,
+    paddingHorizontal: "7%",
+    alignItems: "center",
+    marginBottom: "4%",
+  },
+  presaleInfoTitle: {
+    fontSize: 15,
+    fontFamily: "vietnamMedium",
+  },
+
+  PIRowDescription: {
+    color: Colors.secondary,
+    fontSize: 8,
+  },
+  EPCard: {
+    width: "100%",
+    height: hp(23),
+    marginVertical: "5%",
+  },
+  EPRowsContainer: {
+    flex: 1,
+    paddingHorizontal: "3%",
+  },
+  EPRow: {
+    width: "100%",
+    height: "50%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: "3%",
+    paddingHorizontal: "3%",
+  },
+  withdrawButton: {
+    width: "21%",
+    height: hp(4.5),
+    marginTop: "1%",
+  },
+  publicCancelButton: {
+    width: "21%",
+    height: hp(4.5),
+    backgroundColor: Colors.white,
+    borderColor: Colors.secondary,
+    borderWidth: 2,
+  },
+  publicCancelButtonText: { fontSize: 12, color: Colors.secondary },
+  EPDescription: {
+    fontSize: 8,
+  },
+  EPCol: {
+    width: "60%",
+    marginBottom: "3%",
   },
 });
 

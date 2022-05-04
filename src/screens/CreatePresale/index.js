@@ -35,11 +35,11 @@ function CreatePresale({ route }) {
       <CardContainer
         style={{
           ...styles.card,
-          height: type === "presale" ? hp(127) : hp(97),
+          height: type === "presale" ? hp(205.5) : hp(97),
         }}
       >
         {type === "presale" ? (
-          <LaptopPop width={"22%"} height={"10%"} />
+          <LaptopPop width={"22%"} height={"6%"} />
         ) : (
           <MaterialIcons name="lock-outline" size={70} color={Colors.primary} />
         )}
@@ -91,18 +91,61 @@ function CreatePresale({ route }) {
             <CustomInput title="Presale Rate" placeholder="Example 50 BNB" />
           )}
           {type === "presale" && <View style={styles.box} />}
-          <View style={styles.buttonsContainer}>
-            <CustomButton
-              title={type === "presale" ? "Create Presale" : "Create Lock"}
-              onPress={() => setShowMessage(true)}
-              style={styles.createPresale}
+          {type === "presale" && (
+            <CustomInput title="Minimum Contribution" placeholder="0.1" />
+          )}
+          {type === "presale" && <View style={styles.box} />}
+          {type === "presale" && (
+            <CustomInput title="Maximum Contribution" placeholder="2" />
+          )}
+          {type === "presale" && <View style={styles.box} />}
+          {type === "presale" && (
+            <CustomInput
+              title="Presale start date"
+              placeholder="2022/03/05 00:00:00"
             />
-            <CustomButton
-              title="Deposit"
-              style={styles.deposit}
-              textStyle={styles.depositText}
+          )}
+          {type === "presale" && <View style={styles.box} />}
+          {type === "presale" && (
+            <CustomInput
+              title="Presale end date"
+              placeholder="2022/03/25 00:00:00"
             />
-          </View>
+          )}
+          {type === "presale" && <View style={styles.box} />}
+          {type === "presale" && (
+            <CustomInput
+              title="Liquidity Lock Time"
+              placeholder="2022/04/15 00:00:00"
+            />
+          )}
+
+          {type === "presale" && (
+            <View style={styles.noteRow}>
+              <AppText style={styles.note}>Note:</AppText>
+              <AppText
+                style={{
+                  ...styles.note,
+                  color: Colors.secondary,
+                  fontFamily: "vietnam",
+                }}
+              >
+                {" "}
+                You must have the ability to whitelist (exclude families)
+                multiple addressed or turn off special transfer. If any button
+                restance or other special transfers are to take place.
+              </AppText>
+            </View>
+          )}
+          {type === "presale" && (
+            <View style={styles.buttonContainer}>
+              <CustomButton
+                textStyle={{ fontSize: 18 }}
+                title={"CREATE"}
+                style={styles.createButton}
+              />
+            </View>
+          )}
         </View>
       </CardContainer>
     </CustomScrollView>
@@ -135,7 +178,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: "2%",
-
     width: "100%",
   },
   createPresale: {
@@ -152,6 +194,27 @@ const styles = StyleSheet.create({
   },
   depositText: {
     color: Colors.secondary,
+  },
+  note: {
+    fontFamily: "vsBold",
+    fontSize: 15,
+  },
+  noteRow: {
+    width: "100%",
+    height: hp(14),
+    flexDirection: "row",
+    marginTop: "8%",
+    paddingRight: "7%",
+  },
+  buttonContainer: {
+    width: "100%",
+    alignItems: "center",
+  },
+  createButton: {
+    width: "75%",
+    height: hp(6.3),
+    marginTop: "10%",
+    backgroundColor: "#FF9670",
   },
 });
 

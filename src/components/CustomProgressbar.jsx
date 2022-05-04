@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
   container: { width: "100%", alignItems: "center" },
   progressTitle: {
     fontSize: 14,
-    // marginTop: "12%",
   },
   progress: {
     marginTop: "2%",
