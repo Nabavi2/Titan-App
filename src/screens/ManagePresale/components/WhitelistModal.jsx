@@ -1,12 +1,13 @@
 import { AntDesign } from "@expo/vector-icons";
 import React from "react";
-import { Pressable, StyleSheet, TextInput, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { Input } from "react-native-elements";
 import Modal from "react-native-modal";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+
 import AppText from "../../../components/AppText";
 import Subtitle from "../../../components/Subtitle";
 import Title from "../../../components/Title";

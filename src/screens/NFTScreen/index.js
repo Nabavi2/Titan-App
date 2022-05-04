@@ -1,8 +1,6 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
-import Svg from "react-native-svg";
+import { StyleSheet, View } from "react-native";
 import Layout from "../../constants/Layout";
-import GlobalStyles from "../../constants/GlobalStyles";
 import Colors from "../../constants/Colors";
 import Pnft from "../../../assets/Pnft";
 import AppText from "../../components/AppText";

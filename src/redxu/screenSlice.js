@@ -7,8 +7,6 @@ export const screenSlice = createSlice({
   },
   reducers: {
     changeSelectedScreen: (state, action) => {
-      //   console.log("dispatched");
-      //   console.log(action);
       state.selectedScreen = action.payload;
     },
   },

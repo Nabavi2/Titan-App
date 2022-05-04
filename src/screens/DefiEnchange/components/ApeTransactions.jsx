@@ -5,7 +5,7 @@ import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 const size = Layout.window;
 
-function ApeTransactions({ title }) {
+function ApeTransactions() {
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 16, fontFamily: "vsBold", marginLeft: 15 }}>

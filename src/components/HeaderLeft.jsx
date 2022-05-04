@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { Image, Pressable, StyleSheet, View } from "react-native";
+import React from "react";
+import { StyleSheet } from "react-native";
 import { useNavigation, DrawerActions } from "@react-navigation/native";
-import { Foundation } from "@expo/vector-icons";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
