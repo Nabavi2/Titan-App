@@ -5,7 +5,7 @@ import Colors from "../../constants/Colors";
 function TitanxGame(props) {
   return (
     <View style={styles.container}>
-      <Text>Titanx screen</Text>
+      <Text> This is the Titanx Game screen</Text>
     </View>
   );
 }
