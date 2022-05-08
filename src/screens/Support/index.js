@@ -5,7 +5,7 @@ import Colors from "../../constants/Colors";
 function SupportScreen(props) {
   return (
     <View style={styles.container}>
-      <Text>Support screen ....{PixelRatio}</Text>
+      <Text> TjSupport screen ....{PixelRatio}</Text>
     </View>
   );
 }

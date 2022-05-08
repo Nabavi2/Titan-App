@@ -12,6 +12,7 @@ import CardContainer from "../../../components/CardContainer";
 import CustomButton from "../../../components/CustomButton";
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
+import Details from "./Details";
 
 const size = Layout.window;
 function SubCard({ image, title }) {
@@ -19,11 +20,6 @@ function SubCard({ image, title }) {
   const [showDetial, setShowDetail] = useState(false);
   return (
     <CardContainer style={styles.card}>
-      <Details
-        image={image}
-        visible={showDetial}
-        onRequestClose={() => setShowDetail(false)}
-      />
       {/* Image section */}
       <View style={styles.cardImageWrapper}>
         <Image resizeMode="cover" source={image} style={styles.cardImage} />
